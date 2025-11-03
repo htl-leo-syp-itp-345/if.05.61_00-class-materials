@@ -24,6 +24,8 @@ Calculate the total time:
 - equals 192 hours per year per team member
 - for a team of 4 members this means 768 hours per year
 
+**The message behind:** You have a real lot of time to work on your project. You can really **change the world with your product** if you want to.
+
 ## Team Size
 
 Teams should consist of 3 to 5 members. Smaller teams might have problems to cover all necessary roles and tasks while larger teams might have problems to coordinate themselves effectively.
