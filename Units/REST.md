@@ -1,16 +1,20 @@
 # REST
 
 ## Backend
+
 ### What to install
+
 - [node.js](https://nodejs.org/)
 - `npm install json-server` [Github page of json-server](https://github.com/typicode/json-server)
 - If you use Visual Studio Code: REST Client
 
 ### Experiment with the json-server
+
 - Create a directory for your experiments, start Visual Studio Code and create a file named `db.json` (as an example).
 - Go to the console and fire up the json-server by `npx json-server db.json`.
 
 Some ideas for experimenting could be:
+
 1. Get all posts
 2. Get a specific post
 3. Add a post
@@ -23,13 +27,16 @@ Some ideas for experimenting could be:
 For more follow the instructions and suggestions on the [Github page of json-server](https://github.com/typicode/json-server)
 
 ## Frontend
+
 ### Prepare your frontend
+
 - Download the source of the Food Blog Template from [w3schools](https://www.w3schools.com/w3css/w3css_templates.asp).
 - Create a folder named `public` in your directory and store `index.html` there.
 - Download the images from [the repo](REST/public/images.zip) and add them to the image directory. Figure out in the source code how to name the directory or rename the path in the source code to name the directory as you want.
 - Test whether you can see a working template in your browser
 
 ### Some Very Basic Cleanup
+
 1. Set a proper title
 2. Rename the image folder to a proper name if not already done
 3. Rename the event triggers properly
@@ -37,6 +44,7 @@ For more follow the instructions and suggestions on the [Github page of json-ser
 5. ...
 
 ### A Bit Advanced Cleanup
+
 Since we plan to add more JavaScript to our little project we want to get rid off the JS code in our index.html. Of course we are doing professional JS we use modules.
 
 1. Create a directory `js` in your directory
@@ -47,6 +55,7 @@ Since we plan to add more JavaScript to our little project we want to get rid of
 6. Add a script tag `<script type="module" src="/js/main.mjs"></script>` at the end of the body.
 
 ### JavaScript Fetch API to Get Data from Backend
+
 We begin this part by fixing our playground db we used at the very beginning of this lesson. So lets replace the content of the file `db.json` by some nice food data we need for our project here.
 
 ```json
@@ -140,11 +149,12 @@ We begin this part by fixing our playground db we used at the very beginning of 
   }
 }
 ```
+
 Now we are ready to fetch data from our json-server.
 
 1. Create a module `rest.mjs`
 2. Export an async function `getDataFrom(url)`
-   
+
 ```JavaScript
 export async function getDataFrom(url) {
     try {
@@ -152,7 +162,7 @@ export async function getDataFrom(url) {
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);
       }
-  
+
       const json = await response.json();
       return json
     } catch (error) {
@@ -160,6 +170,7 @@ export async function getDataFrom(url) {
     }
   }
 ```
+
 There is not too much magic happening here. Lets check the details:
 
 1. All code is surrounded by a `try`-`catch` block to catch possible errors like malformed headers, cors problems, etc. If such an error occurs we log it into the console. A pretty fair first approach since most of these errors are developer errors and should not occur when the website finally is in production.
@@ -168,6 +179,7 @@ There is not too much magic happening here. Lets check the details:
 4. At the end we get our actual payload in form of an array of JavaScript objects and return this to our caller.
 
 Now we can call this function in the `onload` trigger and check whether data is properly loaded.
+
 ```JavaScript
 import { getData } from "./rest.mjs"
 ...
@@ -176,6 +188,7 @@ console.log(entries)
 ```
 
 ### DOM Manipulation to Get Data Rendered
+
 Finally we want to render the loaded data into our website. We start by analyzing the structure of the blog display part in `index.html`. We see that all blog entries are placed in a `div` container (the one after the comment line `<!-- !PAGE CONTENT! -->`).
 
 The two rows are again represented by a `div` which itself contains four cells (one for every blog entry) again represented by a `div`.
@@ -210,7 +223,7 @@ function renderOneGridLine(blogEntries) {
   })
   return gridLine
 }
-  
+
 function renderOneGridCell(blogEntry) {
   const newDiv = document.createElement('div')
   newDiv.classList.add('w3-quarter')
@@ -235,7 +248,9 @@ function renderOneGridCell(blogEntry) {
 ```
 
 ### JavaScript Fetch API to Change Data in Backend
+
 Now we want to add the functionality that one can like a blog entry. So we have to add
+
 - an icon suggesting that we can like an entry
 - the functionality to react on a click on this icon
 - the REST call to store our click on the server.
@@ -245,130 +260,136 @@ One more little thing must be fixed before we can start: We have to store the id
 We want to mention here that this is not the way to go in a larger project and we will refactor this in one of the following units but for the time being it is our easiest solution and we want to concentrate on getting our REST requests done. Time for beauty and clear design will come later. Promised!
 
 ### Add an Icon
- First we put the usual like images (an [empty](./REST/public/images/heart-empty.png) and a [filled heart](./REST/public/images/heart-red.png)) into our image folder. Now we are ready to add the code to generate the html for showing the like symbol. Since there is already some complexity in it we extract it in a separate function. The function accepts a `blogEntry` as parameter. Based on this it can implement the logic to display a filled or empty heart symbol. The remainder of the function is straight forward CSS fiddling to place the like symbol properly.
 
- ```Javascript
- function createLikeSymbol(blogEntry) {
-  const likeSymbol=document.createElement('img')
-  if (blogEntry.likes > 0) {
-    likeSymbol.src='images/heart-red.png'
-  } else {
-    likeSymbol.src='images/heart-empty.png'
-  }
-  likeSymbol.alt='like symbol'
-  likeSymbol.style.width='20px'
-  likeSymbol.style.height='20px'
-  likeSymbol.style.position='relative'
-  likeSymbol.style.left='46.5%'
-  likeSymbol.style.top='0px'
-  likeSymbol.style.zIndex='1'
-  likeSymbol.style.cursor='pointer'
-  return likeSymbol
+First we put the usual like images (an [empty](./REST/public/images/heart-empty.png) and a [filled heart](./REST/public/images/heart-red.png)) into our image folder. Now we are ready to add the code to generate the html for showing the like symbol. Since there is already some complexity in it we extract it in a separate function. The function accepts a `blogEntry` as parameter. Based on this it can implement the logic to display a filled or empty heart symbol. The remainder of the function is straight forward CSS fiddling to place the like symbol properly.
+
+```Javascript
+function createLikeSymbol(blogEntry) {
+ const likeSymbol=document.createElement('img')
+ if (blogEntry.likes > 0) {
+   likeSymbol.src='images/heart-red.png'
+ } else {
+   likeSymbol.src='images/heart-empty.png'
+ }
+ likeSymbol.alt='like symbol'
+ likeSymbol.style.width='20px'
+ likeSymbol.style.height='20px'
+ likeSymbol.style.position='relative'
+ likeSymbol.style.left='46.5%'
+ likeSymbol.style.top='0px'
+ likeSymbol.style.zIndex='1'
+ likeSymbol.style.cursor='pointer'
+ return likeSymbol
 }
- ```
+```
+
 Not to surprisingly this function has to be called in the `renderOneGridCell` function and the returned `img` element has to be appended to the surrounding `div` holding all grid cell elements together.
 
 ### React on a Click on the Like Icon
+
 We have to add an event listener to our `likeSymbol` in order to react on a click properly.
- ```Javascript
- function createLikeSymbol(blogEntry) {
-  const likeSymbol=document.createElement('img')
-  if (blogEntry.likes > 0) {
-    likeSymbol.src='images/heart-red.png'
-  } else {
-    likeSymbol.src='images/heart-empty.png'
-  }
-  likeSymbol.alt='like symbol'
-  likeSymbol.style.width='20px'
-  likeSymbol.style.height='20px'
-  likeSymbol.style.position='relative'
-  likeSymbol.style.left='46.5%'
-  likeSymbol.style.top='0px'
-  likeSymbol.style.zIndex='1'
-  likeSymbol.style.cursor='pointer'
-  likeSymbol.addEventListener('click', () => {
-    if (blogEntry.likes > 0) {
-      likeSymbol.src='images/heart-empty.png'
-      blogEntry.likes = 0
-    } else {
-      likeSymbol.src='images/heart-red.png'
-      blogEntry.likes = 1
-    }
-  })
-  return likeSymbol
+
+```Javascript
+function createLikeSymbol(blogEntry) {
+ const likeSymbol=document.createElement('img')
+ if (blogEntry.likes > 0) {
+   likeSymbol.src='images/heart-red.png'
+ } else {
+   likeSymbol.src='images/heart-empty.png'
+ }
+ likeSymbol.alt='like symbol'
+ likeSymbol.style.width='20px'
+ likeSymbol.style.height='20px'
+ likeSymbol.style.position='relative'
+ likeSymbol.style.left='46.5%'
+ likeSymbol.style.top='0px'
+ likeSymbol.style.zIndex='1'
+ likeSymbol.style.cursor='pointer'
+ likeSymbol.addEventListener('click', () => {
+   if (blogEntry.likes > 0) {
+     likeSymbol.src='images/heart-empty.png'
+     blogEntry.likes = 0
+   } else {
+     likeSymbol.src='images/heart-red.png'
+     blogEntry.likes = 1
+   }
+ })
+ return likeSymbol
 }
- ```
+```
 
 ### PATCH Call to Store the Like
+
 Finally we will store the like in the backend. As a preparation work we create a `patchObject` where we store the data we want to patch, in our case this is basically the number of likes. This number has to be adapted if a click on the `likeSymbol` happens. Finally we call a function `patchPostFor` which will be described in the sequel.
+
 ```js
 function createLikeSymbol(blogEntry) {
-  const likeSymbol=document.createElement('img')
+  const likeSymbol = document.createElement("img");
   if (blogEntry.likes > 0) {
-    likeSymbol.src='images/heart-red.png'
+    likeSymbol.src = "images/heart-red.png";
   } else {
-    likeSymbol.src='images/heart-empty.png'
+    likeSymbol.src = "images/heart-empty.png";
   }
-  likeSymbol.alt='like symbol'
-  likeSymbol.style.width='20px'
-  likeSymbol.style.height='20px'
-  likeSymbol.style.position='relative'
-  likeSymbol.style.left='46.5%'
-  likeSymbol.style.top='0px'
-  likeSymbol.style.zIndex='1'
-  likeSymbol.style.cursor='pointer'
-  likeSymbol.addEventListener('click', () => {
+  likeSymbol.alt = "like symbol";
+  likeSymbol.style.width = "20px";
+  likeSymbol.style.height = "20px";
+  likeSymbol.style.position = "relative";
+  likeSymbol.style.left = "46.5%";
+  likeSymbol.style.top = "0px";
+  likeSymbol.style.zIndex = "1";
+  likeSymbol.style.cursor = "pointer";
+  likeSymbol.addEventListener("click", () => {
     const patchObject = {
       id: likeSymbol.parentElement.id,
-      likes: blogEntry.likes
-    }
+      likes: blogEntry.likes,
+    };
     if (blogEntry.likes > 0) {
-      likeSymbol.src='images/heart-empty.png'
-      blogEntry.likes = 0
-      patchObject.likes = 0
+      likeSymbol.src = "images/heart-empty.png";
+      blogEntry.likes = 0;
+      patchObject.likes = 0;
     } else {
-      likeSymbol.src='images/heart-red.png'
-      blogEntry.likes = 1
-      patchObject.likes = 1
+      likeSymbol.src = "images/heart-red.png";
+      blogEntry.likes = 1;
+      patchObject.likes = 1;
     }
-    patchPostFor(likeSymbol.parentElement.id, patchObject)
-  })
-  return likeSymbol
+    patchPostFor(likeSymbol.parentElement.id, patchObject);
+  });
+  return likeSymbol;
 }
 
 function patchPostFor(id, data) {
-  patchDataFor(`/posts/${id}`, data)
+  patchDataFor(`/posts/${id}`, data);
 }
 ```
 
 `patchPostFor` accepts the id of the blog entry to be patched and the patch object itself. The function then calls a function in `rest.mjs` which is called `patchDataFor`.
 
 One can see that the structure of this function is very similar to the one sending the `GET` request. The real difference is that we provide a second parameter for `fetch` describing the payload of the request, namely
+
 1. the method (in our case `PATCH`)
 2. the headers (telling the server that it should expect content in json format)
 3. the body (the data accepted by the function converted to json).
 
 ```js
-  export async function patchDataFor(resource, data) {
-    try {
-      const response = await fetch(`http://localhost:3000${resource}`,
-        {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-      if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
-      }
-  
-      const json = await response.json();
-      return json
-    } catch (error) {
-      console.error(error.message);
+export async function patchDataFor(resource, data) {
+  try {
+    const response = await fetch(`http://localhost:3000${resource}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
     }
+
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    console.error(error.message);
   }
+}
 ```
 
 **One remark:** Since we wanted to show how to work send REST requests from a JavaScript frontend to a backend we did a few ugly hacks. These shall be fixed in the next unit.
