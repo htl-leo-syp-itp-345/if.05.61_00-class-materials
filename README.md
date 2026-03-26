@@ -19,3 +19,4 @@ Since material of this course is held in three different study programs the diff
 - [Effort Estimation](Units/EffortEstimation.md)
 - [Creativity Techniques](Units/CreativityTechniques/Presentation.pdf)
 - [REST](Units/REST.md)
+- [Testing](Units/Testing.pdf)
