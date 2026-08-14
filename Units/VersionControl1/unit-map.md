@@ -47,3 +47,7 @@ We can make changes, create commits and synchronize our local repository with Gi
 - Push your commits and verify them on GitHub.
 - Make a small change on GitHub and retrieve it with `git pull`.
 - Inspect your project's history with `git log`.
+
+## Exercise
+
+see the [file describing the exercise](./exercise.md).
