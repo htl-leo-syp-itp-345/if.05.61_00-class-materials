@@ -29,3 +29,14 @@ Calculate the total time:
 ## Team Size
 
 Teams should consist of 3 to 5 members. Smaller teams might have problems to cover all necessary roles and tasks while larger teams might have problems to coordinate themselves effectively.
+
+# Exercises
+
+You will always have exercises to do during the course. Sometimes it may happen that you will not be able to finish them during course time. The remaining parts are to be done at home.
+
+## Exercise
+
+Install the following tools and get accounts for the following services:
+
+- Install Visual Studio Code
+- Get a Gihub Account

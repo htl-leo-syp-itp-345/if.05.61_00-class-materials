@@ -14,7 +14,7 @@ Since material of this course is held in three different study programs the diff
 
 ### Act I: From Idea to Production
 
-1. [Version Control I](Units/VersionControl1.md) – The Basic Commands
+1. [Version Control I](Units/VersionControl1/unit-map.md) – The Basic Commands
 2. [Creativity Techniques](Units/CreativityTechniques/Presentation.pdf)
 3. [Markdown](Units/Markdown.md) – Documenting Like a Pro
 4. [Building a Simple Website with Astro](Units/Astro.md)
