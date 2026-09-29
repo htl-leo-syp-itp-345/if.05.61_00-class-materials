@@ -19,17 +19,17 @@ Work with [https://learngitbranching.js.org](https://learngitbranching.js.org)
 - Use `git status` frequently
 - Pefer the cli over the VS Code interface
 
-## Working Alone (30 min)
+## Public Coding - Working Alone (30 min)
 
 1. Use **Github** to create a new file, then _commit_ and show a basic process.
-2. Clone the repo on your compute
+2. Clone the repo on your computer
 3. Change a file
 4. Figure out the changes you did
 5. Commit the changes
 6. Push the changes
 7. Check the changes on Github
 
-## Working Together (30 min)
+## Public Coding - Working Together (30 min)
 
 1. Every First (A): Invite your neighbor to your GH project
 2. Every Second (B): Clone the project of your neighbor
@@ -40,3 +40,5 @@ Work with [https://learngitbranching.js.org](https://learngitbranching.js.org)
 7. Hmh, what happened?
 
 ## Exercise (20 min)
+
+As given [here](exercise.md)
