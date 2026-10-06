@@ -17,195 +17,312 @@
       href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css"
     />
     <style>
+      /* All px values are units of the 1920 x 1080 design canvas (see AGENTS.md). */
       :root {
-        color-scheme: light;
-        background: #f2f0e9;
+        --ink: #656565;
+        --font: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
       }
 
       body {
         margin: 0;
-        background: #f2f0e9;
+        background: #eceff2;
+      }
+
+      .reveal-viewport {
+        background: #eceff2 url("Introduction-assets/template-paper.jpg")
+          center / cover no-repeat;
       }
 
       .reveal {
-        color: #20231f;
-        font-family: Georgia, "Times New Roman", serif;
-      }
-
-      .reveal .slides section {
-        padding: 0;
+        color: var(--ink);
+        font-family: var(--font);
+        font-weight: 300;
         background: transparent;
       }
 
-      .reveal .slides section img.slide-artwork {
-        display: block;
-        width: 100%;
-        height: 100%;
-        max-width: 100%;
-        max-height: 100%;
-        margin: 0 !important;
-        border: 0 !important;
-        object-fit: contain;
-        box-shadow: none !important;
-      }
-
-      .reveal .slides section.native-slide {
+      .reveal .slides section {
+        --fs: 64px;
         box-sizing: border-box;
-        width: 1024px;
-        height: 768px;
-        padding: 72px 88px;
-        background: #f2f0e9;
-        color: #20231f;
+        width: 1920px;
+        height: 1080px;
+        padding: 190px 57px 0;
         text-align: left;
+        font-size: var(--fs);
+        line-height: 1.15;
       }
 
-      .reveal .slides section.native-slide img.native-slide__logo {
-        position: absolute;
-        top: 0%;
-        right: 2%;
-        width: 25%;
-        height: 25%;
-        max-width: 25%;
-        max-height: 25%;
+      .text-52 {
+        --fs: 52px !important;
+      }
+      .text-56 {
+        --fs: 56px !important;
+      }
+      .text-64 {
+        --fs: 64px !important;
+      }
+      .text-68 {
+        --fs: 68px !important;
+      }
+      .text-72 {
+        --fs: 72px !important;
+      }
+
+      .reveal .slides section h1,
+      .reveal .slides section h2 {
+        margin: 0;
+        color: var(--ink);
+        font-family: var(--font);
+        font-size: 100px;
+        font-weight: 300;
+        line-height: 1.14;
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: none;
+      }
+
+      .reveal .slides section h2 {
+        margin-bottom: 90px;
+      }
+
+      .reveal .slides section.long-title {
+        padding-top: 140px;
+      }
+
+      .reveal .slides section.long-title h2 {
+        margin-bottom: 46px;
+        font-size: 94px;
+      }
+
+      .reveal .slides section p {
+        margin: 0 0 0.6em;
+        font-size: var(--fs);
+        line-height: 1.2;
+      }
+
+      .reveal .slides section img {
         margin: 0;
         border: 0;
-        object-fit: contain;
+        background: none;
         box-shadow: none;
       }
 
-      .native-slide__inner {
+      .reveal .slides section figure {
+        margin: 0;
+      }
+
+      /* Bullets: one marker style everywhere, with a hanging indent. */
+      .reveal .slides section ul {
+        display: block;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: var(--fs);
+      }
+
+      .reveal .slides section li {
+        position: relative;
+        margin: 0;
+        padding-left: 0.9em;
+      }
+
+      .reveal .slides section li::before {
+        position: absolute;
+        left: 0;
+        content: "\2022" / "";
+      }
+
+      .reveal .slides section li > ul > li {
+        margin-bottom: 0.4em;
+      }
+
+      .reveal .slides section li > ul {
+        margin-top: 0.15em;
+        font-size: max(52px, calc(var(--fs) - 8px));
+      }
+
+      /* Bullet slide: two columns, staggered. Items alternate left / right. */
+      .reveal .slides section.staggered-two-column > ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 92px;
+        row-gap: 1.2em;
+      }
+
+      .reveal .slides section.staggered-two-column > ul > li:nth-child(even) {
+        transform: translateY(1.05em);
+      }
+
+      .reveal .slides section.staggered-two-column > p {
+        margin-bottom: 0.5em;
+      }
+
+      /* Few bullets: a cascade that steps across the slide. */
+      .reveal .slides section.cascade > ul > li {
+        margin-bottom: 1.3em;
+      }
+
+      .reveal .slides section.cascade > ul > li:nth-child(2) {
+        margin-left: 35%;
+      }
+
+      .reveal .slides section.cascade > ul > li:nth-child(3) {
+        margin-left: 70%;
+      }
+
+      .reveal .slides section.cascade.two > ul > li:nth-child(2) {
+        margin-left: 50%;
+      }
+
+      .reveal .slides section.cascade > p {
+        margin-bottom: 0.9em;
+      }
+
+      /* Outline: stacked bullets with sub-bullets. */
+      .reveal .slides section.outline > ul > li {
+        margin-bottom: 0.9em;
+      }
+
+      .reveal .slides section.outline.tight > ul > li {
+        margin-bottom: 0.5em;
+      }
+
+      .reveal .slides section.outline.subgrid > ul > li > ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 92px;
+        row-gap: 0.45em;
+      }
+
+      /* Plain paragraphs, spread over the slide. */
+      .reveal .slides section.text > p {
+        margin-bottom: 1.5em;
+      }
+
+      /* Two columns of groups. */
+      .reveal .slides section .cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 92px;
+      }
+
+      .reveal .slides section .cols li {
+        margin-bottom: 1.2em;
+      }
+
+      .reveal .slides section .cols.shift > div:nth-child(2) {
+        margin-left: 250px;
+      }
+
+      .reveal .slides section .cols.stagger > div:nth-child(2) {
+        margin-top: 220px;
+      }
+
+      .reveal .slides section.title-slide {
+        padding-top: 150px !important;
+      }
+
+      .reveal .slides section.title-slide .cover-art {
         display: flex;
-        height: 100%;
+        height: 550px;
+        justify-content: center;
+        gap: 24px;
+      }
+
+      .reveal .slides section.title-slide .cover-art img {
+        width: auto;
+        height: 550px;
+      }
+
+      .reveal .slides section.title-slide h1 {
+        margin-top: 80px;
+      }
+
+      .reveal .slides section.title-slide p {
+        margin: 0;
+        font-size: 52px;
+        text-align: center;
+      }
+
+      .reveal .slides section.section-slide {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        padding: 0 !important;
+      }
+
+      .reveal .slides section.quote-slide {
+        display: flex !important;
         flex-direction: column;
         justify-content: center;
+        padding: 0 200px !important;
       }
 
-      .native-slide__eyebrow {
-        margin: 0 0 22px;
-        color: #287d78;
-        font-family: Arial, sans-serif;
-        font-size: 18px;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .native-slide h2 {
-        margin: 0 0 28px;
-        color: #20231f;
-        font-size: 52px;
-        line-height: 1.08;
-      }
-
-      .native-slide__lead {
-        max-width: 790px;
-        margin: 0 0 38px;
-        font-size: 27px;
-        line-height: 1.35;
-      }
-
-      .native-slide__qualities {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 28px;
+      .reveal .slides section.quote-slide blockquote {
+        width: 100%;
         margin: 0;
-        padding: 26px 0 0;
-        border-top: 2px solid #287d78;
-        list-style: none;
-      }
-
-      .native-slide__qualities li {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        font-size: 20px;
+        padding: 0;
+        background: none;
+        box-shadow: none;
+        font-size: 52px;
+        font-style: normal;
         line-height: 1.3;
       }
 
-      .native-slide__qualities strong {
-        color: #b9573e;
-        font-size: 29px;
+      .reveal .slides section.quote-slide blockquote p {
+        margin: 0;
+        font-size: 52px;
+        text-align: center;
       }
 
-      .native-slide__equation {
+      .reveal .slides section.quote-slide .attribution {
+        margin: 46px 0 0;
+        font-size: 38px;
+        text-align: center;
+      }
+
+      /* Cartoon: three panels per slide at their native 250 x 414 px. */
+      .reveal .slides section .cartoon-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 580px);
+        column-gap: 33px;
+      }
+
+      .reveal .slides section .cartoon-grid figure {
         display: flex;
-        align-items: baseline;
-        gap: 17px;
-        margin: 4px 0 32px;
-        color: #287d78;
-        font-family: Arial, sans-serif;
-        font-size: 58px;
-        font-weight: 700;
+        flex-direction: column;
+        gap: 28px;
       }
 
-      .native-slide__equation small {
-        color: #20231f;
-        font-size: 21px;
-        font-weight: 400;
+      .reveal .slides section .cartoon-grid img {
+        width: 250px;
+        height: 414px;
       }
 
-      .native-slide__totals {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 42px;
-        padding-top: 25px;
-        border-top: 2px solid #287d78;
+      .reveal .slides section .cartoon-grid figcaption {
+        font-size: 52px;
+        line-height: 1.15;
       }
 
-      .native-slide__totals p {
-        margin: 0;
-        font-size: 20px;
-        line-height: 1.4;
-      }
-
-      .native-slide__totals strong {
-        display: block;
-        margin-bottom: 7px;
-        color: #b9573e;
-        font-size: 35px;
-      }
-
-      .native-slide__note {
-        margin: 24px 0 0;
-        font-size: 18px;
-        line-height: 1.4;
-      }
-
-      .native-slide__setup {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 58px;
-        margin-top: 12px;
-      }
-
-      .native-slide__setup h3 {
-        margin: 0 0 18px;
-        color: #287d78;
-        font-family: Arial, sans-serif;
-        font-size: 23px;
-      }
-
-      .native-slide__setup p,
-      .native-slide__setup li {
-        font-size: 23px;
-        line-height: 1.45;
-      }
-
-      .native-slide__setup ul {
-        margin: 0;
-        padding-left: 28px;
-      }
-
-      .visually-hidden {
+      .reveal .slides section p.credit {
         position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: pre-wrap;
-        border: 0;
+        right: 57px;
+        bottom: 24px;
+        margin: 0;
+        font-size: 38px;
+      }
+
+      .reveal .slides section .school-logo {
+        position: absolute;
+        top: 30px;
+        right: 35px;
+        width: 430px;
+      }
+
+      .reveal .slides section .department-logos {
+        position: absolute;
+        bottom: 20px;
+        left: 55px;
+        width: 270px;
       }
     </style>
   </head>
@@ -214,182 +331,443 @@
       <div class="slides" aria-live="polite"></div>
     </main>
 
+    <script id="slide-source" type="text/markdown">
+      <!-- type:title-slide -->
+      <div class="cover-art">
+        <img src="Introduction-assets/project-cartoon-01.jpg" alt="Cartoon panel: How the customer explained it">
+        <img src="Introduction-assets/project-cartoon-05.jpg" alt="Cartoon panel: What the beta testers received">
+        <img src="Introduction-assets/project-cartoon-13.jpg" alt="Cartoon panel: What the customer really needed">
+      </div>
+
+      # Project Development (SYP)
+
+      Peter Bauer · Unit 1
+
+      ---
+
+      <!-- type:cartoon -->
+
+      ## Software Project Implementation
+
+      <div class="cartoon-grid">
+        <figure><img src="Introduction-assets/project-cartoon-01.jpg" alt="Cartoon panel 1 of 18"><figcaption>How the customer explained it</figcaption></figure>
+        <figure><img src="Introduction-assets/project-cartoon-02.jpg" alt="Cartoon panel 2 of 18"><figcaption>How the project leader understood it</figcaption></figure>
+        <figure><img src="Introduction-assets/project-cartoon-03.jpg" alt="Cartoon panel 3 of 18"><figcaption>How the analyst designed it</figcaption></figure>
+      </div>
+      <p class="credit">Create your own cartoon at www.projectcartoon.com</p>
+
+      ---
+
+      <!-- type:cartoon -->
+
+      ## Software Project Implementation
+
+      <div class="cartoon-grid">
+        <figure><img src="Introduction-assets/project-cartoon-04.jpg" alt="Cartoon panel 4 of 18"><figcaption>How the programmer wrote it</figcaption></figure>
+        <figure><img src="Introduction-assets/project-cartoon-05.jpg" alt="Cartoon panel 5 of 18"><figcaption>What the beta testers received</figcaption></figure>
+        <figure><img src="Introduction-assets/project-cartoon-06.jpg" alt="Cartoon panel 6 of 18"><figcaption>How the business consultant described it</figcaption></figure>
+      </div>
+      <p class="credit">Create your own cartoon at www.projectcartoon.com</p>
+
+      ---
+
+      <!-- type:cartoon -->
+
+      ## Software Project Implementation
+
+      <div class="cartoon-grid">
+        <figure><img src="Introduction-assets/project-cartoon-07.jpg" alt="Cartoon panel 7 of 18"><figcaption>How the project was documented</figcaption></figure>
+        <figure><img src="Introduction-assets/project-cartoon-08.jpg" alt="Cartoon panel 8 of 18"><figcaption>What operations installed</figcaption></figure>
+        <figure><img src="Introduction-assets/project-cartoon-09.jpg" alt="Cartoon panel 9 of 18"><figcaption>How the customer was billed</figcaption></figure>
+      </div>
+      <p class="credit">Create your own cartoon at www.projectcartoon.com</p>
+
+      ---
+
+      <!-- type:cartoon -->
+
+      ## Software Project Implementation
+
+      <div class="cartoon-grid">
+        <figure><img src="Introduction-assets/project-cartoon-10.jpg" alt="Cartoon panel 10 of 18"><figcaption>How it was supported</figcaption></figure>
+        <figure><img src="Introduction-assets/project-cartoon-11.jpg" alt="Cartoon panel 11 of 18"><figcaption>What marketing advertised</figcaption></figure>
+        <figure><img src="Introduction-assets/project-cartoon-12.jpg" alt="Cartoon panel 12 of 18"><figcaption>When it was delivered</figcaption></figure>
+      </div>
+      <p class="credit">Create your own cartoon at www.projectcartoon.com</p>
+
+      ---
+
+      <!-- type:cartoon -->
+
+      ## Software Project Implementation
+
+      <div class="cartoon-grid">
+        <figure><img src="Introduction-assets/project-cartoon-13.jpg" alt="Cartoon panel 13 of 18"><figcaption>What the customer really needed</figcaption></figure>
+        <figure><img src="Introduction-assets/project-cartoon-14.jpg" alt="Cartoon panel 14 of 18"><figcaption>What the Digg effect can do to your site</figcaption></figure>
+        <figure><img src="Introduction-assets/project-cartoon-15.jpg" alt="Cartoon panel 15 of 18"><figcaption>The disaster recover plan</figcaption></figure>
+      </div>
+      <p class="credit">Create your own cartoon at www.projectcartoon.com</p>
+
+      ---
+
+      <!-- type:cartoon -->
+
+      ## Software Project Implementation
+
+      <div class="cartoon-grid">
+        <figure><img src="Introduction-assets/project-cartoon-16.jpg" alt="Cartoon panel 16 of 18"><figcaption>What the customer really needed</figcaption></figure>
+        <figure><img src="Introduction-assets/project-cartoon-17.jpg" alt="Cartoon panel 17 of 18"><figcaption>What the Digg effect can do to your site</figcaption></figure>
+        <figure><img src="Introduction-assets/project-cartoon-18.jpg" alt="Cartoon panel 18 of 18"><figcaption>The disaster recover plan</figcaption></figure>
+      </div>
+      <p class="credit">Create your own cartoon at www.projectcartoon.com</p>
+
+      ---
+
+      <!-- type:section-slide -->
+
+      # Let’s Talk Content – 1
+
+      ---
+
+      <!-- type:staggered-two-column text-52 -->
+
+      ## Content
+
+      - What are projects?
+      - Project start
+      - Project Communication
+      - Software Development Process Models
+      - System Specification
+      - Implementation
+      - Testing
+      - Releasing/Deployment
+
+      ---
+
+      <!-- type:staggered-two-column text-72 -->
+
+      ## What Are Projects?
+
+      - Collaborative enterprise
+      - Carefully planned
+      - Temporary rather than permanent
+      - Accomplish particular tasks
+      - Time constraints
+
+      ---
+
+      <!-- type:staggered-two-column text-56 -->
+
+      ## Project Start
+
+      Give basis for the management decision of project approval
+
+      Describes:
+
+      - Necessity of project
+      - Feasibility of project
+      - Affordability of project
+      - Market and economic effect of project
+
+      ---
+
+      <!-- type:staggered-two-column text-64 -->
+
+      ## Project Communication
+
+      - Project Organization
+      - Requirements Management
+      - Project Planning
+      - Configuration Management
+      - Quality Assurance
+      - Methods and Tools
+
+      ---
+
+      <!-- type:staggered-two-column text-72 long-title -->
+
+      ## Software Development Process Models
+
+      - Waterfall model
+      - V-Model
+      - RUP
+      - Scrum
+      - Development Process Assessments
+
+      ---
+
+      <!-- type:section-slide -->
+
+      # Administrivia
+
+      ---
+
+      <!-- type:outline text-56 -->
+
+      ## What Will We Do?
+
+      - Start developing a serious background in project development
+      - Learn basic project management skills
+        - Documents beyond source code: Project Proposal, System Specification, UML Diagrams
+        - Tools: Version Control, Virtualization, Deployment
+        - Planning and monitoring
+
+      ---
+
+      <!-- type:groups text-72 -->
+
+      ## How Is The Course Organized?
+
+      <div class="cols stagger">
+
+      <div>
+
+      - Theoretical background
+        - Selected parts of the book
+
+      </div>
+
+      <div>
+
+      - Practical exercises
+        - By means of smaller examples
+
+      </div>
+
+      </div>
+
+      ---
+
+      <!-- type:groups text-64 long-title -->
+
+      ## How To Get A Grade – Main Contributions
+
+      <div class="cols">
+
+      <div>
+
+      - One test per semester
+        - Date: 14. Jänner 2027
+
+      </div>
+
+      <div>
+
+      - Review of project deliverables
+        - Project proposal
+        - System Specification
+        - Product Burndown
+        - Prototypes
+
+      </div>
+
+      </div>
+
+      ---
+
+      <!-- type:cascade text-72 -->
+
+      ## Projects
+
+      - Small projects (a content-driven website)
+      - 2 to 3 persons max.
+      - Find a topic
+
+      ---
+
+      <!-- type:text text-72 -->
+
+      ## Project Name
+
+      If you are not able to come up with a good project name, go back, rethink your project idea and try again.
+
+      A good project name is short, catchy and gives a hint what the project is about.
+
+      ---
+
+      <!-- type:text text-72 -->
+
+      ## Time to Be Invested
+
+      Every team member is expected to spend as many hours outside of class as in class.
+
+      This includes working on the project, reading material and preparing presentations.
+
+      ---
+
+      <!-- type:outline tight text-72 -->
+
+      ## Calculate the Total Time
+
+      - 3 hours in class per week
+      - 3 hours outside of class per week
+      - makes 6 hours per week for 32 weeks a year
+      - equals 192 hours per year per team member
+      - for a team of 3 members this means 576 hours per year
+
+      ---
+
+      <!-- type:quote-slide -->
+
+      > “You have a real lot of time to work on your project. You can really change the world with your product if you want to.”
+
+      <p class="attribution">The message behind</p>
+
+      ---
+
+      <!-- type:text text-72 -->
+
+      ## Exercises
+
+      You will always have exercises to do during the course.
+
+      Sometimes it may happen that you will not be able to finish them during course time. The remaining parts are to be done at home.
+
+      ---
+
+      <!-- type:cascade two text-72 -->
+
+      ## Exercise
+
+      Install the following tools and get accounts for the following services:
+
+      - Install Visual Studio Code
+      - Get a GitHub account
+
+      ---
+
+      <!-- type:section-slide -->
+
+      # Let’s Talk Content – 2
+
+      ---
+
+      <!-- type:outline text-68 -->
+
+      ## System Specification
+
+      - Analysis of the application domain
+        - UML
+      - Documentation of functional and non-functional requirements
+      - Software architecture – Client Server
+
+      ---
+
+      <!-- type:staggered-two-column text-64 -->
+
+      ## Implementation
+
+      - Documentation of software design
+        - UML
+      - Coding in a team
+        - Syncing the code base between the team members
+        - Collaborative coding models
+      - Spec-driven and agentic programming
+      - Test-driven development
+
+      ---
+
+      <!-- type:cascade text-72 -->
+
+      ## Testing
+
+      - Test strategies
+      - Test plans
+      - Test protocols
+
+      ---
+
+      <!-- type:groups text-64 -->
+
+      ## Releasing/Deployment
+
+      <div class="cols shift">
+
+      <div>
+
+      - “It runs on my computer”
+      - Staging
+      - Releasing
+      - Production
+
+      </div>
+
+      <div>
+
+      - Virtualization
+      - Docker files
+      - Docker images
+      - Deployment
+
+      </div>
+
+      </div>
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js"></script>
     <script>
-      const slideContent = [
-        {
-          label: "Project Development (SYP), Unit 1",
-          text: "Project Development (SYP)\nPeter Bauer\nUnit 1",
-        },
-        {
-          label: "Software Project Implementation: project cartoon",
-          text: "Software Project Implementation. Project cartoon labels, in order: How the customer explained it; how the project leader understood it; how the analyst designed it; how the programmer wrote it; what the beta testers received; how the business consultant described it; how the project was documented; what operations installed; how the customer was billed; how it was supported; what marketing advertised; when it was delivered; what the customer really needed; what the digg effect can do to your site; the disaster recover plan; what the customer really needed; what the digg effect can do to your site; the disaster recover plan.",
-        },
-        {
-          label: "Let's Talk Content, section 1",
-          text: "Let's Talk Content – 1",
-        },
-        {
-          label: "Content overview",
-          text: "Content\nWhat are projects?\nProject start\nProject communication\nSoftware development process models\nSystem specification\nImplementation\nTesting\nReleasing and deployment",
-        },
-        {
-          label: "What Are Projects?",
-          text: "What Are Projects?\nCollaborative enterprise\nCarefully planned\nTemporary rather than permanent\nAccomplish particular tasks\nTime constraints",
-        },
-        {
-          label: "Project Start",
-          text: "Project Start\nGive basis for the management decision of project approval. Describes: necessity of project; feasibility of project; affordability of project; market and economic effect of project.",
-        },
-        {
-          label: "Project Communication",
-          text: "Project Communication\nProject organization\nRequirements management\nProject planning\nConfiguration management\nQuality assurance\nMethods and tools",
-        },
-        {
-          label: "Software Development Process Models",
-          text: "Software Development Process Models\nWaterfall model\nV-Model\nRUP\nScrum\nDevelopment process assessments",
-        },
-        {
-          label: "Administrivia",
-          text: "Administrivia",
-        },
-        {
-          label: "What Will We Do?",
-          text: "What Will We Do?\nStart developing a serious background in project development. Learn basic project management skills. Documents beyond source code: Project Proposal, System Specification, UML Diagrams. Tools: Version Control, Virtualization, Deployment. Planning and monitoring.",
-        },
-        {
-          label: "How Is The Course Organized?",
-          text: "How Is The Course Organized?\nTheoretical background: selected parts of the book. Practical exercises: by means of smaller examples.",
-        },
-        {
-          label: "How To Get A Grade – Main Contributions",
-          text: "How To Get A Grade – Main Contributions\nOne test per semester. Date: 14. Jänner 2027. Review of project deliverables: Project proposal; System Specification; Product Burndown; Prototypes.",
-        },
-        {
-          label: "Projects",
-          text: "Projects\nSmall projects (a content-driven website)\n2 to 3 persons maximum\nFind a topic",
-        },
-        {
-          label: "Let's Talk Content, section 2",
-          text: "Let's Talk Content – 2",
-        },
-        {
-          label: "System Specification",
-          text: "System Specification\nAnalysis of the application domain: UML. Documentation of functional and non-functional requirements. Software architecture – Client Server.",
-        },
-        {
-          label: "Implementation",
-          text: "Implementation\nDocumentation of software design: UML. Coding in a team: syncing the code base between team members; collaborative coding models. Spec-driven and agentic programming. Test-driven development.",
-        },
-        {
-          label: "Testing",
-          text: "Testing\nTest strategies\nTest plans\nTest protocols",
-        },
-        {
-          label: "Releasing/Deployment",
-          text: "Releasing/Deployment\nIt runs on my computer; staging; releasing; production; virtualization; Docker files; Docker images; deployment.",
-        },
-      ];
+      // Formatters indent the embedded Markdown; strip that so "---" and HTML blocks parse.
+      function dedent(text) {
+        const lines = text.replace(/^\n+/, "").split("\n");
+        const indents = lines
+          .filter((line) => line.trim())
+          .map((line) => line.match(/^ */)[0].length);
+        const strip = Math.min(...indents);
+        return lines
+          .map((line) => line.slice(strip))
+          .join("\n")
+          .trim();
+      }
 
+      const source = dedent(
+        document.querySelector("#slide-source").textContent,
+      );
       const slides = document.querySelector(".slides");
-      slideContent.forEach((content, index) => {
+
+      source.split(/^---\s*$/m).forEach((sourceSlide) => {
         const section = document.createElement("section");
-        const image = document.createElement("img");
-        const transcript = document.createElement("p");
+        const type = sourceSlide.match(/^\s*<!-- type:([\w -]+?) -->\s*/);
+        const markdown = type
+          ? sourceSlide.replace(/^\s*<!-- type:[\w -]+? -->\s*/, "")
+          : sourceSlide;
 
-        section.setAttribute(
-          "aria-label",
-          `Slide ${index + 1}: ${content.label}`,
-        );
-        image.className = "slide-artwork";
-        image.src = `Introduction-assets/slide-${String(index + 1).padStart(2, "0")}.jpg`;
-        image.alt = content.label;
-        image.loading = index === 0 ? "eager" : "lazy";
-        transcript.className = "visually-hidden";
-        transcript.textContent = content.text;
+        section.className = type ? type[1] : "text";
+        section.dataset.markdown = "";
+        section.setAttribute("aria-label", "Presentation slide");
 
-        section.append(image, transcript);
+        const template = document.createElement("textarea");
+        template.setAttribute("data-template", "");
+        template.textContent = markdown.trim();
+        section.append(template);
         slides.append(section);
       });
 
-      const additionalSlides = [
-        {
-          label: "Project Name",
-          content: `
-            <div class="native-slide__inner">
-              <p class="native-slide__eyebrow">Project work</p>
-              <h2>Give your project a name</h2>
-              <p class="native-slide__lead">If you cannot come up with a good project name, go back, rethink your project idea, and try again.</p>
-              <ul class="native-slide__qualities">
-                <li><strong>Short</strong><span>Keep it concise.</span></li>
-                <li><strong>Catchy</strong><span>Make it memorable.</span></li>
-                <li><strong>Suggestive</strong><span>Give a hint what the project is about.</span></li>
-              </ul>
-            </div>`,
-        },
-        {
-          label: "Time to be Invested",
-          content: `
-            <div class="native-slide__inner">
-              <p class="native-slide__eyebrow">Expected commitment</p>
-              <h2>Time to be invested</h2>
-              <div class="native-slide__equation" aria-label="3 hours in class plus 3 hours outside class equals 6 hours per week">
-                <span>3</span><small>in class</small><span>+</span><span>3</span><small>outside</small><span>=</span><span>6</span><small>hours / week</small>
-              </div>
-              <div class="native-slide__totals">
-                <p><strong>192 hours</strong>per team member over 32 weeks</p>
-                <p><strong>576 hours</strong>for a 3-person team over 32 weeks</p>
-              </div>
-              <p class="native-slide__note">Outside-class time includes project work, reading material, and preparing presentations. You have a real lot of time to work on your project. You can really change the world with your product.</p>
-            </div>`,
-        },
-        {
-          label: "Exercises and Setup",
-          content: `
-            <div class="native-slide__inner">
-              <p class="native-slide__eyebrow">Getting started</p>
-              <h2>Exercises and setup</h2>
-              <div class="native-slide__setup">
-                <div>
-                  <h3>Exercises</h3>
-                  <p>Exercises are part of the course. If you cannot finish during class time, complete the remaining work at home.</p>
-                </div>
-                <div>
-                  <h3>Set up your tools</h3>
-                  <ul>
-                    <li>Install Visual Studio Code</li>
-                    <li>Get a GitHub account</li>
-                  </ul>
-                </div>
-              </div>
-            </div>`,
-        },
-      ];
+      function addBranding() {
+        slides
+          .querySelectorAll(":scope > section")
+          .forEach((section, index) => {
+            if (section.querySelector(".school-logo")) return;
 
-      const secondSectionDivider = slides.querySelector(
-        '[aria-label="Slide 14: Let\'s Talk Content, section 2"]',
-      );
+            const heading = section.querySelector("h1, h2, blockquote");
+            section.setAttribute(
+              "aria-label",
+              `Slide ${index + 1}: ${heading?.textContent.trim().slice(0, 60) || "Section"}`,
+            );
 
-      additionalSlides.forEach((content) => {
-        const section = document.createElement("section");
-        section.className = "native-slide";
-        section.setAttribute("aria-label", content.label);
-        section.innerHTML = content.content;
-        const logo = document.createElement("img");
-        logo.className = "native-slide__logo";
-        logo.src = "../../Assets/HTLLogo_ab2022_farbig.png";
-        logo.alt = "HTL logo";
-        logo.setAttribute("aria-hidden", "false");
-        section.append(logo);
-        slides.insertBefore(section, secondSectionDivider);
-      });
+            const schoolLogo = document.createElement("img");
+            schoolLogo.className = "school-logo";
+            schoolLogo.src = "../../Assets/HTLLogo_ab2022_farbig.png";
+            schoolLogo.alt = "HTL Leonding";
 
-      slides.querySelectorAll("section").forEach((section, index) => {
-        const label = section
-          .getAttribute("aria-label")
-          .replace(/^Slide \d+: /, "");
-        section.setAttribute("aria-label", `Slide ${index + 1}: ${label}`);
-      });
+            const departmentLogos = document.createElement("img");
+            departmentLogos.className = "department-logos";
+            departmentLogos.src = "../../Assets/Abteilungslogos.png";
+            departmentLogos.alt = "Department identifiers";
+
+            section.append(schoolLogo, departmentLogos);
+          });
+      }
 
       Reveal.initialize({
         controls: true,
@@ -398,14 +776,16 @@
         overview: true,
         keyboard: true,
         center: false,
-        width: 1024,
-        height: 768,
+        width: 1920,
+        height: 1080,
         margin: 0,
         minScale: 0.2,
-        maxScale: 2,
+        maxScale: 4,
         transition: "fade",
         backgroundTransition: "none",
+        plugins: [RevealMarkdown],
       });
+      Reveal.on("ready", addBranding);
     </script>
   </body>
 </html>
