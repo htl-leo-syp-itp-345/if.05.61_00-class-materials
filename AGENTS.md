@@ -51,7 +51,19 @@ In particular, do not add:
 - assessment information not intended for students
 - internal planning notes
 
-## Formatting of Slides
+## Generating Slides
+
+Create slide presentations as Reveal.js HTML documents. Include the Reveal.js stylesheet, a theme, and script; put each slide in a `<section>` inside `.reveal > .slides`, then call `Reveal.initialize()`.
+
+Keep slide content editable. Do not use screenshots or rasterized images of complete source slides as the presentation slides. Rebuild text as text and recreate diagrams with editable elements where practical; use images as individual visual assets within the slide layout.
+
+Use Markdown for slide headings, paragraphs, and lists wherever practical, such as with the Reveal.js Markdown plugin. Use HTML and CSS when a slide needs a specific layout, image placement, or other formatting that Markdown alone cannot express. Keep the source easy to update and make each slide's structure clear.
+
+Preserve the source material's meaning, important details, and slide order when converting an existing presentation. Do not silently omit or change content. Reorganize or condense only when requested or when necessary to fit the slide format, without losing essential information.
+
+Use specific, relevant image files rather than template placeholders. Keep image paths relative to the presentation file, provide meaningful alternative text, and do not use an image of a complete slide in place of editable content. Prefer suitable project assets; when new assets are needed, ensure they are appropriate for student-facing publication.
+
+When using the CDN-hosted Reveal.js files, an internet connection is required to present the deck.
 
 Slides should follow the 16:9 layout and visual system shown in `Assets/SlideLayoutTemplate.pdf` (also available as `Assets/SlideLayoutTemplate.key`). The template demonstrates these slide types:
 
@@ -71,6 +83,8 @@ Place the HTL Leonding logo in the upper-right corner and the department identif
 - `Assets/Abteilungslogos.png`
 
 The template's example imagery and placeholder text illustrate layout only; replace them with material relevant to the unit while preserving the layout conventions.
+
+Before finishing a presentation, open it in a browser and check the rendered slides at presentation size. Confirm that text is readable, content does not overflow or overlap, images and other local assets load, and the slide order and content match the source.
 
 ## Working Across Repositories
 
