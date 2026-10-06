@@ -140,7 +140,8 @@
         font-size: max(52px, calc(var(--fs) - 8px));
       }
 
-      /* Bullet slide: two columns, staggered. Items alternate left / right. */
+      /* Bullet slide: items alternate left / right. An odd-length list is staggered so the
+         right column interleaves with the left; an even-length list keeps both on the same rows. */
       .reveal .slides section.staggered-two-column > ul {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -148,7 +149,11 @@
         row-gap: 1.2em;
       }
 
-      .reveal .slides section.staggered-two-column > ul > li:nth-child(even) {
+      .reveal
+        .slides
+        section.staggered-two-column
+        > ul
+        > li:nth-child(even):nth-last-child(even) {
         transform: translateY(1.05em);
       }
 
@@ -213,8 +218,9 @@
         margin-left: 250px;
       }
 
-      .reveal .slides section .cols.stagger > div:nth-child(2) {
-        margin-top: 220px;
+      /* Moves the whole column block down; both columns still start on the same line. */
+      .reveal .slides section.lower-block .cols {
+        margin-top: 300px;
       }
 
       .reveal .slides section.title-slide {
@@ -471,7 +477,7 @@
 
       ---
 
-      <!-- type:staggered-two-column text-64 -->
+      <!-- type:staggered-two-column text-72 -->
 
       ## Project Communication
 
@@ -514,11 +520,11 @@
 
       ---
 
-      <!-- type:groups text-72 -->
+      <!-- type:groups lower-block text-72 -->
 
       ## How Is The Course Organized?
 
-      <div class="cols stagger">
+      <div class="cols">
 
       <div>
 
@@ -575,23 +581,23 @@
 
       ---
 
-      <!-- type:text text-72 -->
+      <!-- type:text text-62 -->
 
       ## Project Name
 
-      If you are not able to come up with a good project name, go back, rethink your project idea and try again.
+      - If you are not able to come up with a good project name, go back, rethink your project idea and try again.
 
-      A good project name is short, catchy and gives a hint what the project is about.
+      - A good project name is short, catchy and gives a hint what the project is about.
 
       ---
 
-      <!-- type:text text-72 -->
+      <!-- type:text text-62 -->
 
       ## Time to Be Invested
 
-      Every team member is expected to spend as many hours outside of class as in class.
+      - Every team member is expected to spend as many hours outside of class as in class.
 
-      This includes working on the project, reading material and preparing presentations.
+      - This includes working on the project, reading material and preparing presentations.
 
       ---
 
@@ -619,13 +625,15 @@
 
       ## Exercises
 
-      You will always have exercises to do during the course.
+      - You will always have exercises to do during the course.
 
-      Sometimes it may happen that you will not be able to finish them during course time. The remaining parts are to be done at home.
+      - Sometimes it may happen that you will not be able to finish them during course time.
+
+      - The remaining parts are to be done at home.
 
       ---
 
-      <!-- type:cascade two text-72 -->
+      <!-- type:text text-72 -->
 
       ## Exercise
 
@@ -642,7 +650,7 @@
 
       ---
 
-      <!-- type:outline text-68 -->
+      <!-- type:outline text-52 -->
 
       ## System Specification
 
