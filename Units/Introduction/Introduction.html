@@ -59,6 +59,20 @@
         text-align: left;
       }
 
+      .reveal .slides section.native-slide img.native-slide__logo {
+        position: absolute;
+        top: 3.125%;
+        right: 3.125%;
+        width: 20%;
+        height: 20%;
+        max-width: 20%;
+        max-height: 20%;
+        margin: 0;
+        border: 0;
+        object-fit: contain;
+        box-shadow: none;
+      }
+
       .native-slide__inner {
         display: flex;
         height: 100%;
@@ -361,6 +375,12 @@
         section.className = "native-slide";
         section.setAttribute("aria-label", content.label);
         section.innerHTML = content.content;
+        const logo = document.createElement("img");
+        logo.className = "native-slide__logo";
+        logo.src = "../../Assets/HTLLogo_ab2022_farbig.png";
+        logo.alt = "HTL logo";
+        logo.setAttribute("aria-hidden", "false");
+        section.append(logo);
         slides.insertBefore(section, secondSectionDivider);
       });
 

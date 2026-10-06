@@ -1,14 +1,12 @@
 {
-    "spellright.language": [
-        "en",
-        "de"
-    ],
-    "spellright.documentTypes": [
-        "markdown",
-        "latex",
-        "plaintext"
-    ],
-    "cSpell.words": [
-        "SYPPRE"
-    ]
+  "spellright.language": ["en", "de"],
+  "spellright.documentTypes": ["markdown", "latex", "plaintext"],
+  "cSpell.words": ["SYPPRE"],
+  "python-envs.pythonProjects": [
+    {
+      "path": ".",
+      "envManager": "ms-python.python:venv",
+      "packageManager": "ms-python.python:pip"
+    }
+  ]
 }
