@@ -85,7 +85,7 @@ The px values are units of this 1920 × 1080 design canvas, not physical screen 
 
 - Use one typeface, Gill Sans Light (weight 300), with the stack `"Gill Sans", "Gill Sans MT", Calibri, sans-serif`. Do not mix typefaces and do not use bold for emphasis.
 - All text is neutral gray `#656565`. Do not use accent colors on text or graphics.
-- Use the template background (pale cool gray, `#eceff2`, with a soft gradient; `Units/Introduction/Introduction-assets/template-paper.jpg` is an extract of it).
+- Use the template background (pale cool gray, `#eceff2`, with a soft gradient; `Assets/template-paper.jpg` is an extract of it).
 - Do not add decoration: no divider rules, borders, cards, boxes, or underlines. Create hierarchy with size and position only.
 
 | Element                     | Font size   | Notes                                                                                    |
