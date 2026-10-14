@@ -1,4 +1,4 @@
-# Act I — Unit 1: Version Control — The Basic Commands
+# Season 1 — Unit 1: Version Control — The Basic Commands
 
 ## Where do we start?
 

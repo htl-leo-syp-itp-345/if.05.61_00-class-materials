@@ -12,7 +12,7 @@ Since material of this course is held in three different study programs the diff
 
 1. [Introduction, Course Overview, and Organizational](Units/Organizational.md)
 
-### Act I: From Idea to Production
+### Season 1: From Idea to Production
 
 1. [Version Control I](Units/VersionControl1/unit-map.md) – The Basic Commands
 2. [Creativity Techniques](Units/CreativityTechniques/Presentation.pdf)
@@ -25,7 +25,7 @@ Since material of this course is held in three different study programs the diff
 9. [Releasing Software](Releasing1.md) – Creating Reproducible States
 10. [Publishing a Website](Publishing.md) - From `github.io` to the Real Internet
 
-### Act II: From Idea to Project
+### Season 2: From Idea to Project
 
 1. [Project Proposal](Units/ProjectProposal.md)
 2. [Requirements Elicitation](RequirementsElicitation.md)
@@ -34,7 +34,7 @@ Since material of this course is held in three different study programs the diff
 5. [UML State Diagrams](Units/UMLStateDiagrams.md)
 6. [Authoring](Units/PlantUML.md) – PlantUML and/or Mermaid
 
-### Act III: From Requirements to Development
+### Season 3: From Requirements to Development
 
 1. [Client Server Architecture]()
 1. [Test Driven Development](Units/UnitTesting/)
@@ -46,7 +46,7 @@ Since material of this course is held in three different study programs the diff
 1. [Scrum – Sprint Planning and Monitoring]()
 1. [Scrum – Release Planning]()
 
-### Act IV: From Development to Releasing
+### Season 4: From Development to Releasing
 
 - [Testing](Units/Testing.pdf)
 - [Releasing](Units/Releasing2.md)
