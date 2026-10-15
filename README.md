@@ -10,44 +10,44 @@ Since material of this course is held in three different study programs the diff
 
 ### Prologue
 
-1. [Introduction, Course Overview, and Organizational](Units/Organizational.md)
+1. [Introduction, Course Overview, and Organizational](Prologue/Introduction/Organizational.md)
 
 ### Season 1: From Idea to Production
 
-1. [Version Control I](Units/VersionControl1/unit-map.md) – The Basic Commands
-2. [Creativity Techniques](Units/CreativityTechniques/Presentation.pdf)
-3. [Markdown](Units/Markdown.md) – Documenting Like a Pro
-4. [Building a Simple Website with Astro](Units/Astro.md)
-5. [Deployment I](Deployment1.md) – Just Put It Online
-6. [Version Control II](VersionControl2.md) – Branching, Merging and Rebasing
-7. [Deployment II](Deployment2.md) – Separating Source and Production
-8. [Deployment III](Deployment3.md) – We Need Somewhere to Test
-9. [Releasing Software](Releasing1.md) – Creating Reproducible States
-10. [Publishing a Website](Publishing.md) - From `github.io` to the Real Internet
+- [Episode 1: Version Control I](Episodes/E01_VersionControl1/episode-map.md) – The Basic Commands
+- [Episode 2: Creativity Techniques](Episodes/E02_CreativityTechniques/Presentation.pdf)
+- [Episode 3: Markdown](Episodes/E03_Markdown/Markdown.md) – Documenting Like a Pro
+- [Episode 4: Building a Simple Website with Astro](Episodes/E04_Astro/Astro.md)
+- [Episode 5: Deployment I](Episodes/E05_Deployment1/Deployment1.md) – Just Put It Online
+- [Episode 6: Version Control II](Episodes/E06_VersionControl2/VersionControl2.md) – Branching, Merging and Rebasing
+- [Episode 7: Deployment II](Episodes/E07_Deployment2/Deployment2.md) – Separating Source and Production
+- [Episode 8: Deployment III](Episodes/E08_Deployment3/Deployment3.md) – We Need Somewhere to Test
+- [Episode 9: Releasing Software](Episodes/E09_Releasing1/Releasing1.md) – Creating Reproducible States
+- [Episode 10: Publishing a Website](Episodes/E10_Publishing/Publishing.md) - From `github.io` to the Real Internet
 
 ### Season 2: From Idea to Project
 
-1. [Project Proposal](Units/ProjectProposal.md)
-2. [Requirements Elicitation](RequirementsElicitation.md)
-3. [UML Use Case Diagrams](Units/UMLUseCaseDiagrams.md)
-4. [UML Activity Diagrams](Units/UMLActivityDiagrams.md)
-5. [UML State Diagrams](Units/UMLStateDiagrams.md)
-6. [Authoring](Units/PlantUML.md) – PlantUML and/or Mermaid
+- [Episode 11: Project Proposal](Episodes/E11_ProjectProposal/ProjectProposal.md)
+- [Episode 12: Requirements Elicitation](Episodes/E12_RequirementsElicitation/RequirementsElicitation.md)
+- [Episode 13: UML Use Case Diagrams](Episodes/E13_UMLUseCaseDiagrams/UMLUseCaseDiagrams.md)
+- [Episode 14: UML Activity Diagrams](Episodes/E14_UMLActivityDiagrams/UMLActivityDiagrams.md)
+- [Episode 15: UML State Diagrams](Episodes/E15_UMLStateDiagrams/UMLStateDiagrams.md)
+- [Episode 16: Authoring](Episodes/E16_PlantUML/PlantUML.md) – PlantUML and/or Mermaid
 
 ### Season 3: From Requirements to Development
 
-1. [Client Server Architecture]()
-1. [Test Driven Development](Units/UnitTesting/)
-1. [Open Spec and Agentic Programming](Units/REST.md)
-1. [REST](Units/REST/)
-1. [SCRUM - Overview]()
-1. [SCRUM - Sprint Planning]()
-1. [SCRUM - Effort Estimation](Units/EffortEstimation.md)
-1. [Scrum – Sprint Planning and Monitoring]()
-1. [Scrum – Release Planning]()
+- [Episode 17: Client Server Architecture]()
+- [Episode 18: Test Driven Development](Episodes/E18_UnitTesting/)
+- [Episode 19: Open Spec and Agentic Programming](Episodes/E19_OpenSpecAgenticProgramming/episode-map.md)
+- [Episode 20: REST](Episodes/E20_REST/)
+- [Episode 21: SCRUM - Overview]()
+- [Episode 22: SCRUM - Sprint Planning]()
+- [Episode 23: SCRUM - Effort Estimation](Episodes/E23_EffortEstimation/EffortEstimation.md)
+- [Episode 24: Scrum – Sprint Planning and Monitoring]()
+- [Episode 25: Scrum – Release Planning]()
 
 ### Season 4: From Development to Releasing
 
-- [Testing](Units/Testing.pdf)
-- [Releasing](Units/Releasing2.md)
-- [Issue Handling]()
+- [Episode 26: Testing](Episodes/E26_Testing/Testing.pdf)
+- [Episode 27: Releasing](Episodes/E27_Releasing2/Releasing2.md)
+- [Episode 28: Issue Handling]()

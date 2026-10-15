@@ -14,29 +14,44 @@ Both repositories are usually opened together in a VS Code multi-root workspace.
 
 ## Structure
 
-Course material is organized into units below:
+Course material is organized into episodes below:
 
-`Units/`
+`Episodes/`
 
-A unit in this repository corresponds to the directory with the same name in:
+An episode in this repository corresponds to the directory with the same name in:
 
-`../teacher-materials/Units/`
+`../teacher-materials/Episodes/`
 
 Example:
 
-`Units/VersionControl1/`
+`Episodes/E01_VersionControl1/`
 
 corresponds to:
 
-`../teacher-materials/Units/VersionControl1/`
+`../teacher-materials/Episodes/E01_VersionControl1/`
 
-The unit directory structure should remain aligned between both repositories.
+The episode directory structure should remain aligned between both repositories.
+
+Seasons are logical groupings of Episodes and do not have their own directory level. Preserve these Season titles and global Episode ranges:
+
+- Season 1: From Idea to Production — Episodes 1–10
+- Season 2: From Idea to Project — Episodes 11–16
+- Season 3: From Requirements to Development — Episodes 17–25
+- Season 4: From Development to Releasing — Episodes 26–28
+
+The Prologue is unnumbered, remains outside the Seasons, and is stored in `Prologue/Introduction/` in both repositories.
+
+Every Episode directory uses `E<two-digit global number>_<topic>`, for example `Episodes/E01_VersionControl1/` and `Episodes/E11_ProjectProposal/`. Use exactly the same directory names in both repositories. Number Episodes globally without restarting at Season boundaries, and keep numbers consistent in the course overview, headings, presentations, episode maps, teacher notes, and links. The student-facing `README.md` is the authoritative course order.
+
+Use `episode-map.md` for Episode maps. Existing technical names such as `UnitTesting`, unit tests, and measurement units retain their technical meaning and must not be renamed.
+
+Unnumbered supplemental Web Components examples are stored in `Resources/WebComponents/` in both repositories, outside the Episode sequence.
 
 ## Content
 
 This repository may contain student-facing material such as:
 
-- unit maps
+- episode maps
 - exercises
 - examples
 - resources
@@ -122,7 +137,7 @@ On every slide except the full-bleed image slide, place the HTL Leonding logo in
 - `Assets/HTLLogo_ab2022_farbig.png`
 - `Assets/Abteilungslogos.png`
 
-The template's example imagery and placeholder text illustrate layout only; replace them with material relevant to the unit while preserving the layout conventions.
+The template's example imagery and placeholder text illustrate layout only; replace them with material relevant to the episode while preserving the layout conventions.
 
 ### Checking slides
 
@@ -132,6 +147,6 @@ Measure the layout instead of judging it by eye. For every slide, read the compu
 
 ## Working Across Repositories
 
-When a task involves both student and teacher material, inspect the corresponding unit in `../teacher-materials` when useful.
+When a task involves both student and teacher material, inspect the corresponding episode in `../teacher-materials` when useful.
 
 Do not modify the teacher repository unless the task explicitly requires changes to teacher material.
