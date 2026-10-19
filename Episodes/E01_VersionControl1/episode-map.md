@@ -51,3 +51,9 @@ We can make changes, create commits and synchronize our local repository with Gi
 ## Exercise
 
 see the [file describing the exercise](exercise.md).
+
+## Presentation
+
+[Version Control — The Basic Commands](Presentation.html)
+
+Open the presentation in a browser. Use the arrow keys or Space to advance the slides and animations. An internet connection is required to load Reveal.js from its CDN.

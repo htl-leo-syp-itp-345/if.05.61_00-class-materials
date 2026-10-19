@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Season 1 · Episode 1: Version Control</title>
+<meta name="description" content="Version Control — The Basic Commands. Recover working states and collaborate with Git and GitHub.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/white.css">
+<style>
+:root { --r-link-color:#656565; --r-link-color-hover:#656565; --ink:#656565; --font:"Gill Sans","Gill Sans MT",Calibri,sans-serif; }
+* { box-sizing:border-box; } body { margin:0; background:#eceff2; }
+.reveal-viewport, body { background:#eceff2 url("../../Assets/template-paper.jpg") center/cover no-repeat; }
+.reveal { font-family:var(--font); color:var(--ink); font-weight:300; }
+.reveal .slides section { width:1920px; height:1080px; padding:190px 57px 0; font-size:64px; line-height:1.15; text-align:left; }
+.reveal .slides h1,.reveal .slides h2,.reveal .slides h3,.reveal .slides p { font-family:var(--font); color:var(--ink); font-weight:300; text-shadow:none; margin:0; }
+.reveal .slides h1,.reveal .slides h2 { font-size:100px; line-height:1.1; text-transform:uppercase; text-align:center; }
+.reveal .slides h3 { font-size:64px; line-height:1.2; margin-bottom:54px; }
+.reveal .slides p { font-size:58px; line-height:1.2; }
+.content-area { position:absolute; left:57px; right:57px; top:370px; height:570px; }
+.takeaway { position:absolute; left:0; right:0; top:490px; text-align:center; font-size:58px!important; }
+.two-columns { display:grid; grid-template-columns:850px 850px; gap:106px; }
+.two-columns p { margin-bottom:48px!important; font-size:58px!important; }
+.history { display:flex; justify-content:space-between; align-items:center; height:400px; }
+.snapshot { width:550px; height:400px; padding-top:215px; text-align:center; }
+.history-graph { position:absolute; left:0; top:0; width:1806px; height:200px; }
+.snapshot p { font-size:64px!important; line-height:1.3!important; }
+.snapshot-dot { font-size:110px; display:block; margin-bottom:55px; }
+.history::before { display:none; content:""; position:absolute; top:122px; left:275px; right:275px; height:3px; background:var(--ink); }
+.snapshot { position:relative; }
+.title-slide { padding:0!important; }
+.title-slide h1 { position:absolute; top:780px; width:100%; }
+.reveal .slides .title-slide .subtitle { position:absolute; top:905px; width:100%; text-align:center; font-size:52px; }
+.title-history { position:absolute; left:320px; right:320px; top:260px; height:400px; display:grid; grid-template-columns:1fr 1fr 1fr; align-items:center; justify-items:center; font-size:64px; }
+.title-history > div > span { font-size:130px; }
+.title-history > div { text-align:center; }.title-history p { font-size:64px!important; margin-top:54px!important; }.title-history > div > span { font-size:130px; }
+.quotation h2 { margin-bottom:145px!important; }.quotation p { text-align:center; font-size:72px!important; margin-bottom:62px!important; }.quotation { padding-top:190px!important; }
+.network { position:absolute; inset:0 0 40px; }
+.network .remote { position:absolute; top:0; left:530px; width:746px; text-align:center; }
+.network .person { position:absolute; top:330px; width:670px; text-align:center; }
+.network .person-a { left:0; }.network .person-b { right:0; }
+.network p { font-size:58px!important; line-height:1.25!important; min-height:74px; }
+.network .remote p:nth-child(2),.network .person p:nth-child(2) { position:relative; font-size:52px!important; }
+.connections { position:absolute; inset:0; width:1806px; height:530px; overflow:visible; pointer-events:none; color:var(--ink); }
+.connections circle { opacity:0; }
+.connections path { fill:none; stroke:var(--ink); stroke-width:3; }
+.replace-state { position:absolute; left:0; top:0; width:100%; display:block; background:#eceff2 url("../../Assets/template-paper.jpg") center/1920px 1080px; }
+.website { position:absolute; inset:0 0 35px; }
+.site-name { position:absolute; left:0; top:0; font-size:80px; }
+.site-nav { position:absolute; right:0; top:12px; font-size:52px; }
+.site-copy { position:absolute; left:0; top:155px; width:840px; }.site-menu { position:absolute; right:0; top:155px; width:680px; }
+.website p { font-size:64px!important; margin-bottom:42px!important; line-height:1.25!important; }
+.website.broken .site-nav { right:0; top:0; width:320px; }
+.website.broken .site-copy { left:780px; top:170px; width:700px; }
+.website.broken .site-menu { visibility:hidden; left:0; top:220px; width:520px; }
+.website.broken .site-menu p { font-size:52px!important; letter-spacing:9px; }
+.site-reservation { position:absolute; left:0; top:120px; font-size:52px!important; }
+.website-slide .takeaway { top:510px; }
+.brand { position:absolute; z-index:5; pointer-events:none; }.brand.htl { left:1450px; top:30px; width:430px; }.brand.department { left:55px; bottom:20px; width:270px; }
+.reveal .slides img.brand { margin:0; height:auto; max-width:none; max-height:none; border:0; box-shadow:none; }
+.reveal a { color:var(--ink); text-decoration:none; }
+@media (prefers-reduced-motion:reduce) { * { animation:none!important; transition:none!important; } }
+@media print { .reveal .slides section { break-after:page; } }
+</style></head><body><svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M 0 0 L 12 6 L 0 12 z" fill="#656565"/></marker></defs></svg><div class="reveal">
+<div class="slides">
+<section class="title-slide">
+<div class="title-history">
+<div>
+<span>●</span>
+<p>Working state</p>
+</div>
+<div>
+<span>●</span>
+<p>New feature</p>
+</div>
+<div>
+<span>●</span>
+<p>Saved history</p>
+</div>
+</div>
+<h1>Version Control</h1>
+<p class="subtitle">Season 1 · Episode 1 · The Basic Commands</p>
+</section>
+
+<section class="content website-slide">
+<h2>A working website</h2>
+<div class="content-area">
+<div class="website " aria-label="Working example café website">
+<div class="site-name">CAMPUS CAFÉ</div>
+<div class="site-nav">Menu　 Opening hours　 Contact</div>
+<div class="site-copy">
+<p>Lunch on campus</p>
+<p>Fresh food.<br>Ready between classes.</p>
+</div>
+<div class="site-menu">
+<p>Today’s menu</p>
+<p>Vegetable curry<br>€ 6.50</p>
+</div>
+</div>
+<p class="takeaway">The layout works. The menu is easy to find.</p>
+</div>
+</section>
+
+<section class="quotation" data-markdown>
+<textarea data-template>## One more feature
+
+“Add online reservations.
+
+Keep the current menu.”</textarea>
+</section>
+
+<section class="content website-slide">
+<h2>The existing layout breaks</h2>
+<div class="content-area">
+<div class="website broken" aria-label="Broken example café website">
+<div class="site-name">CAMPUS CAFÉ</div>
+<div class="site-nav">Menu　 Opening hours　 Contact</div>
+<div class="site-copy">
+<p>Lunch on campus</p>
+<p>Fresh food.<br>Ready between classes.</p>
+</div>
+<div class="site-menu">
+<p>Today’s menu</p>
+<p>Vegetable curry<br>€ 6.50</p>
+</div>
+<p class="site-reservation">Online reservations</p>
+</div>
+<p class="takeaway">The new feature works. The existing menu is unusable.</p>
+</div>
+</section>
+
+<section class="quotation" data-markdown>
+<textarea data-template>## A bug report
+
+“The menu has disappeared.
+
+Can you fix the version that worked?”
+
+Where is that version now?</textarea>
+</section>
+
+<section class="content">
+<h2>A saved working state</h2>
+<div class="content-area">
+<div class="history">
+<svg class="history-graph" viewBox="0 0 1806 200" aria-label="Three states in sequence">
+<path d="M 275 120 H 1531" fill="none" stroke="#656565" stroke-width="3"/>
+<g fill="#656565">
+<circle cx="275" cy="120" r="22"/>
+<circle cx="903" cy="120" r="22"/>
+<circle cx="1531" cy="120" r="22"/>
+</g>
+</svg>
+<div class="snapshot">
+<p>Website works<br>Commit A</p>
+</div>
+<div class="snapshot">
+<p>New feature<br>Commit B</p>
+</div>
+<div class="snapshot">
+<p>Bug report<br>Find commit A</p>
+</div>
+</div>
+<p class="takeaway">A commit records a project state in Git’s history.</p>
+</div>
+</section>
+
+<section class="content">
+<h2>Recovery from history</h2>
+<div class="content-area">
+<div class="two-columns">
+<div>
+<h3>The saved state</h3>
+<p>Keep current work safe.</p>
+<p>Open the earlier commit.</p>
+<p>Reproduce the working site.</p>
+</div>
+<div>
+<h3>The corrected state</h3>
+<p>Fix the bug separately.</p>
+<p>Check the website.</p>
+<p>Commit the fix.</p>
+</div>
+</div>
+<p class="takeaway">Saved history gives us a starting point for the repair.</p>
+</div>
+</section>
+
+<section class="content">
+<h2>One shared source folder</h2>
+<div class="content-area">
+<div class="network">
+<div class="remote">
+<p>Shared server</p>
+<p>One copy of the files</p>
+</div>
+<div class="person person-a">
+<p>Team member 1</p>
+<p>Edit the menu</p>
+</div>
+<div class="person person-b">
+<p>Team member 2</p>
+<p>Add reservations</p>
+</div>
+<svg class="connections" viewBox="0 0 1806 530" aria-label="Connections between the shared server and two team members">
+<g class="">
+<path d="M 340 300 L 780 170" marker-end="url(#arrow)"/>
+</g>
+<g class="">
+<path d="M 1466 300 L 1026 170" marker-end="url(#arrow)"/>
+</g>
+</svg>
+</div>
+<p class="takeaway">Both people start from the same files.</p>
+</div>
+</section>
+
+<section class="content">
+<h2>The last save wins</h2>
+<div class="content-area">
+<div class="network">
+<div class="remote">
+<p>Shared server</p>
+<p>
+<span class="base-state">Original files</span>
+<span class="fragment replace-state" data-fragment-index="0">Member 1’s files</span>
+<span class="fragment replace-state" data-fragment-index="1">Member 2’s files</span>
+</p>
+</div>
+<div class="person person-a">
+<p>Team member 1</p>
+<p>Save changed menu</p>
+</div>
+<div class="person person-b">
+<p>Team member 2</p>
+<p>Save changed reservations</p>
+</div>
+<svg class="connections" viewBox="0 0 1806 530" aria-label="Connections between the shared server and two team members">
+<g class="fragment" data-fragment-index="0">
+<path d="M 340 300 L 780 170" marker-end="url(#arrow)"/>
+<circle r="14" fill="currentColor">
+<animateMotion dur="1.5s" begin="indefinite" fill="freeze" path="M 340 300 L 780 170"/>
+</circle>
+</g>
+<g class="fragment" data-fragment-index="1">
+<path d="M 1466 300 L 1026 170" marker-end="url(#arrow)"/>
+<circle r="14" fill="currentColor">
+<animateMotion dur="1.5s" begin="indefinite" fill="freeze" path="M 1466 300 L 1026 170"/>
+</circle>
+</g>
+</svg>
+</div>
+<p class="takeaway">Saving whole files can overwrite somebody else’s changes.</p>
+</div>
+</section>
+
+<section class="content">
+<h2>Git keeps separate histories</h2>
+<div class="content-area">
+<div class="network">
+<div class="remote">
+<p>Shared server</p>
+<p>Shared Git repository</p>
+</div>
+<div class="person person-a">
+<p>Team member 1</p>
+<p>Local Git repository</p>
+</div>
+<div class="person person-b">
+<p>Team member 2</p>
+<p>Local Git repository</p>
+</div>
+<svg class="connections" viewBox="0 0 1806 530" aria-label="Connections between the shared server and two team members">
+<g class="">
+<path d="M 340 300 L 780 170" marker-end="url(#arrow)"/>
+</g>
+<g class="">
+<path d="M 1466 300 L 1026 170" marker-end="url(#arrow)"/>
+</g>
+</svg>
+</div>
+<p class="takeaway">Each person commits changes in their own repository.</p>
+</div>
+</section>
+
+<section class="content">
+<h2>A second push needs care</h2>
+<div class="content-area">
+<div class="two-columns">
+<div>
+<h3>Team member 1</h3>
+<p>Change the menu.</p>
+<p>Commit locally.</p>
+<p>Push to the server.</p>
+</div>
+<div>
+<h3>Team member 2</h3>
+<p>Commit reservations.</p>
+<p>Try to push.</p>
+<p>Git rejects the outdated push.</p>
+</div>
+</div>
+<p class="takeaway">A normal push protects remote history from being overwritten.</p>
+</div>
+</section>
+
+<section class="content">
+<h2>Combine both changes</h2>
+<div class="content-area">
+<div class="two-columns">
+<div>
+<h3>Team member 2</h3>
+<p>Pull and integrate the new history.</p>
+<p>Resolve conflicts if needed.</p>
+<p>Push the combined result.</p>
+</div>
+<div>
+<h3>The shared result</h3>
+<p>The menu change remains.</p>
+<p>Reservations remain.</p>
+<p>Both contributions have a history.</p>
+</div>
+</div>
+<p class="takeaway">A rejected push is different from a merge conflict.</p>
+</div>
+</section>
+
+<section class="content">
+<h2>Clone</h2>
+<div class="content-area">
+<div class="network">
+<div class="remote">
+<p>Shared server</p>
+<p>Project files + history</p>
+</div>
+<div class="person person-a">
+<p>Team member 1</p>
+<p>
+<span class="base-state">Empty computer</span>
+<span class="fragment replace-state" data-fragment-index="0">Files + local history</span>
+</p>
+</div>
+<div class="person person-b">
+<p>Team member 2</p>
+<p>
+<span class="base-state">Empty computer</span>
+<span class="fragment replace-state" data-fragment-index="0">Files + local history</span>
+</p>
+</div>
+<svg class="connections" viewBox="0 0 1806 530" aria-label="Connections between the shared server and two team members">
+<g class="fragment" data-fragment-index="0">
+<path d="M 780 170 L 340 300" marker-end="url(#arrow)"/>
+<circle r="14" fill="currentColor">
+<animateMotion dur="1.5s" begin="indefinite" fill="freeze" path="M 780 170 L 340 300"/>
+</circle>
+</g>
+<g class="fragment" data-fragment-index="0">
+<path d="M 1026 170 L 1466 300" marker-end="url(#arrow)"/>
+<circle r="14" fill="currentColor">
+<animateMotion dur="1.5s" begin="indefinite" fill="freeze" path="M 1026 170 L 1466 300"/>
+</circle>
+</g>
+</svg>
+</div>
+<p class="takeaway">Clone creates a local repository and a working copy.</p>
+</div>
+</section>
+
+<section class="content">
+<h2>Change and commit</h2>
+<div class="content-area">
+<div class="history">
+<svg class="history-graph" viewBox="0 0 1806 200" aria-label="Three states in sequence">
+<path d="M 275 120 H 1531" fill="none" stroke="#656565" stroke-width="3"/>
+<g fill="#656565">
+<circle cx="275" cy="120" r="22"/>
+<circle cx="903" cy="120" r="22"/>
+<circle cx="1531" cy="120" r="22"/>
+</g>
+</svg>
+<div class="snapshot">
+<p>Change<br>Edit working files</p>
+</div>
+<div class="snapshot">
+<p>Stage<br>Select with git add</p>
+</div>
+<div class="snapshot">
+<p>Commit<br>Record a local state</p>
+</div>
+</div>
+<p class="takeaway">A commit stays local until we push it.</p>
+</div>
+</section>
+
+<section class="content">
+<h2>Push</h2>
+<div class="content-area">
+<div class="network">
+<div class="remote">
+<p>Shared server</p>
+<p>
+<span class="base-state">Previous history</span>
+<span class="fragment replace-state" data-fragment-index="0">Includes the new commit</span>
+</p>
+</div>
+<div class="person person-a">
+<p>Team member 1</p>
+<p>New local commit</p>
+</div>
+<div class="person person-b">
+<p>Team member 2</p>
+<p>Previous local history</p>
+</div>
+<svg class="connections" viewBox="0 0 1806 530" aria-label="Connections between the shared server and two team members">
+<g class="fragment" data-fragment-index="0">
+<path d="M 340 300 L 780 170" marker-end="url(#arrow)"/>
+<circle r="14" fill="currentColor">
+<animateMotion dur="1.5s" begin="indefinite" fill="freeze" path="M 340 300 L 780 170"/>
+</circle>
+</g>
+</svg>
+</div>
+<p class="takeaway">Push sends committed history to the shared repository.</p>
+</div>
+</section>
+
+<section class="content">
+<h2>Pull</h2>
+<div class="content-area">
+<div class="network">
+<div class="remote">
+<p>Shared server</p>
+<p>Includes the new commit</p>
+</div>
+<div class="person person-a">
+<p>Team member 1</p>
+<p>Already up to date</p>
+</div>
+<div class="person person-b">
+<p>Team member 2</p>
+<p>
+<span class="base-state">Previous local history</span>
+<span class="fragment replace-state" data-fragment-index="0">Integrated new history</span>
+</p>
+</div>
+<svg class="connections" viewBox="0 0 1806 530" aria-label="Connections between the shared server and two team members">
+<g class="fragment" data-fragment-index="0">
+<path d="M 1026 170 L 1466 300" marker-end="url(#arrow)"/>
+<circle r="14" fill="currentColor">
+<animateMotion dur="1.5s" begin="indefinite" fill="freeze" path="M 1026 170 L 1466 300"/>
+</circle>
+</g>
+</svg>
+</div>
+<p class="takeaway">Pull fetches remote history and integrates it locally.</p>
+</div>
+</section>
+
+<section class="content">
+<h2>Our basic workflow</h2>
+<div class="content-area">
+<div class="two-columns">
+<div>
+<h3>Start and work locally</h3>
+<p>Clone the repository.</p>
+<p>Change working files.</p>
+<p>Stage and commit changes.</p>
+</div>
+<div>
+<h3>Work with the team</h3>
+<p>Push committed history.</p>
+<p>Pull others’ changes.</p>
+<p>Integrate and continue.</p>
+</div>
+</div>
+<p class="takeaway">Git keeps history. GitHub hosts our shared repository.</p>
+</div>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/markdown/markdown.js"></script>
+<script>
+const sections=[...document.querySelectorAll('.slides > section')];
+for (const section of sections) {
+  const a=document.createElement('img');a.src='../../Assets/HTLLogo_ab2022_farbig.png';a.alt='HTL Leonding';a.className='brand htl';section.append(a);
+  const b=document.createElement('img');b.src='../../Assets/Abteilungslogos.png';b.alt='Informatik und Medientechnik';b.className='brand department';section.append(b);
+}
+function animateFragment(fragment) {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  fragment.querySelectorAll('animateMotion').forEach(animation=>{animation.parentElement.style.opacity='1';animation.beginElement();});
+}
+if (typeof Reveal !== 'undefined') {
+ Reveal.initialize({width:1920,height:1080,margin:0,minScale:0.1,maxScale:4,center:false,hash:true,transition:'none',controls:true,progress:false,plugins:[RevealMarkdown]});
+ Reveal.on('ready',()=>{
+ for(const section of document.querySelectorAll('.slides > section')) {
+  if(!section.querySelector('.brand')) {
+   for(const [src,alt,cls] of [['../../Assets/HTLLogo_ab2022_farbig.png','HTL Leonding','htl'],['../../Assets/Abteilungslogos.png','Informatik und Medientechnik','department']]) {const image=document.createElement('img');image.src=src;image.alt=alt;image.className='brand '+cls;section.append(image);}
+  }
+ }
+});
+ Reveal.on('fragmentshown',event=>(event.fragments||[event.fragment]).forEach(animateFragment));
+} else { document.body.insertAdjacentHTML("beforeend", '<p style="position:fixed;bottom:20px;left:20px;font:24px sans-serif;color:#656565">Connect to the internet and reload to load Reveal.js.</p>'); }
+// Read-only QA: exact measurements in the unscaled 1920 × 1080 canvas.
+window.measureSlides=()=>{
+ document.querySelectorAll('body > .reveal[style*="z-index"]').forEach(e=>e.remove());
+ const originals=[...document.querySelectorAll('.reveal > .slides > section')];
+ const host=document.createElement('div');host.className='reveal';host.style.cssText='position:fixed!important;left:0!important;top:0!important;width:1920px!important;height:1080px!important;transform:none!important;z-index:-10;';
+ const canvas=document.createElement('div');canvas.className='slides';canvas.style.cssText='position:absolute!important;left:0!important;top:0!important;width:1920px!important;height:1080px!important;transform:none!important;perspective:none!important;';host.append(canvas);document.body.append(host);
+ const results=[];
+ for(const [i,original] of originals.entries()){
+  const s=original.cloneNode(true);canvas.append(s);s.style.cssText='display:block!important;position:absolute!important;left:0!important;top:0!important;transform:none!important;width:1920px!important;height:1080px!important;';
+  const title=s.querySelector('h1,h2');
+  const boxes=[...s.querySelectorAll('h1,h2,h3,p,.site-name,.site-nav,.snapshot-dot')].map(e=>{const r=e.getBoundingClientRect();return {text:e.textContent.trim(),font:parseFloat(getComputedStyle(e).fontSize),x:r.x,y:r.y,w:r.width,h:r.height};});
+  results.push({slide:i+1,title:title?.textContent,titleFont:parseFloat(getComputedStyle(title).fontSize),boxes,images:[...original.querySelectorAll('img')].map(e=>({src:e.getAttribute('src'),loaded:e.complete&&e.naturalWidth>0}))});s.remove();
+ }
+ host.remove();return results;
+};
+</script>
+<!-- Student-facing reference material: https://git-scm.com/docs/git-clone https://git-scm.com/docs/git-push https://git-scm.com/docs/git-pull -->
+</body></html>
