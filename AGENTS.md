@@ -68,116 +68,21 @@ In particular, do not add:
 
 ## Generating Slides
 
-Create slide presentations with Slidev. Keep the editable entry source in the corresponding Episode or Prologue directory as `slides.md`. Read `.agents/skills/slidev/SKILL.md` and the references relevant to the requested work before authoring or changing a deck. Use the local CLI and configuration described below.
+### General Rules
 
-Keep slide content editable. Do not use screenshots or rasterized images of complete source slides as the presentation slides. Rebuild text as text and recreate diagrams with editable elements where practical; use images as individual visual assets within the slide layout.
+These rules apply to both workflows below. If the intended source or workflow is unclear, ask the user before generating slides; do not assume.
 
-Use Slidev Markdown for slide headings, paragraphs, and lists wherever practical, with `---` separators between slides and frontmatter for slide configuration. Use Vue components, HTML, and CSS when a slide needs a specific layout, image placement, or other formatting that Markdown alone cannot express. Keep the source easy to update and make each slide's structure clear.
+Use Slidev, with `slides.md` in the corresponding Episode or Prologue directory. Before authoring or changing a deck, read `.agents/skills/slidev/SKILL.md` and relevant references. Local commands, setup, and installation history are documented in [Slide tooling](scripts/README.md).
 
-Preserve the source material's meaning, important details, and slide order when converting an existing presentation. Do not silently omit or change content. Reorganize or condense only when requested or when necessary to fit the slide format, without losing essential information.
+Keep content editable: use Markdown for headings, paragraphs, and lists; Vue, HTML, CSS, and editable diagrams for richer layouts. Rebuild source text as text and diagrams as editable elements where practical. Never use screenshots or rasterized images of complete slides as slides.
 
-Use specific, relevant image files rather than template placeholders. Keep image paths relative to the presentation file, provide meaningful alternative text, and do not use an image of a complete slide in place of editable content. Prefer suitable project assets; when new assets are needed, ensure they are appropriate for student-facing publication.
+Use relevant image assets with relative paths and meaningful alternative text. Prefer suitable project assets; replace template placeholders with content appropriate for student publication. Raster images must support 2× their displayed size (full-bleed images at least 3840 px wide). Use local dependencies and assets for offline presentation; check any remaining remote dependencies before presenting offline.
 
-Use local dependencies and assets for reliable presentation without an internet connection. Remote images, fonts, embeds, or other services require a connection unless bundled locally; check these dependencies before presenting offline.
+Preserve the source's meaning and important details, following the source-specific rules for structure and wording. Keep teacher-only information out of the deck and its source, including presenter-note comments.
 
-Slides should follow the 16:9 layout and visual system shown in `Assets/SlideLayoutTemplate.pdf` (also available as `Assets/SlideLayoutTemplate.key`). The template demonstrates these slide types:
+#### Configuration and design
 
-- **Title slide:** prominent subject image across the upper portion, with a centered title and optional subtitle below it.
-- **Image slide:** a single large image fills the slide; use when the image itself is the focus.
-- **Section slide:** a short section heading centered on the slide.
-- **Bullet slide:** a large heading above concise bullet points; a two-column arrangement is available for denser content.
-- **Quote slide:** a short quotation centered on the slide, with attribution beneath it.
-- **Image-and-bullets slide:** heading at the top, a small number of concise bullets on the left, and a supporting image on the right.
-- **General content slide:** a heading across the upper area with content arranged freely below it.
-
-### Slide layout rules
-
-The values below were measured from `Assets/SlideLayoutTemplate.pdf`, which is 1920 × 1080 px. Set Slidev's opening frontmatter to `canvasWidth: 1920` and `aspectRatio: 16/9` so that the values apply 1:1. Override default theme padding and sizing to use the full canvas with the measured positions below. Text in the template is large and fills the slide; do not shrink it to fit more content.
-
-The px values are units of this 1920 × 1080 design canvas, not physical screen pixels. Slidev scales the whole canvas uniformly to the display, so the proportions hold on any screen: 52 px is always 4.8 % of the slide height, whether the slide is shown on a laptop or a 90" display. Do not use per-slide `zoom` or element transforms to shrink text below the required sizes. Raster images must be sharp when enlarged: use at least the displayed size at 2× (a full-bleed image at least 3840 px wide).
-
-**Typography and color**
-
-- Use one typeface, Gill Sans Light (weight 300), with the stack `"Gill Sans", "Gill Sans MT", Calibri, sans-serif`. Do not mix typefaces and do not use bold for emphasis.
-- All text is neutral gray `#656565`. Do not use accent colors on text or graphics.
-- Use the template background (pale cool gray, `#eceff2`, with a soft gradient; `Assets/template-paper.jpg` is an extract of it).
-- Do not add decoration: no divider rules, borders, cards, boxes, or underlines. Create hierarchy with size and position only.
-
-| Element                     | Font size   | Notes                                                                                    |
-| --------------------------- | ----------- | ---------------------------------------------------------------------------------------- |
-| Slide title                 | 94–100 px   | Uppercase, centered, top of the text at about y = 190 (y = 140 if it wraps to two lines) |
-| Bullets and body text       | 52–64 px    | Never below 52 px                                                                        |
-| Subtitle, quotation         | about 52 px | Centered                                                                                 |
-| Attribution, secondary line | about 38 px | Smallest text allowed, apart from credits                                                |
-
-**Text must fill the slide**
-
-- Side margins are about 57 px (3 %). Text blocks span nearly the full width; bullets start at x ≈ 57. A two-column slide puts the second column at x ≈ 1000–1060.
-- Titles are centered horizontally. Bullets are left-aligned in their column. Quotations and section headings are centered horizontally and vertically.
-- Inside a bullet, line spacing is about 1.1–1.3 × the font size. Between bullets leave about one empty line, so the pitch from one bullet to the next is about 2 × the font size (112 px for 52 px text).
-- On a content slide (bullet, image-and-bullets, or general content slide) the bounding box of the title, text, and images must cover at least 40 % of the slide area, span at least 85 % of the slide width, and reach down to at least y ≈ 800. With an image on one side, text and image together must cover at least 60 %. Title, section, quotation, and image slides are exempt from these three limits.
-- Never leave the content hugging one side or corner with the rest of the slide empty. Content is either centered or spread across the columns.
-- If the content is too short to fill the slide, enlarge the text (up to 72 px), increase the spacing between items, or add a relevant image. Do not leave the area blank.
-- If the content is too long to fit at 52 px (more than about 6 bullets per column, or bullets longer than about 10 words), split it into consecutive slides. Keep the original order and wording. Do not reduce the font size.
-
-**Slide types (measured positions)**
-
-- **Title slide:** large image in the upper part of the slide (about 60 % of the width, centered, spanning y ≈ 50–690); title at 100 px centered at y ≈ 780; subtitle at 52 px directly below it (y ≈ 895).
-- **Image slide:** the image is full-bleed. No logos on this slide.
-- **Section slide:** one heading at 100 px, centered horizontally and vertically (centered at y ≈ 540).
-- **Bullet slide:** title at 100 px centered at y ≈ 190; bullets at 64 px in one or two columns that together span the full width. The columns may be staggered vertically.
-- **Image-and-bullets slide:** title at 100 px centered; bullets at 52 px, left-aligned from x ≈ 57, starting at y ≈ 455; the image sits on the right (about 650 × 630 px, x ≈ 1060–1710, y ≈ 300–930).
-- **Quotation slide:** quotation at 52 px and attribution at 38 px, both centered, around the vertical center (y ≈ 470–680).
-- **General content slide:** title at 94 px, centered, starting at y ≈ 140 and wrapping to two lines if needed; content is placed freely below it, using the same size and fill rules.
-
-**Logos**
-
-On every slide except the full-bleed image slide, place the HTL Leonding logo in the upper-right corner (about 430 px wide, x ≈ 1450–1885, y ≈ 30–130) and the department identifiers in the lower-left corner (about 270 px wide, x ≈ 55–325, bottom edge at y ≈ 1060). Available assets are:
-
-- `Assets/HTLLogo_ab2022_farbig.png`
-- `Assets/Abteilungslogos.png`
-
-The template's example imagery and placeholder text illustrate layout only; replace them with material relevant to the episode while preserving the layout conventions.
-
-### Checking slides
-
-Before finishing a presentation, open it in a browser at 1920 × 1080 and check the rendered slides. Confirm that content does not overflow or overlap, images and other local assets load, and the slide order and content match the source.
-
-Measure the layout instead of judging it by eye. For every slide, read the computed font sizes and the bounding box of the title, text (including bullet markers), and images, and check that no text overlaps other text, an image, or the logos. A slide fails if its title is below 94 px, if any body text is below 52 px, if the content covers less than 40 % of the slide area, or if it does not span the width and height required above. Fix the slide and measure again.
-
-### Slidev and Impeccable workflow
-
-Slidev is the default presentation renderer. Use Impeccable to support layout and design work within the **Generating Slides**, layout, logo, content-preservation, and browser-verification instructions above. Convert an existing presentation only when the task requests it; changing this guidance does not itself convert any decks.
-
-**Installation and scope**
-
-The repository's `package.json` declares local Slidev, its default theme, Vue, Impeccable, and the skills installer. Use Node.js 22.12.0 or newer. From this repository, run:
-
-```sh
-npm run setup:slides
-```
-
-The setup script installs the npm packages into `node_modules/` and copies the official `impeccable` and `slidev` skills into `.agents/skills/`, using the project-scoped Codex installation. It verifies both skill files and both CLI versions before reporting success. Installed skills should become available on the next turn; reload Codex if they do not appear. This setup installs the skills and CLI tools; it does not enable automatic design hooks.
-
-Keep `package-lock.json`, `skills-lock.json`, and the installed `.agents/skills/` files under version control after successful setup so the selected dependencies and skills are reviewable. Subsequent npm-only reinstalls can use `npm ci` once the lockfile exists. Do not commit `node_modules/` or generated slide builds.
-
-**Installation status as of 2026-10-19:** both skills are installed under `.agents/skills/`, and the local CLIs report Slidev `52.20.1` and Impeccable `4.6.0`. Dependency and skill lockfiles are present. Use the installed tools; rerun setup only when installation or an update is needed. The setup does not change user-wide npm settings.
-
-**Impeccable workflow**
-
-Before using Impeccable, read `.agents/skills/impeccable/SKILL.md` and the command references relevant to the requested work. Use it to critique composition and hierarchy, refine layout and typography, and polish alignment and spacing. Examples in Codex:
-
-```text
-$impeccable critique the Episode 1 presentation layout
-$impeccable layout the Episode 1 presentation within our existing slide rules
-$impeccable polish the Episode 1 presentation
-```
-
-Use the template and the rules above as the design brief. General skill suggestions about fonts, accent colors, cards, decoration, or additional whitespace do not override Gill Sans Light, the neutral palette, minimum font sizes, required content coverage, or logo placement. Keep slide text and diagrams editable. Perform the existing browser measurements after design changes; an automated critique is additional evidence, not a replacement for those checks.
-
-**Slidev configuration and commands**
-
-Set each deck's opening frontmatter to:
+Use this opening frontmatter:
 
 ```yaml
 ---
@@ -185,27 +90,87 @@ aspectRatio: 16/9
 canvasWidth: 1920
 fonts:
   provider: none
-  sans: 'Gill Sans, Gill Sans MT, Calibri, sans-serif'
+  sans: "Gill Sans, Gill Sans MT, Calibri, sans-serif"
 ---
 ```
 
-This gives a 1920 × 1080 canvas. Override the theme's typography, spacing, colors, and layouts to match all the existing visual requirements. Slidev theme defaults are not the course design system. Use editable Markdown, Vue, HTML, CSS, and diagrams; preserve Episode numbering, content, and student/teacher separation. Keep teacher-only speaker notes out of this repository, including Markdown comments that Slidev treats as presenter notes.
+Follow `Assets/SlideLayoutTemplate.pdf` (also available as `.key`) as the shared design reference, distinct from a PDF supplying presentation content. All measurements below use design-canvas pixels; Slidev scales the canvas uniformly to the display. Override theme typography, padding, spacing, colors, and layouts to match these rules. Do not use `zoom` or element transforms to shrink text below the required sizes.
 
-Run the local CLI from this repository, passing the actual Episode source path:
+**Typography and color**
 
-```sh
-npm run slidev -- Episodes/E01_VersionControl1/slides.md
-npm run slides:build -- Episodes/E01_VersionControl1/slides.md --out dist/E01_VersionControl1
-npm run slides:export -- Episodes/E01_VersionControl1/slides.md
-npm run impeccable -- --help
-```
+- Use the configured font stack with Gill Sans Light, weight 300. Do not mix typefaces or use bold for emphasis.
+- All text is neutral gray `#656565`; no accent colors on text or graphics.
+- Use the pale cool gray background `#eceff2` with a soft gradient; `Assets/template-paper.jpg` contains the template background.
+- No decorative divider rules, borders, cards, boxes, or underlines. Create hierarchy with size and position.
 
-Run these commands only for a presentation task with an existing Slidev source file; do not create a deck merely to verify tool installation. PDF/image export may additionally require Slidev's Playwright/Chromium dependency. Verify actual font sizes and bounds at the full canvas size; do not use Slidev scaling or theme defaults to make undersized text appear compliant.
+| Element | Font size | Treatment |
+| --- | --- | --- |
+| Slide title | 94–100 px | Uppercase; placement per slide type below |
+| Bullets and body text | 52–64 px | Never below 52 px |
+| Subtitle, quotation | About 52 px | Centered |
+| Attribution, secondary line | About 38 px | Smallest text allowed, apart from credits |
 
-Official references:
+**Spacing and coverage**
 
-- [Impeccable documentation index](https://impeccable.style/llms.txt), [installation and Codex project paths](https://impeccable.style/faq/)
-- [Slidev documentation index](https://sli.dev/llms.txt), [setup](https://sli.dev/guide/), [official agent skill](https://sli.dev/guide/work-with-ai), [canvas size](https://sli.dev/features/canvas-size)
+- Side margins are about 57 px (3 %). Text blocks span nearly the full width; bullets start at x ≈ 57. A second column starts at x ≈ 1000–1060.
+- Titles are centered horizontally; bullets are left-aligned within their columns. Quotations and section headings are centered horizontally and vertically.
+- Bullet line spacing is 1.1–1.3 × the font size; leave about one empty line between bullets, giving a pitch of about 2 × the font size (112 px for 52 px text).
+- On content slides (bullet, image-and-bullets, general content), the combined bounding box of title, text, and images must cover at least 40 % of the slide area, span at least 85 % of its width, and reach y ≈ 800. With an image on one side, coverage must be at least 60 %. Title, section, quotation, and image slides are exempt from these coverage limits.
+- Center content or spread it across columns; do not leave it hugging one corner. For sparse content, enlarge text up to 72 px, increase spacing, or add a relevant image.
+- For overflow (roughly more than 6 bullets per column or bullets longer than 10 words at the minimum body size), follow the source-specific rules; do not shrink text.
+
+**Slide types**
+
+Positions are approximate; title y values describe the top of the text unless identified as centers.
+
+| Type | Content and measurements |
+| --- | --- |
+| Title | Prominent subject image, centered at about 60 % of slide width, y ≈ 50–690; centered 100 px title at y ≈ 780; optional 52 px subtitle at y ≈ 895. |
+| Image | One full-bleed image as the focus. |
+| Section | One short 100 px heading centered horizontally and vertically, center y ≈ 540. |
+| Bullet | Centered 100 px title at y ≈ 190 (y ≈ 140 for two lines); 64 px bullets in one or two columns spanning the width. Columns may be staggered vertically. |
+| Image-and-bullets | Centered 100 px title at y ≈ 190 (y ≈ 140 for two lines); concise 52 px bullets from x ≈ 57, y ≈ 455; supporting image about 650 × 630 px at x ≈ 1060–1710, y ≈ 300–930. |
+| Quotation | Short 52 px quotation with 38 px attribution beneath, both centered around y ≈ 470–680. |
+| General content | Centered 94 px title at y ≈ 140, wrapping to two lines if needed; content arranged freely below under the spacing and coverage rules. |
+
+**Logos**
+
+On every slide except the full-bleed image slide, place:
+
+- `Assets/HTLLogo_ab2022_farbig.png` upper-right, about 430 px wide, x ≈ 1450–1885, y ≈ 30–130.
+- `Assets/Abteilungslogos.png` lower-left, about 270 px wide, x ≈ 55–325, bottom edge y ≈ 1060.
+
+#### Design support and verification
+
+Before using Impeccable, read `.agents/skills/impeccable/SKILL.md` and relevant command references. Apply it within the course design rules above, then verify the rendered result.
+
+Open the deck in a browser at the configured canvas size. For every slide, measure computed font sizes and the bounding boxes of titles, text (including bullet markers), and images against the layout rules, including their exemptions. Check for overflow and overlaps between text, images, and logos, and confirm assets load. Verify content and structure against the source-specific rules below. Fix failures and repeat the affected checks.
+
+### Rules for Generating From Existing Pdfs
+
+Use the specified PDF presentation as the content source and apply the General Rules.
+
+Preserve the source presentation's meaning, important details, and slide order. Do not silently omit or change content. Reorganize or condense only when requested or when necessary to fit the slide format, without losing essential information.
+
+If a source slide is too dense to fit at the required font sizes, split it into consecutive slides while keeping the original order and wording. Preserve its position relative to the surrounding source slides.
+
+Compare the rendered deck with the source PDF. Check that every source slide's content is represented, the sequence is preserved, and text, diagrams, and images have been transferred accurately. Account for any splits or requested changes when comparing slide counts.
+
+### Rules for Generating From teacher-notes
+
+Read `teacher-notes.md` in the corresponding Episode or Prologue directory in `../teacher-materials`. Use the presentation section specified by the user, or identify it from the structure described below. If the file, section, or intended source is unclear, ask the user before generating slides. Do not assume that notes describing an existing deck are an instruction to create a new presentation from them.
+
+The presentation section normally begins with an H2 (`##`) heading such as `Slide Notes`, `Presentation`, or similar. Each H3 (`###`) underneath describes the content of one slide; its heading text normally starts with `Slide`. The section ends at the next H2 or higher-level heading, or the end of the file. If headings do not clearly establish this structure, or several sections could be intended, ask the user. Do not infer a different structure.
+
+Preserve the structure given in the notes: create one slide for each H3 in the selected section, in the same order, and keep each H3's content assigned to that slide. Do not automatically add title or section slides, merge slides, split slides, or reorder them. An H2 marking the presentation section does not itself request an additional slide.
+
+Use each H3 and its contents to determine the slide's title, text, visuals, and any requested animation. Follow explicit directions and preserve the intended meaning and important details. If the heading or notes leave the displayed title, content, or treatment unclear, ask the user; do not invent missing content or silently make assumptions.
+
+Do not turn material outside the selected presentation section into slides unless requested. Keep teacher-only delivery cues, solutions, assessment information, and internal planning out of the student-facing deck and its source, including presenter-note comments. If it is unclear whether a passage is intended for students or only for the teacher, ask before including it.
+
+If a prescribed slide cannot fit within the General Rules, ask the user how to resolve the conflict. Do not automatically split it, omit or condense content, or reduce the required font sizes.
+
+Compare the rendered deck with the selected notes section. Verify one slide per H3, matching order, coverage of each slide's specified content and visuals, and exclusion of teacher-only material. If anything is uncertain, ask the user before proceeding; do not assume.
 
 ## Working Across Repositories
 
