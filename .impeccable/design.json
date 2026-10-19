@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-19T20:07:02.027Z",
+  "title": "Design System: SYPPRE Course Presentations",
+  "extensions": {
+    "colorMeta": {
+      "text": {
+        "role": "neutral",
+        "displayName": "Neutral gray"
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Pale cool gray"
+      }
+    },
+    "typographyMeta": {
+      "title": {
+        "displayName": "Slide title",
+        "purpose": "Reference title role; apply slide-type variants from DESIGN.md."
+      },
+      "body": {
+        "displayName": "Body text",
+        "purpose": "Minimum body role; enlarge according to content and DESIGN.md."
+      },
+      "secondary": {
+        "displayName": "Secondary line",
+        "purpose": "Attribution and secondary lines under DESIGN.md."
+      }
+    }
+  },
+  "components": [
+    {
+      "name": "Slide title",
+      "kind": "custom",
+      "description": "An isolated typography specimen, not a generated course slide.",
+      "html": "<h2 class=\"ds-slide-title\">Slide title</h2>",
+      "css": ".ds-slide-title { margin: 0; color: #656565; font-family: \"Gill Sans\", \"Gill Sans MT\", Calibri, sans-serif; font-size: 100px; font-weight: 300; line-height: 1.1; text-transform: uppercase; text-align: center; }"
+    },
+    {
+      "name": "Body text",
+      "kind": "custom",
+      "description": "An isolated typography specimen at the minimum body size.",
+      "html": "<p class=\"ds-slide-body\">Supporting explanation</p>",
+      "css": ".ds-slide-body { margin: 0; color: #656565; font-family: \"Gill Sans\", \"Gill Sans MT\", Calibri, sans-serif; font-size: 52px; font-weight: 300; line-height: 1.2; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Zen-like teaching slides",
+    "overview": "The agreed direction is calm, elegant, and minimalistic. Clear hierarchy, precise alignment, consistent spacing, and purposeful visuals support understanding. The existing template defines the visual identity; this document is the visual specification for Slidev and Impeccable.",
+    "keyCharacteristics": [
+      "Calm hierarchy and readable typography.",
+      "Balanced composition with purposeful whitespace.",
+      "Restrained visuals and explanatory animation.",
+      "Consistent template identity across episodes."
+    ],
+    "rules": [],
+    "dos": [],
+    "donts": []
+  }
+}

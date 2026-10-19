@@ -14,7 +14,7 @@ Since material of this course is held in three different study programs the diff
 
 ### Season 1: From Idea to Production
 
-- [Episode 1: Version Control I](Episodes/E01_VersionControl1/episode-map.md) – The Basic Commands
+- [Episode 1: Version Control I](Episodes/E01_VersionControl1/) – The Basic Commands
 - [Episode 2: Creativity Techniques](Episodes/E02_CreativityTechniques/Presentation.pdf)
 - [Episode 3: Markdown](Episodes/E03_Markdown/Markdown.md) – Documenting Like a Pro
 - [Episode 4: Building a Simple Website with Astro](Episodes/E04_Astro/Astro.md)
@@ -38,7 +38,7 @@ Since material of this course is held in three different study programs the diff
 
 - [Episode 17: Client Server Architecture]()
 - [Episode 18: Test Driven Development](Episodes/E18_UnitTesting/)
-- [Episode 19: Open Spec and Agentic Programming](Episodes/E19_OpenSpecAgenticProgramming/episode-map.md)
+- [Episode 19: Open Spec and Agentic Programming](Episodes/E20_REST/REST.md)
 - [Episode 20: REST](Episodes/E20_REST/)
 - [Episode 21: SCRUM - Overview]()
 - [Episode 22: SCRUM - Sprint Planning]()

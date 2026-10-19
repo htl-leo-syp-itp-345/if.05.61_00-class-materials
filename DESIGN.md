@@ -1,0 +1,102 @@
+---
+name: SYPPRE Course Presentations
+description: Calm, elegant, minimalistic teaching slides grounded in the course template.
+colors:
+  text: "#656565"
+  background: "#eceff2"
+typography:
+  title:
+    fontFamily: "Gill Sans, Gill Sans MT, Calibri, sans-serif"
+    fontSize: "100px"
+    fontWeight: 300
+  body:
+    fontFamily: "Gill Sans, Gill Sans MT, Calibri, sans-serif"
+    fontSize: "52px"
+    fontWeight: 300
+  secondary:
+    fontFamily: "Gill Sans, Gill Sans MT, Calibri, sans-serif"
+    fontSize: "38px"
+    fontWeight: 300
+---
+
+# Design System: SYPPRE Course Presentations
+
+## Overview
+
+**Creative North Star: "Zen-like teaching slides"**
+
+The agreed direction is calm, elegant, and minimalistic. Clear hierarchy, precise alignment, consistent spacing, and purposeful visuals support understanding. The existing template defines the visual identity; this document is the visual specification for Slidev and Impeccable.
+
+**Key Characteristics:**
+
+- Calm hierarchy and readable typography.
+- Balanced composition with purposeful whitespace.
+- Restrained visuals and explanatory animation.
+- Consistent template identity across episodes.
+
+[PRODUCT.md](PRODUCT.md) records the audience and purpose. [AGENTS.md](AGENTS.md#generating-slides) defines the generation workflow, technical Slidev setup, and verification procedure. Visual rules are maintained here.
+
+## Colors
+
+Use the neutral gray text and pale cool gray background tokens above. Apply the supplied soft-gradient background from `Assets/template-paper.jpg`. No accent colors on authored text or graphics; retain the supplied logo artwork. Choose relevant imagery to support the explanation.
+
+## Typography
+
+Use Gill Sans Light with the configured fallback stack. Keep one typeface and light weight throughout, without bold emphasis. Create hierarchy through size and position.
+
+The frontmatter tokens are reference sizes for common roles. Apply the variants and permitted ranges below, using larger text where appropriate. Never shrink content below its required size to make it fit.
+
+| Element | Font size | Treatment |
+| --- | --- | --- |
+| Slide title | 94–100 px | Uppercase; placement per slide type below |
+| Bullets and body text | 52–64 px | Never below 52 px |
+| Subtitle, quotation | About 52 px | Centered |
+| Attribution, secondary line | About 38 px | Smallest text allowed, apart from credits |
+
+## Layout
+
+Follow `Assets/SlideLayoutTemplate.pdf` (also available as `Assets/SlideLayoutTemplate.key`) as the design reference. All measurements use design-canvas pixels; Slidev scales the configured canvas uniformly to the display. Override theme typography, padding, spacing, colors, and layouts to match this specification. Do not use `zoom` or element transforms to shrink text below the required sizes.
+
+- Side margins are about 57 px (3 %). Text blocks span nearly the full width; bullets start at x ≈ 57. A second column starts at x ≈ 1000–1060.
+- Titles are centered horizontally; bullets are left-aligned within their columns. Quotations and section headings are centered horizontally and vertically.
+- Bullet line spacing is 1.1–1.3 × the font size; leave about one empty line between bullets, giving a pitch of about 2 × the font size (112 px for 52 px text).
+- On content slides (bullet, image-and-bullets, general content), the combined bounding box of title, text, and images must cover at least 40 % of the slide area, span at least 85 % of its width, and reach y ≈ 800. With an image on one side, coverage must be at least 60 %. Title, section, quotation, and image slides are exempt from these coverage limits.
+- Center content or spread it across columns; do not leave it hugging one corner. For sparse content, enlarge text up to 72 px, increase spacing, or add a relevant image.
+- If content overflows (roughly more than 6 bullets per column or bullets longer than 10 words at the minimum body size), retain the required font sizes and follow the generation workflow in AGENTS.md.
+
+Purposeful whitespace supports balance and readability within these rules. Minimalism does not justify small text stranded in a corner.
+
+## Elevation & Depth
+
+Keep the composition visually quiet. The template's soft background provides atmosphere; avoid added decorative shadows, raised panels, or depth effects.
+
+## Shapes
+
+Use simple, editable diagrams where appropriate. Shapes and connectors must explain the subject. Do not add decorative divider rules, borders, cards, boxes, or underlines.
+
+## Components
+
+### Slide types
+
+Positions are approximate; title y values describe the top of the text unless identified as centers.
+
+| Type | Content and measurements |
+| --- | --- |
+| Title | Prominent subject image, centered at about 60 % of slide width, y ≈ 50–690; centered 100 px title at y ≈ 780; optional 52 px subtitle at y ≈ 895. |
+| Image | One full-bleed image as the focus. |
+| Section | One short 100 px heading centered horizontally and vertically, center y ≈ 540. |
+| Bullet | Centered 100 px title at y ≈ 190 (y ≈ 140 for two lines); 64 px bullets in one or two columns spanning the width. Columns may be staggered vertically. |
+| Image-and-bullets | Centered 100 px title at y ≈ 190 (y ≈ 140 for two lines); concise 52 px bullets from x ≈ 57, y ≈ 455; supporting image about 650 × 630 px at x ≈ 1060–1710, y ≈ 300–930. |
+| Quotation | Short 52 px quotation with 38 px attribution beneath, both centered around y ≈ 470–680. |
+| General content | Centered 94 px title at y ≈ 140, wrapping to two lines if needed; content arranged freely below under the spacing and coverage rules. |
+
+### Logos
+
+On every slide except the full-bleed image slide, place:
+
+- `Assets/HTLLogo_ab2022_farbig.png` upper-right, about 430 px wide, x ≈ 1450–1885, y ≈ 30–130.
+- `Assets/Abteilungslogos.png` lower-left, about 270 px wide, x ≈ 55–325, bottom edge y ≈ 1060.
+
+### Motion
+
+Use animation to explain processes or reveal steps. Motion should be restrained and purposeful. Choose durations and easing to suit the explanation; no fixed global timings are prescribed.
