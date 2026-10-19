@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-19T20:07:02.027Z",
+  "generatedAt": "2026-10-19T20:28:17.029Z",
   "title": "Design System: SYPPRE Course Presentations",
   "extensions": {
     "colorMeta": {
@@ -53,7 +53,13 @@
       "Restrained visuals and explanatory animation.",
       "Consistent template identity across episodes."
     ],
-    "rules": [],
+    "rules": [
+      {
+        "name": "Opening title slide",
+        "body": "The opening Title slide displays the full episode title, season number, and episode number. Use the Title layout below, with the episode title as the main heading and the season and episode identifiers in the subtitle. For the unnumbered Prologue, show its title without inventing season or episode numbers.",
+        "section": "components"
+      }
+    ],
     "dos": [],
     "donts": []
   }

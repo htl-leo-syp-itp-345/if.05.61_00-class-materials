@@ -116,6 +116,8 @@ Open the deck in a browser at the configured canvas size. For every slide, measu
 
 Read the corresponding `teacher-notes.md` in `../teacher-materials`. The mandatory slide outline normally starts at an H2 (`##`) such as `Slide outline`, `Slide Notes`, or `Presentation`. Each H3 (`###`) underneath defines one slide and normally starts with `Slide`. The section ends at the next H2 or higher-level heading, or the end of the file. If the intended section, boundaries, or any required slide details are unclear or incomplete, ask the user before generating; do not infer missing information.
 
+Every deck must begin with a slide of type **Title**, explicitly included in the teacher-note outline and its slide count. The displayed information follows [DESIGN.md — Opening title slide](DESIGN.md#opening-title-slide).
+
 Create one slide for each outline H3, in its prescribed order, with its explicit title, type, key content, and required diagrams, images, and demonstrations. An H2 does not itself request a slide. Do not turn other teaching sections into additional slides. If student-facing content cannot be distinguished from teacher-only guidance, ask before including it.
 
 Compare the rendered deck against the approved outline: verify slide count, sequence, titles, types, content, required visuals, and demonstrations, with teacher-only material excluded. Resolve missing details, overflow, or proposed educational and structural improvements through Phase 3: user approval, teacher-note update, then material updates.
