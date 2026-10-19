@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-19T20:28:17.029Z",
+  "generatedAt": "2026-10-19T22:23:44.925Z",
   "title": "Design System: SYPPRE Course Presentations",
   "extensions": {
     "colorMeta": {
@@ -57,6 +57,21 @@
       {
         "name": "Opening title slide",
         "body": "The opening Title slide displays the full episode title, season number, and episode number. Use the Title layout below, with the episode title as the main heading and the season and episode identifiers in the subtitle. For the unnumbered Prologue, show its title without inventing season or episode numbers.",
+        "section": "components"
+      },
+      {
+        "name": "Slide numbering",
+        "body": "Show a plain `n/m` counter in the lower-right corner on every slide, including Title and Section slides. Count the initial state and each successive click/build stage as one numbered slide; `m` is the total of these states across the deck. Advance or reverse `n` with navigation, keeping `m` fixed. Continuous animation frames do not count separately. These display numbers do not change the authored slide count or outline in the teacher notes.\n\nUse the secondary typography role (38 px, light, neutral gray), right edge x ≈ 1863 and bottom edge y ≈ 1060. Keep the counter clear of teaching content and logos, without a surrounding box or decoration.",
+        "section": "components"
+      },
+      {
+        "name": "Diagram connectors",
+        "body": "- Stop connector strokes and arrowheads just short of object outlines, leaving a small, visible gap at both ends. Keep their entire paths clear of objects and labels.\n- An arrow intended as an arch uses one smooth curve, without an appended straight segment or kink. Intentional elbow connectors remain appropriate where the diagram calls for them.\n- Align arrowheads with the path's endpoint direction. Keep anchors and clearances consistent when a connection reverses direction or changes state.",
+        "section": "shapes"
+      },
+      {
+        "name": "Build-stage consistency",
+        "body": "Each build stage must show a coherent state of the explanation. When an object appears, include the contents it already has at that point; show an empty object only when the approved process requires it, such as a computer before cloning. Reveal subsequent changes at their intended steps, preserving existing contents until the process changes them.",
         "section": "components"
       }
     ],

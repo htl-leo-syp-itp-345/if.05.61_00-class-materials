@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img" aria-labelledby="title desc">
+<title id="title">Coffee and an open menu</title><desc id="desc">A simple geometric café still life: a cup viewed from above beside an open menu.</desc>
+<g fill="none" stroke="#656565" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+<ellipse cx="208" cy="240" rx="140" ry="123" opacity=".35"/><circle cx="208" cy="240" r="98"/>
+<circle cx="208" cy="240" r="76" opacity=".55"/><path d="M303 211c80-22 80 82 0 61"/>
+<path d="M407 107l132-20v237l-132 21-69-27V80z"/><path d="M407 107v238"/>
+<path d="M439 147l66-10m-66 48 66-10m-66 48 66-10m-66 48 49-7" opacity=".6"/>
+<path d="M359 133l27 10m-27 30 27 10m-27 30 27 10m-27 30 27 10" opacity=".6"/>
+</g></svg>

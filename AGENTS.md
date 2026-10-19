@@ -104,13 +104,21 @@ fonts:
 
 DESIGN.md is the single visual specification for typography, colors, spacing, coverage, slide layouts, logos, and motion. Read it before authoring or refining slides.
 
+Implement the [slide numbering](DESIGN.md#slide-numbering) in the shared layout using the slide-local page and click state. Declare the final click index with `clicks` in the frontmatter of every slide with builds so the total is correct from first load, including direct navigation and backward steps.
+
+For diagrams, define object bounds and connector anchors once. Derive base connections, transfers, reversed paths, and arrowheads from the same geometry rather than copying independent endpoint coordinates.
+
 Existing PDF presentations and other legacy materials may inform Phase 1, but their content and proposed slide structure must be incorporated into the teacher notes and approved before generation.
 
 #### Design support and verification
 
 Use the installed Slidev and Impeccable skills. Read `.agents/skills/impeccable/SKILL.md` and relevant command references before design work. Apply DESIGN.md and verify the rendered result. When DESIGN.md changes, refresh `.impeccable/design.json` from it; this derived metadata is not an independent specification.
 
-Open the deck in a browser at the configured canvas size. For every slide, measure computed font sizes and the bounding boxes of titles, text (including bullet markers), and images against DESIGN.md, including its layout exemptions. Check for overflow and overlaps between text, images, and logos, and confirm assets load. Verify content and structure against the approved teacher notes as described below. Fix failures and repeat the affected checks.
+Open the deck in a browser at the configured canvas size. For every slide and click/build stage, measure computed font sizes and the bounding boxes of titles, text (including bullet markers), and images against DESIGN.md, including its layout exemptions. Check for overflow and overlaps between text, images, and logos, and confirm assets load.
+
+Verify diagrams against DESIGN.md's connector and motion rules. Inspect actual paths and arrowheads against object outlines and label bounds; a whole-diagram bounding box cannot establish clearance. Programmatic geometry checks must compare all elements in the same coordinate system.
+
+Step through builds forward and backward, and check direct navigation to intermediate stages. Verify object contents, transfer direction, arrowhead visibility, and stage numbering. Inspect both transitions and settled renders, including initial and intermediate states. Verify content and structure against the approved teacher notes as described below. Fix failures and repeat the affected checks; a successful build alone is not visual validation.
 
 ### Rules for Generating From teacher-notes
 

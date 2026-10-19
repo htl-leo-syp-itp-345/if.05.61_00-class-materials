@@ -74,6 +74,12 @@ Keep the composition visually quiet. The template's soft background provides atm
 
 Use simple, editable diagrams where appropriate. Shapes and connectors must explain the subject. Do not add decorative divider rules, borders, cards, boxes, or underlines.
 
+### Diagram connectors
+
+- Stop connector strokes and arrowheads just short of object outlines, leaving a small, visible gap at both ends. Keep their entire paths clear of objects and labels.
+- An arrow intended as an arch uses one smooth curve, without an appended straight segment or kink. Intentional elbow connectors remain appropriate where the diagram calls for them.
+- Align arrowheads with the path's endpoint direction. Keep anchors and clearances consistent when a connection reverses direction or changes state.
+
 ## Components
 
 ### Opening title slide
@@ -104,3 +110,11 @@ On every slide except the full-bleed image slide, place:
 ### Motion
 
 Use animation to explain processes or reveal steps. Motion should be restrained and purposeful. Choose durations and easing to suit the explanation; no fixed global timings are prescribed.
+
+Each build stage must show a coherent state of the explanation. When an object appears, include the contents it already has at that point; show an empty object only when the approved process requires it, such as a computer before cloning. Reveal subsequent changes at their intended steps, preserving existing contents until the process changes them.
+
+### Slide numbering
+
+Show a plain `n/m` counter in the lower-right corner on every slide, including Title and Section slides. Count the initial state and each successive click/build stage as one numbered slide; `m` is the total of these states across the deck. Advance or reverse `n` with navigation, keeping `m` fixed. Continuous animation frames do not count separately. These display numbers do not change the authored slide count or outline in the teacher notes.
+
+Use the secondary typography role (38 px, light, neutral gray), right edge x ≈ 1863 and bottom edge y ≈ 1060. Keep the counter clear of teaching content and logos, without a surrounding box or decoration.
