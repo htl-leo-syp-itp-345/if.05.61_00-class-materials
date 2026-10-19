@@ -68,17 +68,17 @@ In particular, do not add:
 
 ## Generating Slides
 
-Create slide presentations as Reveal.js HTML documents. Include the Reveal.js stylesheet, a theme, and script; put each slide in a `<section>` inside `.reveal > .slides`, then call `Reveal.initialize()`.
+Create slide presentations with Slidev. Keep the editable entry source in the corresponding Episode or Prologue directory as `slides.md`. Read `.agents/skills/slidev/SKILL.md` and the references relevant to the requested work before authoring or changing a deck. Use the local CLI and configuration described below.
 
 Keep slide content editable. Do not use screenshots or rasterized images of complete source slides as the presentation slides. Rebuild text as text and recreate diagrams with editable elements where practical; use images as individual visual assets within the slide layout.
 
-Use Markdown for slide headings, paragraphs, and lists wherever practical, such as with the Reveal.js Markdown plugin. Use HTML and CSS when a slide needs a specific layout, image placement, or other formatting that Markdown alone cannot express. Keep the source easy to update and make each slide's structure clear.
+Use Slidev Markdown for slide headings, paragraphs, and lists wherever practical, with `---` separators between slides and frontmatter for slide configuration. Use Vue components, HTML, and CSS when a slide needs a specific layout, image placement, or other formatting that Markdown alone cannot express. Keep the source easy to update and make each slide's structure clear.
 
 Preserve the source material's meaning, important details, and slide order when converting an existing presentation. Do not silently omit or change content. Reorganize or condense only when requested or when necessary to fit the slide format, without losing essential information.
 
 Use specific, relevant image files rather than template placeholders. Keep image paths relative to the presentation file, provide meaningful alternative text, and do not use an image of a complete slide in place of editable content. Prefer suitable project assets; when new assets are needed, ensure they are appropriate for student-facing publication.
 
-When using the CDN-hosted Reveal.js files, an internet connection is required to present the deck.
+Use local dependencies and assets for reliable presentation without an internet connection. Remote images, fonts, embeds, or other services require a connection unless bundled locally; check these dependencies before presenting offline.
 
 Slides should follow the 16:9 layout and visual system shown in `Assets/SlideLayoutTemplate.pdf` (also available as `Assets/SlideLayoutTemplate.key`). The template demonstrates these slide types:
 
@@ -92,9 +92,9 @@ Slides should follow the 16:9 layout and visual system shown in `Assets/SlideLay
 
 ### Slide layout rules
 
-The values below were measured from `Assets/SlideLayoutTemplate.pdf`, which is 1920 × 1080 px. Initialize Reveal.js with `width: 1920`, `height: 1080`, `margin: 0` so that the values apply 1:1. Text in the template is large and fills the slide; do not shrink it to fit more content.
+The values below were measured from `Assets/SlideLayoutTemplate.pdf`, which is 1920 × 1080 px. Set Slidev's opening frontmatter to `canvasWidth: 1920` and `aspectRatio: 16/9` so that the values apply 1:1. Override default theme padding and sizing to use the full canvas with the measured positions below. Text in the template is large and fills the slide; do not shrink it to fit more content.
 
-The px values are units of this 1920 × 1080 design canvas, not physical screen pixels. Reveal.js scales the whole canvas uniformly to the display, so the proportions hold on any screen: 52 px is always 4.8 % of the slide height, whether the slide is shown on a laptop or a 90" display. Set `maxScale` high enough (for example `4`) that the canvas still fills very large or high-resolution screens; the Reveal.js default of `2` stops scaling above 3840 × 2160. Raster images must be sharp when enlarged: use at least the displayed size at 2× (a full-bleed image at least 3840 px wide).
+The px values are units of this 1920 × 1080 design canvas, not physical screen pixels. Slidev scales the whole canvas uniformly to the display, so the proportions hold on any screen: 52 px is always 4.8 % of the slide height, whether the slide is shown on a laptop or a 90" display. Do not use per-slide `zoom` or element transforms to shrink text below the required sizes. Raster images must be sharp when enlarged: use at least the displayed size at 2× (a full-bleed image at least 3840 px wide).
 
 **Typography and color**
 
@@ -144,6 +144,68 @@ The template's example imagery and placeholder text illustrate layout only; repl
 Before finishing a presentation, open it in a browser at 1920 × 1080 and check the rendered slides. Confirm that content does not overflow or overlap, images and other local assets load, and the slide order and content match the source.
 
 Measure the layout instead of judging it by eye. For every slide, read the computed font sizes and the bounding box of the title, text (including bullet markers), and images, and check that no text overlaps other text, an image, or the logos. A slide fails if its title is below 94 px, if any body text is below 52 px, if the content covers less than 40 % of the slide area, or if it does not span the width and height required above. Fix the slide and measure again.
+
+### Slidev and Impeccable workflow
+
+Slidev is the default presentation renderer. Use Impeccable to support layout and design work within the **Generating Slides**, layout, logo, content-preservation, and browser-verification instructions above. Convert an existing presentation only when the task requests it; changing this guidance does not itself convert any decks.
+
+**Installation and scope**
+
+The repository's `package.json` declares local Slidev, its default theme, Vue, Impeccable, and the skills installer. Use Node.js 22.12.0 or newer. From this repository, run:
+
+```sh
+npm run setup:slides
+```
+
+The setup script installs the npm packages into `node_modules/` and copies the official `impeccable` and `slidev` skills into `.agents/skills/`, using the project-scoped Codex installation. It verifies both skill files and both CLI versions before reporting success. Installed skills should become available on the next turn; reload Codex if they do not appear. This setup installs the skills and CLI tools; it does not enable automatic design hooks.
+
+Keep `package-lock.json`, `skills-lock.json`, and the installed `.agents/skills/` files under version control after successful setup so the selected dependencies and skills are reviewable. Subsequent npm-only reinstalls can use `npm ci` once the lockfile exists. Do not commit `node_modules/` or generated slide builds.
+
+**Installation status as of 2026-10-19:** both skills are installed under `.agents/skills/`, and the local CLIs report Slidev `52.20.1` and Impeccable `4.6.0`. Dependency and skill lockfiles are present. Use the installed tools; rerun setup only when installation or an update is needed. The setup does not change user-wide npm settings.
+
+**Impeccable workflow**
+
+Before using Impeccable, read `.agents/skills/impeccable/SKILL.md` and the command references relevant to the requested work. Use it to critique composition and hierarchy, refine layout and typography, and polish alignment and spacing. Examples in Codex:
+
+```text
+$impeccable critique the Episode 1 presentation layout
+$impeccable layout the Episode 1 presentation within our existing slide rules
+$impeccable polish the Episode 1 presentation
+```
+
+Use the template and the rules above as the design brief. General skill suggestions about fonts, accent colors, cards, decoration, or additional whitespace do not override Gill Sans Light, the neutral palette, minimum font sizes, required content coverage, or logo placement. Keep slide text and diagrams editable. Perform the existing browser measurements after design changes; an automated critique is additional evidence, not a replacement for those checks.
+
+**Slidev configuration and commands**
+
+Set each deck's opening frontmatter to:
+
+```yaml
+---
+aspectRatio: 16/9
+canvasWidth: 1920
+fonts:
+  provider: none
+  sans: 'Gill Sans, Gill Sans MT, Calibri, sans-serif'
+---
+```
+
+This gives a 1920 × 1080 canvas. Override the theme's typography, spacing, colors, and layouts to match all the existing visual requirements. Slidev theme defaults are not the course design system. Use editable Markdown, Vue, HTML, CSS, and diagrams; preserve Episode numbering, content, and student/teacher separation. Keep teacher-only speaker notes out of this repository, including Markdown comments that Slidev treats as presenter notes.
+
+Run the local CLI from this repository, passing the actual Episode source path:
+
+```sh
+npm run slidev -- Episodes/E01_VersionControl1/slides.md
+npm run slides:build -- Episodes/E01_VersionControl1/slides.md --out dist/E01_VersionControl1
+npm run slides:export -- Episodes/E01_VersionControl1/slides.md
+npm run impeccable -- --help
+```
+
+Run these commands only for a presentation task with an existing Slidev source file; do not create a deck merely to verify tool installation. PDF/image export may additionally require Slidev's Playwright/Chromium dependency. Verify actual font sizes and bounds at the full canvas size; do not use Slidev scaling or theme defaults to make undersized text appear compliant.
+
+Official references:
+
+- [Impeccable documentation index](https://impeccable.style/llms.txt), [installation and Codex project paths](https://impeccable.style/faq/)
+- [Slidev documentation index](https://sli.dev/llms.txt), [setup](https://sli.dev/guide/), [official agent skill](https://sli.dev/guide/work-with-ai), [canvas size](https://sli.dev/features/canvas-size)
 
 ## Working Across Repositories
 

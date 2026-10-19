@@ -1,0 +1,22 @@
+{
+  "name": "syppre-class-materials",
+  "private": true,
+  "description": "Local slide-authoring and design tools for the SYPPRE course materials",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "setup:slides": "sh scripts/setup-slide-tools.sh",
+    "slidev": "slidev",
+    "slides:build": "slidev build",
+    "slides:export": "slidev export",
+    "impeccable": "impeccable"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.6.0",
+    "@slidev/theme-default": "latest",
+    "impeccable": "^4.6.0",
+    "skills": "latest",
+    "vue": "^3.5.33"
+  }
+}
