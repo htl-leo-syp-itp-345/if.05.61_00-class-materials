@@ -87,3 +87,11 @@
 .course-image-composition { position: absolute; left: 0; width: 1653px; display: grid; grid-template-columns: 903px 650px; gap: 100px; align-items: center; }
 .course-supporting-image { width: 650px; height: 100%; display: flex; align-items: center; justify-content: center; }
 .course .course-supporting-image img { display: block; object-fit: contain; }
+
+/* Semantic shapes from template 08; the native click wrapper controls the entire root. */
+.course .course-callout { position: relative; width: 450px; height: 212px; margin-left: auto; margin-right: auto; font-size: 52px; line-height: 1.2; }
+.course-callout-shape { position: absolute; inset: 0; width: 100%; height: 100%; fill: var(--callout-fill); }
+.course .course-callout-text { position: relative; height: 176px; padding: 24px 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.course .course-callout-text, .course .course-callout-text p { color: #fff; font-size: 52px; line-height: 1.2; }
+.course .course-callout[data-callout-shape="box"] { width: 490px; height: 347px; border-radius: 34px; background: var(--callout-fill); }
+.course .course-callout[data-callout-shape="box"] .course-callout-text { height: 100%; }

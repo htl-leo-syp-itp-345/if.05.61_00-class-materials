@@ -38,7 +38,7 @@ The agreed direction is calm, elegant, and minimalistic. Clear hierarchy, precis
 
 ## Colors
 
-Use the neutral gray text and pale cool gray background tokens above. Apply the supplied soft-gradient background from `Assets/SlideLayoutTemplate/template-paper.jpg`. No accent colors on authored text or graphics; retain the supplied logo artwork. Choose relevant imagery to support the explanation.
+Use the neutral gray text and pale cool gray background tokens above. Apply the supplied soft-gradient background from `Assets/SlideLayoutTemplate/template-paper.jpg`. Authored text and graphics remain neutral, with the semantic callouts below as the explicit exception. Retain the supplied logo artwork. Choose relevant imagery to support the explanation.
 
 ## Typography
 
@@ -72,7 +72,16 @@ Keep the composition visually quiet. The template's soft background provides atm
 
 ## Shapes
 
-Use simple, editable diagrams where appropriate. Shapes and connectors must explain the subject. Do not add decorative divider rules, borders, cards, boxes, or underlines.
+Use simple, editable diagrams where appropriate. Shapes and connectors must explain the subject. Do not add decorative divider rules, borders, cards, boxes, or underlines. Semantic callouts follow the supplied speech-bubble and box reference below.
+
+### Speech bubbles and boxes
+
+[08-speech-bubble-and-box.png](Assets/SlideLayoutTemplate/08-speech-bubble-and-box.png) extends the template with semantic callout shapes; it is an additional component reference, not a new slide type. Render shapes as editable geometry and keep their text editable.
+
+- Speech bubble: a filled 450 × 176 px oval with a downward-left tail, total height 212 px. Center white 52 px Gill Sans Light text inside the oval, clear of its edges and tail.
+- Box: a filled 490 × 347 px rectangle with 34 px corner radius and centered white 52 px Gill Sans Light text.
+- Template fills, sampled from the supplied PNG: `gray` = `#818785`, `red` = `#9d2916`, `amber` = `#d09a3b`. Use these colors only for meaningful callouts, without borders or shadows.
+- In Image-and-bullets, place a callout beneath the left bullet list with the normal 32 px gap. Center the complete list-and-callout group beside the image. Reserve the callout's space before it appears so revealing it does not move other content. Reveal or hide the complete shape and text together.
 
 ### Diagram connectors
 

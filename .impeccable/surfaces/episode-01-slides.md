@@ -7,7 +7,7 @@ related_targets: ["slidev/course/layouts/course.vue","slidev/course/components/S
 
 # Episode 01 renderer migration
 
-Mode: Read. Preserve the approved ten-slide overview and its 37 presentation stages from the corresponding teacher notes. The user requested a first adaptation to the shared course renderer, followed by a detailed collaborative slide review. Inherit the accepted Prologue visual system and DESIGN.md; preserve the Prologue’s appearance.
+Mode: Read. Preserve the approved ten-slide overview from the corresponding teacher notes. The current deck has 38 presentation stages, including the user-approved Bug Report reveal. The user requested a first adaptation to the shared course renderer, followed by a detailed collaborative slide review. Inherit the accepted Prologue visual system and DESIGN.md; preserve the Prologue’s appearance.
 
 ## Implementation
 
@@ -43,3 +43,11 @@ Verification: all 37 Episode 01 stages pass Chrome and Safari checks; the new sl
 The user replaced the Feature Request text with three prompt bullets and removed the navigation component from the source. Preserve those bullets verbatim. The unused ReservationNavigation component and its CSS are now deleted, and slide 3 uses `Image-and-bullets` with a generated AI-chat window on the right. The image contains abstract placeholder strokes and no readable conversation content. Its original 1254 × 1254 PNG and complete generation prompt are recorded in the episode assets. The teacher outline now records the same bullets, type, and visual purpose.
 
 The shared renderer is unchanged. The prompt fits at 52 px beside the image, with clear heading separation and at least 2× raster density. The ten-slide sequence and all 37 stages remain intact. Seventeen regression tests pass; the episode export is rebuilt. Browser evidence is under `.impeccable/review/feature-request/`.
+
+## Bug Report callout
+
+The user supplied template 08 and approved an Image-and-bullets Bug Report with a generic GitHub-style issue page and a red speech bubble revealed on the first click. Preserve the user's two bullets and “Panic!!!” verbatim. The teacher outline now records the same type, visual, and build. The new image is preserved at its original 1254 × 1254 resolution, with its complete built-in generation prompt in the episode asset README.
+
+The shared renderer separates `callout.shape`/`callout.color` metadata from content in the native `::callout::` slot. Template-derived SVG/CSS shapes retain editable 52 px text. The renderer keeps the native `<v-click>` around the complete shape and text, preserving its options. It reserves space beneath the bullets before the reveal, avoiding movement between stages. Shape/color validation reports invalid configuration, and metadata normalization repairs the known formatter-flattened mapping without changing source boundaries. DESIGN.md and the authoring guide document appearance and interface separately.
+
+Verification: 23 regression tests pass, including native wrapper/prop preservation and formatter repair. All 38 Episode 01 stages and all 38 Prologue stages pass Chrome and Safari bounds, typography, asset, and overlap checks. The Prologue's complete Chrome measurements equal the accepted baseline exactly. The Bug Report callout is hidden initially, visible at 52 px on the first click, and hides on backward navigation; bullets and image retain identical bounds. Safari direct entry into its revealed state works. Both portable exports are rebuilt. Evidence: `.impeccable/review/callouts/`.

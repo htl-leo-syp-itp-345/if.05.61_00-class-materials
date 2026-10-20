@@ -44,3 +44,28 @@ test('code examples, comments, and slides without metadata remain untouched', ()
   normalizeSlideMetadata(lines)
   assert.equal(lines.join('\n'), fixture)
 })
+
+test('a formatter-flattened callout mapping is restored without changing source boundaries', async () => {
+  const fixture = '---\nslideType: Title\n---\n\n# Title\n\n---\n\nslideType: Image-and-bullets\nclicks: 1\ncallout:\nshape: speechBubble\ncolor: red\n---\n\n# Bug Report\n\n::callout::\n\n<v-click>\n\nPanic!!!\n\n</v-click>\n'
+  const lines = fixture.split('\n')
+  normalizeSlideMetadata(lines)
+  assert.equal(lines.length, fixture.split('\n').length)
+  const { slides } = await parse(fixture, undefined, extensions)
+  assert.equal(slides.length, 2)
+  assert.deepEqual(slides[1].frontmatter.callout, { shape: 'speechBubble', color: 'red' })
+  assert.equal(slides[1].frontmatter.clicks, 1)
+  assert.equal(slides[1].start, fixture.split('\n').indexOf('---', 3))
+  assert.match(slides[1].content, /^# Bug Report/)
+})
+
+test('correct YAML, unrelated keys, and callout examples remain untouched', () => {
+  for (const fixture of [
+    '---\nslideType: Image-and-bullets\ncallout:\n  shape: speechBubble\n  color: red\ncolor: blue\n---\n\n# Content\n',
+    '---\nslideType: General content\ncallout:\ncolor: red\n---\n\n# Content\n',
+    '```yaml\n---\nslideType: Example\ncallout:\nshape: box\ncolor: gray\n---\n```\n',
+  ]) {
+    const lines = fixture.split('\n')
+    normalizeSlideMetadata(lines)
+    assert.equal(lines.join('\n'), fixture)
+  }
+})

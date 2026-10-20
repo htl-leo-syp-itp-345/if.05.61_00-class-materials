@@ -6,7 +6,7 @@ import ImageAndBullets from './ImageAndBullets.vue'
 import { contentUnits, flattenNodes, imagesIn, unitNodes } from '../utils/markdown-nodes'
 import { chooseColumnBreak } from '../utils/column-balance.mjs'
 
-const props = defineProps<{ slideType: string; nodes: VNode[]; rightNodes?: VNode[]; manualBreak: boolean }>()
+const props = defineProps<{ slideType: string; nodes: VNode[]; rightNodes?: VNode[]; manualBreak: boolean; callout?: Record<string, unknown>; calloutNodes?: VNode[] }>()
 const nodes = computed(() => flattenNodes(props.nodes))
 const heading = computed(() => nodes.value.filter(node => node.type === 'h1'))
 const body = computed(() => nodes.value.filter(node => node.type !== 'h1'))
@@ -92,7 +92,7 @@ onBeforeUnmount(() => { generation++; observer?.disconnect() })
   <header v-if="!imageAndBullets" ref="headingElement" class="course-heading"><MarkdownNodes :nodes="heading" /></header>
   <div v-if="titleSlide" class="course-title-content" data-layout-status="ready"><MarkdownNodes :nodes="body" /></div>
   <div v-else-if="sectionSlide" data-layout-status="ready" />
-  <ImageAndBullets v-else-if="imageAndBullets" :heading="heading" :nodes="body" :manual-break="manualBreak" />
+  <ImageAndBullets v-else-if="imageAndBullets" :heading="heading" :nodes="body" :manual-break="manualBreak" :callout="callout" :callout-nodes="calloutNodes" />
   <div v-else-if="gallery" data-layout-status="ready"><ImageGallery :panels="panels" :credit="credit" /></div>
   <template v-else>
     <div class="course-content" :data-columns="columns" :data-column-break="manualBreak ? 'explicit' : 'automatic'" :data-break-index="breakIndex" :data-layout-status="status" :data-layout-error="error || undefined" :style="{ top: `${contentTop}px`, height: `${contentHeight}px`, fontSize: `${fontSize}px` }">

@@ -24,7 +24,7 @@ const currentStage = computed(() => {
 <template>
   <main class="slidev-layout course" :data-slide-type="$frontmatter.slideType">
     <img class="course-logo" :src="logo" alt="HTL Leonding" />
-    <SlideContent :slide-type="$frontmatter.slideType" :nodes="$slots.default?.() || []" :right-nodes="$slots.columnBreak?.()" :manual-break="!!$slots.columnBreak" />
+    <SlideContent :slide-type="$frontmatter.slideType" :nodes="$slots.default?.() || []" :right-nodes="$slots.columnBreak?.()" :manual-break="!!$slots.columnBreak" :callout="$frontmatter.callout" :callout-nodes="$slots.callout?.()" />
     <img class="course-department" :src="department" alt="Informatik and Medientechnik departments" />
     <span class="course-page-number" :aria-label="`Presentation stage ${currentStage} of ${totalStages}`">{{ currentStage }}/{{ totalStages }}</span>
   </main>

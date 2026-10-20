@@ -6,6 +6,7 @@ This guide explains how to write and check SYPPRE presentations. [DESIGN.md](../
 - [Markdown and metadata](#markdown-and-metadata)
 - [Slide types and columns](#slide-types-and-columns)
 - [Images and galleries](#images-and-galleries)
+- [Callouts](#callouts)
 - [Click stages](#click-stages)
 - [Renderer setup](#renderer-setup)
 - [Preview and builds](#preview-and-builds)
@@ -50,6 +51,7 @@ The Prologue source remains excluded in [.prettierignore](../.prettierignore), b
 | `slideType` | Course-specific visual type, using a name from [DESIGN.md](../DESIGN.md#slide-types). |
 | `layout` | Slidev layout component. Course decks use `course`, inherited through deck `defaults`. |
 | `clicks` | Declared final click index; with the normal zero start, the number of advances before leaving the slide. See [Click stages](#click-stages). |
+| `callout` | Shape and color of the content in the `::callout::` slot on an Image-and-bullets slide. See [Callouts](#callouts). |
 | `defaults` | Headmatter values inherited by later slides unless overridden. Course decks default to `layout: course` and `clicks: 0`. |
 
 Use `slideType` directly; there is no separate `kind` field. Standard Slidev options are documented in the installed [frontmatter reference](../.agents/skills/slidev/references/core-frontmatter.md) and the [upstream syntax guide](https://sli.dev/guide/syntax).
@@ -150,6 +152,43 @@ For an image gallery, write a sequence of Markdown image paragraphs. Each image'
 The current cartoon has 18 images and captions, so it declares `clicks: 17`. Keep that setting aligned with the image count when editing the gallery; it is not currently inferred automatically.
 
 Keep text and diagrams editable where practical, and ordinary content in Markdown. Use deck-local Vue components for subject-specific visuals and click-driven demonstrations, such as Episode 01’s recovery and repository diagrams. Website screenshots with explanatory bullets use `Image-and-bullets`. These components render as normal content blocks inside the shared layout; they should provide their own intrinsic height and keep their text within DESIGN.md’s permitted sizes. A component must not recreate the slide heading, logos, counter, or page layout. Do not turn complete slides into screenshots or raster images.
+
+## Callouts
+
+The shared `Image-and-bullets` layout supports one callout beneath the left bullet list. Put its appearance in frontmatter and its text after `::callout::`, on its own line with surrounding blank lines. This is Slidev's named-slot syntax. The marker assigns the following content to the callout; it is not displayed and does not contain the callout text itself.
+
+```md
+---
+slideType: Image-and-bullets
+clicks: 1
+callout:
+  shape: speechBubble
+  color: red
+---
+
+# Bug Report
+
+- “The menu no longer works. Can you fix the version we used yesterday?”
+- The source has changed. Where is the version we need?
+
+![A GitHub-style issue page with placeholder content](./assets/github-issue-placeholder.png?inline)
+
+::callout::
+
+<v-click>
+
+Panic!!!
+
+</v-click>
+```
+
+`shape` accepts `speechBubble` or `box`; `color` accepts `gray`, `red`, or `amber`. Both are required. Their appearance comes from [template 08](../DESIGN.md#speech-bubbles-and-boxes). Keep the text short enough to fit the shape at 52 px. The complete list-and-callout group must fit beside the image; the renderer reports overflow instead of shrinking it.
+
+The standard Slidev `<v-click>` wraps the callout's **text in the source**. The renderer places that native component around the **complete shape and text** when rendering, so both appear together on the first click. Its standard options, such as `at`, retain their Slidev behavior. Declare the final index with `clicks` as described below. Without `<v-click>`, the callout is visible immediately; omit `clicks: 1` if there are no other builds.
+
+Keep `::callout::` outside `<v-click>`. Put the image and bullets before the marker, because everything after it belongs to the callout slot until another slot or the next slide begins. No `::speechBubble red Panic::` directive or layout HTML is needed.
+
+YAML normally requires the two-space indentation under `callout`. Some Markdown formatters remove it from later slides. The course preparser restores immediately following, unindented `shape` and `color` fields when it recognizes this flattened callout mapping, without adding slides or changing line numbers. Correctly indented YAML is left intact. The compact YAML form `callout: { shape: speechBubble, color: red }` is also valid and avoids indentation changes. This tolerance belongs to the course addon; it is not general Slidev YAML behavior.
 
 ## Click stages
 

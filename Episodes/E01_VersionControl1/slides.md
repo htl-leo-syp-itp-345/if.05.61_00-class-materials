@@ -76,16 +76,27 @@ slideType: Image-and-bullets
 
 ---
 
-slideType: General content
+slideType: Image-and-bullets
+clicks: 1
+callout:
+  shape: speechBubble
+  color: red
 ---
 
 # Bug Report
 
-> “The menu no longer works. Can you fix the version we used yesterday?”
+- “The menu no longer works. Can you fix the version we used yesterday?”
+- The source has changed. Where is the version we need?
 
-Panic!
+![A GitHub-style bug report with an issue description and replies represented by placeholder lines](./assets/github-issue-placeholder.png?inline)
 
-The source has changed. Where is the version we need?
+::callout::
+
+<v-click>
+
+Panic!!!
+
+</v-click>
 
 ---
 

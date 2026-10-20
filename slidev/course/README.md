@@ -17,9 +17,9 @@ slideType: Title
 Here `@/` means the deck directory, and `../..` reaches the repository root from the standard Episode or Prologue directory. Restart a running Slidev server after enabling the addon or changing its preparser.
 
 - `layouts/course.vue` supplies the shared slide shell, logos, and stage counter.
-- `components/` renders Markdown content, measured columns, image galleries, and the `Image-and-bullets` composition.
+- `components/` renders Markdown content, measured columns, image galleries, and the `Image-and-bullets` composition. `CourseCallout.vue` supplies template 08's editable shapes; `CalloutContent.ts` preserves the native Slidev click wrapper around the complete shape and text.
 - `styles.css` supplies the accepted Prologue typography and geometry.
-- `setup/preparser.ts` normalizes formatter-added metadata whitespace.
+- `setup/preparser.ts` normalizes formatter-added metadata whitespace, including a flattened callout mapping.
 - `utils/` supplies column balancing, nested-list preservation across manual breaks, and Markdown node handling.
 - `vite.config.mts` enables the Markdown extension and portable build settings.
 - `build-preview.mjs` builds a self-contained HTML export; deck-local scripts supply the output filename.
