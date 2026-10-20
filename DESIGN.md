@@ -38,7 +38,7 @@ The agreed direction is calm, elegant, and minimalistic. Clear hierarchy, precis
 
 ## Colors
 
-Use the neutral gray text and pale cool gray background tokens above. Apply the supplied soft-gradient background from `Assets/template-paper.jpg`. No accent colors on authored text or graphics; retain the supplied logo artwork. Choose relevant imagery to support the explanation.
+Use the neutral gray text and pale cool gray background tokens above. Apply the supplied soft-gradient background from `Assets/SlideLayoutTemplate/template-paper.jpg`. No accent colors on authored text or graphics; retain the supplied logo artwork. Choose relevant imagery to support the explanation.
 
 ## Typography
 

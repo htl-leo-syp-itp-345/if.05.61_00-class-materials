@@ -1,5 +1,5 @@
 :root { --course-ink: #656565; --course-paper: #eceff2; --course-font: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; }
-.slidev-layout.course { position: relative; width: 1920px; height: 1080px; padding: 0 !important; overflow: hidden; color: var(--course-ink); font-family: var(--course-font); font-weight: 300; background-color: var(--course-paper) !important; background-image: url('../../Assets/template-paper.jpg') !important; background-position: center; background-size: cover; background-repeat: no-repeat; }
+.slidev-layout.course { position: relative; width: 1920px; height: 1080px; padding: 0 !important; overflow: hidden; color: var(--course-ink); font-family: var(--course-font); font-weight: 300; background-color: var(--course-paper) !important; background-image: url('../../Assets/SlideLayoutTemplate/template-paper.jpg') !important; background-position: center; background-size: cover; background-repeat: no-repeat; }
 .course *, .course *::before, .course *::after { box-sizing: border-box; }
 .slidev-layout.course p, .slidev-layout.course blockquote, .slidev-layout.course h1 { margin: 0; color: var(--course-ink); font-family: var(--course-font); font-weight: 300; }
 .course p, .course blockquote { font-size: 52px; line-height: 1.2; }
