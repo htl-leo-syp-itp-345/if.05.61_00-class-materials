@@ -82,6 +82,7 @@ Use simple, editable diagrams where appropriate. Shapes and connectors must expl
 - Box: a filled 490 × 347 px rectangle with 34 px corner radius and centered white 52 px Gill Sans Light text.
 - Template fills, sampled from the supplied PNG: `gray` = `#818785`, `red` = `#9d2916`, `amber` = `#d09a3b`. Use these colors only for meaningful callouts, without borders or shadows.
 - In Image-and-bullets, place a callout beneath the left bullet list with the normal 32 px gap. Center the complete list-and-callout group beside the image. Reserve the callout's space before it appears so revealing it does not move other content. Reveal or hide the complete shape and text together.
+- On click reveal, a speech bubble pops from its tail tip: grow from 20 % to a brief 110 % overshoot in 209 ms, then settle through 98.5 % to full size over the next 291 ms (500 ms total). Animate the shape and text together, once per reveal. Going back hides it and resets the entrance. With reduced motion, reveal it immediately without scaling. A callout shown without a click wrapper stays still.
 
 ### Diagram connectors
 
