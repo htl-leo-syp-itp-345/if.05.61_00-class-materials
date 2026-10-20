@@ -34,7 +34,7 @@ The established course identity, slide template, and agreed zen-like appearance 
 
 - [Course overview](README.md) and existing episode materials in `Episodes/`.
 - Corresponding `teacher-notes.md` files in `../teacher-materials/Episodes/` and `../teacher-materials/Prologue/Introduction/`.
-- [Slide template](Assets/SlideLayoutTemplate.pdf), its [Keynote source](Assets/SlideLayoutTemplate.key), and the supplied background and logo assets in `Assets/`.
+- [Slide template](Assets/SlideLayoutTemplate/SlideLayoutTemplate.pdf), its [Keynote source](Assets/SlideLayoutTemplate/SlideLayoutTemplate.key), and the supplied background and logo assets in `Assets/`.
 - Installed Slidev and Impeccable skills under `.agents/skills/`.
 
 ## Product Principles

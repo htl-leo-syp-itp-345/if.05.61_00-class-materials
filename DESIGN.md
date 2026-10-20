@@ -55,7 +55,7 @@ The frontmatter tokens are reference sizes for common roles. Apply the variants 
 
 ## Layout
 
-Follow `Assets/SlideLayoutTemplate.pdf` (also available as `Assets/SlideLayoutTemplate.key`) as the design reference. All measurements use design-canvas pixels; Slidev scales the configured canvas uniformly to the display. Override theme typography, padding, spacing, colors, and layouts to match this specification. Do not use `zoom` or element transforms to shrink text below the required sizes.
+Follow `Assets/SlideLayoutTemplate/SlideLayoutTemplate.pdf` (also available as `Assets/SlideLayoutTemplate/SlideLayoutTemplate.key`) as the design reference. Individual layouts are also available as numbered PNGs in [SlideLayoutTemplate](Assets/SlideLayoutTemplate/). All measurements use design-canvas pixels; Slidev scales the configured canvas uniformly to the display. Override theme typography, padding, spacing, colors, and layouts to match this specification. Do not use `zoom` or element transforms to shrink text below the required sizes.
 
 - Side margins are about 57 px (3 %). Text blocks span nearly the full width; bullets start at x ≈ 57. A second column starts at x ≈ 1000–1060.
 - Titles are centered horizontally; bullets are left-aligned within their columns. Quotations and section headings are centered horizontally and vertically.
