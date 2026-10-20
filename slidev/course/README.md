@@ -17,7 +17,7 @@ slideType: Title
 Here `@/` means the deck directory, and `../..` reaches the repository root from the standard Episode or Prologue directory. Restart a running Slidev server after enabling the addon or changing its preparser.
 
 - `layouts/course.vue` supplies the shared slide shell, logos, and stage counter.
-- `components/` renders Markdown content, measured columns, and image galleries.
+- `components/` renders Markdown content, measured columns, image galleries, and the `Image-and-bullets` composition.
 - `styles.css` supplies the accepted Prologue typography and geometry.
 - `setup/preparser.ts` normalizes formatter-added metadata whitespace.
 - `utils/` supplies column balancing, nested-list preservation across manual breaks, and Markdown node handling.

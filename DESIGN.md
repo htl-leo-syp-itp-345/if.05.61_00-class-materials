@@ -101,6 +101,12 @@ Positions are approximate; title y values describe the top of the text unless id
 | General content | Centered 94 px title at y ≈ 140; one content column below. Paragraphs and nested lists provide the content hierarchy. |
 | General content two column | General content title treatment; two equal 853 px columns separated by 100 px, with natural line wrapping and left-aligned content. |
 
+### Image-and-bullets layout
+
+Use a centered 100 px heading at y ≈ 190 for one line, or y ≈ 140 when it wraps. The left bullet column is 903 px wide from x = 57. Its text is 52 px with the same natural list spacing as general content, vertically centered beside the supporting image. The image occupies a 650 × 630 px area from x = 1060, starting at y = 300 or at least 48 px below the heading, whichever is lower. Its lower boundary is y = 930; reduce its available height when the heading needs more clearance.
+
+Show the complete image without cropping or distortion, centered in that area. Limit raster artwork to at most one canvas pixel per two source pixels; a smaller source produces a smaller displayed image. The overall available composition region spans x = 57–1863 and y = 300–1010, covering more than 60 % of the canvas. Keep all visible text and image content clear of the logos and counter. Report text that does not fit at 52 px rather than shrinking it.
+
 ### General content layout
 
 The title spans the content width. The available content region begins at y ≈ 355, or below a wrapping title with a 48 px gap, and has a lower boundary at y = 950. Vertically center the complete content group within this region. For two columns, the tallest column controls the group's height, and both columns share the same top edge; keep text left-aligned within their fixed widths.

@@ -56,7 +56,7 @@ Use `slideType` directly; there is no separate `kind` field. Standard Slidev opt
 
 ## Slide types and columns
 
-The shared course renderer supports `Title`, `Section`, `General content`, and `General content two column`. DESIGN.md also defines other visual types; do not assume this renderer implements them merely because their names appear there.
+The shared course renderer supports `Title`, `Section`, `General content`, `General content two column`, and `Image-and-bullets`. DESIGN.md also defines other visual types; do not assume this renderer implements them merely because their names appear there.
 
 `General content` renders one content column. `General content two column` renders two equal columns with one heading spanning both. Typography, widths, gaps, and alignment are specified in [General content layout](../DESIGN.md#general-content-layout).
 
@@ -116,6 +116,29 @@ Use nested bullets to express hierarchy. Ordinary paragraphs take part in normal
 
 The renderer may use the permitted body-size fallback in DESIGN.md when content does not fit. It reports overflow if content still does not fit at the minimum size. It does not reorder content, add columns, create slides, or shrink text below the design minimum to solve overflow. Nested groups remain whole unless the author places an explicit column break inside one. Resolve content or structural changes through the approved outline workflow.
 
+### Image-and-bullets
+
+Use `slideType: Image-and-bullets` for a concise list on the left and one supporting image on the right. Write a heading, a Markdown list (nested bullets are supported), and one separate Markdown image paragraph. The image is assigned to the right automatically, regardless of whether it comes before or after the list in the source. No HTML, CSS classes, component tag, or `::columnBreak::` is needed.
+
+```md
+---
+slideType: Image-and-bullets
+---
+
+# A Working Website
+
+- A working website
+- Images, navigation, and a usable menu
+
+![Campus Café homepage with photographs and navigation](./assets/campus-cafe-working.png?inline)
+```
+
+The heading spans both sides. The renderer keeps the complete image visible without cropping, preserves its aspect ratio, and fits it into the right-hand image area. It leaves clearance below a wrapping heading, reducing the available image height when necessary. The bullet group is vertically centered beside the image and uses the specified 52 px type. Visual dimensions and alignment are in [Image-and-bullets layout](../DESIGN.md#image-and-bullets-layout).
+
+Use meaningful alt text and local image paths; `?inline` embeds the image in portable exports. Raster artwork is never enlarged beyond one canvas pixel per two source pixels. Provide sufficiently detailed source artwork: the nominal 650 × 630 px image area needs at least 1300 × 1260 source pixels to fill it at 2×, or the renderer displays a smaller image. Text inside a website screenshot is part of the depicted interface; the explanatory slide bullets remain editable and meet the course typography requirements.
+
+Exactly one image paragraph and a list are required. Extra prose, multiple images, a missing image, or a column-break marker are authoring errors; the renderer reports them through its layout error status and browser console. It reports overflowing text at 52 px instead of shrinking the bullets. Keep additional explanation in the approved teacher notes or use another slide type.
+
 ## Images and galleries
 
 Use relative image paths and meaningful alt text. Prefer suitable project assets and replace template placeholders with visuals appropriate for student publication. Keep source artwork and any explicitly approved resolution exceptions intact. Otherwise, raster images must support twice their displayed dimensions; full-bleed images must be at least 3840 px wide.
@@ -126,7 +149,7 @@ For an image gallery, write a sequence of Markdown image paragraphs. Each image'
 
 The current cartoon has 18 images and captions, so it declares `clicks: 17`. Keep that setting aligned with the image count when editing the gallery; it is not currently inferred automatically.
 
-Keep text and diagrams editable where practical, and ordinary content in Markdown. Use deck-local Vue components for subject-specific visuals and click-driven demonstrations, such as Episode 01’s website, recovery, and repository diagrams. These components render as normal content blocks inside the shared layout; they should provide their own intrinsic height and keep their text within DESIGN.md’s permitted sizes. A component must not recreate the slide heading, logos, counter, or page layout. Do not turn complete slides into screenshots or raster images.
+Keep text and diagrams editable where practical, and ordinary content in Markdown. Use deck-local Vue components for subject-specific visuals and click-driven demonstrations, such as Episode 01’s recovery and repository diagrams. Website screenshots with explanatory bullets use `Image-and-bullets`. These components render as normal content blocks inside the shared layout; they should provide their own intrinsic height and keep their text within DESIGN.md’s permitted sizes. A component must not recreate the slide heading, logos, counter, or page layout. Do not turn complete slides into screenshots or raster images.
 
 ## Click stages
 

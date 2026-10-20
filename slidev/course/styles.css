@@ -81,3 +81,9 @@
 
 /* Markdown quotations use the same quiet treatment as body text. */
 .course .course-column blockquote { border: 0; border-radius: 0; padding: 0; background: transparent; box-shadow: none; font-size: inherit; line-height: inherit; font-style: normal; opacity: 1; }
+
+.course[data-slide-type="Image-and-bullets"] .course-heading h1 { font-size: 100px; line-height: 1.16; }
+.course-image-and-bullets { position: absolute; left: 57px; top: 300px; width: 1806px; height: 710px; font-size: 52px; }
+.course-image-composition { position: absolute; left: 0; width: 1653px; display: grid; grid-template-columns: 903px 650px; gap: 100px; align-items: center; }
+.course-supporting-image { width: 650px; height: 100%; display: flex; align-items: center; justify-content: center; }
+.course .course-supporting-image img { display: block; object-fit: contain; }

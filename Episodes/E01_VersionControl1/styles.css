@@ -4,16 +4,6 @@
 .diagram { overflow: visible; color: var(--course-ink); }
 .diagram text { fill: var(--course-ink); font-family: var(--course-font); font-size: 52px; font-weight: 300; }
 .diagram-lines { fill: none; stroke: currentColor; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
-.website-preview { position: relative; width: 1806px; height: 420px; overflow: hidden; background: rgba(255,255,255,.64); }
-.course .website-preview p.site-brand { position: absolute; left: 50px; top: 30px; font-size: 64px; }
-.site-nav { position: absolute; right: 45px; top: 42px; display: flex; gap: 58px; font-size: 52px; line-height: 1.2; }
-.course .website-preview p.site-headline { position: absolute; left: 60px; top: 140px; width: 970px; font-size: 76px; line-height: 1.15; }
-.course .website-preview p.site-description { position: absolute; left: 60px; top: 330px; font-size: 52px; }
-.site-image { position: absolute; left: 1120px; top: 110px; width: 640px; height: 280px; object-fit: contain; }
-.website-broken .site-nav { left: 50px; right: auto; top: 105px; display: flex; flex-direction: column; gap: 14px; }
-.course .website-broken p.site-headline { left: 580px; top: 140px; width: 1080px; font-family: Georgia, serif; letter-spacing: 5px; line-height: 1.25; }
-.course .website-broken p.site-description { left: 580px; top: 350px; }
-.website-broken .site-image { left: 1450px; top: 12px; width: 300px; height: 145px; }
 .reservation-navigation { display: flex; align-items: center; gap: 56px; font-size: 52px; line-height: 1.2; }
 .reservation-navigation svg { width: 180px; height: 62px; fill: none; stroke: currentColor; stroke-width: 4; }
 .recovery-graph { width: 1806px; height: 510px; }

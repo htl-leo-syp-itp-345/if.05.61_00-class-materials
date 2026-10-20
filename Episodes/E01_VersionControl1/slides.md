@@ -37,14 +37,15 @@ Season 1 · Episode 1
 
 ---
 
-slideType: General content
+slideType: Image-and-bullets
 ---
 
 # Motivation 1 — Reproduce Working States
 
-<WebsitePreview />
+- A working website
+- Images, navigation, and a usable menu
 
-A working website. Images, navigation, and a usable menu.
+![Campus Café website with aligned navigation, coffee photography, and menu content](./assets/campus-cafe-working.png?inline)
 
 ---
 
@@ -63,14 +64,15 @@ Add a Reservations link to the navigation:
 
 ---
 
-slideType: General content
+slideType: Image-and-bullets
 ---
 
 # Distorted Website
 
-<WebsitePreview state="broken" />
+- The new navigation point is there
+- But the rest is totally broken
 
-The new link is there. The fonts and layout are broken.
+![The same Campus Café website with a new Reservations link, overlapping text, and broken image alignment](./assets/campus-cafe-broken.png?inline)
 
 ---
 

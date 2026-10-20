@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-20T20:11:59.780Z",
+  "generatedAt": "2026-10-20T20:52:44.598Z",
   "title": "Design System: SYPPRE Course Presentations",
   "extensions": {
     "colorMeta": {
@@ -83,6 +83,11 @@
         "name": "Content region and whitespace",
         "body": "On content slides, reserve a content region covering at least 40 % of the slide area, spanning at least 85 % of its width, and extending to y ≈ 800 or below. These measurements describe the available layout region, not the bounding box of visible letters. Short content may leave purposeful whitespace. Do not stretch bullet spacing or push text toward the outer edges to satisfy a visible-ink target. Image-and-bullets compositions reserve at least 60 %; Title, Section, Quotation, and Image slides are exempt.",
         "section": "layout"
+      },
+      {
+        "name": "Image-and-bullets layout",
+        "body": "Use a centered 100 px heading at y ≈ 190 for one line, or y ≈ 140 when it wraps. The left bullet column is 903 px wide from x = 57. Its text is 52 px with the same natural list spacing as general content, vertically centered beside the supporting image. The image occupies a 650 × 630 px area from x = 1060, starting at y = 300 or at least 48 px below the heading, whichever is lower. Its lower boundary is y = 930; reduce its available height when the heading needs more clearance.\n\nShow the complete image without cropping or distortion, centered in that area. Limit raster artwork to at most one canvas pixel per two source pixels; a smaller source produces a smaller displayed image. The overall available composition region spans x = 57–1863 and y = 300–1010, covering more than 60 % of the canvas. Keep all visible text and image content clear of the logos and counter. Report text that does not fit at 52 px rather than shrinking it.",
+        "section": "components"
       }
     ],
     "dos": [],

@@ -2,6 +2,7 @@
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch, type VNode } from 'vue'
 import MarkdownNodes from './MarkdownNodes'
 import ImageGallery from './ImageGallery.vue'
+import ImageAndBullets from './ImageAndBullets.vue'
 import { contentUnits, flattenNodes, imagesIn, unitNodes } from '../utils/markdown-nodes'
 import { chooseColumnBreak } from '../utils/column-balance.mjs'
 
@@ -12,6 +13,7 @@ const body = computed(() => nodes.value.filter(node => node.type !== 'h1'))
 const rightBody = computed(() => flattenNodes(props.rightNodes || []))
 const titleSlide = computed(() => props.slideType === 'Title')
 const sectionSlide = computed(() => props.slideType === 'Section')
+const imageAndBullets = computed(() => props.slideType === 'Image-and-bullets')
 const columns = computed(() => props.slideType === 'General content two column' ? 2 : 1)
 const images = computed(() => body.value.flatMap(imagesIn))
 const imageBlocks = computed(() => body.value.filter(node => imagesIn(node).length))
@@ -40,7 +42,7 @@ async function measure() {
   const current = ++generation
   await nextTick()
   if (current !== generation) return
-  if (titleSlide.value || sectionSlide.value || gallery.value) { status.value = 'ready'; return }
+  if (titleSlide.value || sectionSlide.value || gallery.value || imageAndBullets.value) { status.value = 'ready'; return }
   if (props.manualBreak && columns.value !== 2) {
     error.value = '::columnBreak:: requires slideType: General content two column.'
     status.value = 'overflow'
@@ -87,9 +89,10 @@ onBeforeUnmount(() => { generation++; observer?.disconnect() })
 </script>
 
 <template>
-  <header ref="headingElement" class="course-heading"><MarkdownNodes :nodes="heading" /></header>
+  <header v-if="!imageAndBullets" ref="headingElement" class="course-heading"><MarkdownNodes :nodes="heading" /></header>
   <div v-if="titleSlide" class="course-title-content" data-layout-status="ready"><MarkdownNodes :nodes="body" /></div>
   <div v-else-if="sectionSlide" data-layout-status="ready" />
+  <ImageAndBullets v-else-if="imageAndBullets" :heading="heading" :nodes="body" :manual-break="manualBreak" />
   <div v-else-if="gallery" data-layout-status="ready"><ImageGallery :panels="panels" :credit="credit" /></div>
   <template v-else>
     <div class="course-content" :data-columns="columns" :data-column-break="manualBreak ? 'explicit' : 'automatic'" :data-break-index="breakIndex" :data-layout-status="status" :data-layout-error="error || undefined" :style="{ top: `${contentTop}px`, height: `${contentHeight}px`, fontSize: `${fontSize}px` }">
