@@ -43,10 +43,10 @@
 .course-department { position: absolute; left: 55px; bottom: 20px; width: 270px; height: auto; z-index: 4; }
 .course-page-number { position: absolute; right: 57px; bottom: 20px; font-size: 38px; line-height: 1.2; font-weight: 300; font-variant-numeric: tabular-nums; z-index: 4; }
 .slidev-layout.course img { max-width: none; max-height: none; margin: 0; border: 0; box-shadow: none; }
-.course-title .course-copy > h1 { top: 780px; font-size: 100px; }
+.course[data-slide-type="Title"] .course-copy > h1 { top: 780px; font-size: 100px; }
 .course .course-subtitle { position: absolute; left: 330px; top: 905px; width: 1260px; font-size: 52px; line-height: 1.2; text-align: center; }
 .course .opening-photo { position: absolute; top: 55px; left: 400px; width: 1120px; height: 640px; object-fit: contain; }
-.course-section .course-copy > h1 { top: 480px; font-size: 100px; line-height: 1.2; }
+.course[data-slide-type="Section"] .course-copy > h1 { top: 480px; font-size: 100px; line-height: 1.2; }
 .course .body {
   position: absolute;
   top: 355px;

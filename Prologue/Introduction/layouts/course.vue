@@ -21,7 +21,7 @@ const currentStage = computed(() => {
 </script>
 
 <template>
-  <main class="slidev-layout course" :class="`course-${$frontmatter.kind || 'content'}`" :data-kind="$frontmatter.kind || 'content'">
+  <main class="slidev-layout course" :data-slide-type="$frontmatter.slideType">
     <img class="course-logo" :src="logo" alt="HTL Leonding" />
     <div class="course-copy"><slot /></div>
     <img class="course-department" :src="department" alt="Informatik and Medientechnik departments" />

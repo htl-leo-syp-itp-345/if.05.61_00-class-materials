@@ -23,7 +23,6 @@ defaults:
   layout: course
   clicks: 0
 layout: course
-kind: title
 slideType: Title
 ---
 
@@ -34,7 +33,6 @@ slideType: Title
 <p class="course-subtitle">Peter Bauer</p>
 
 ---
-kind: content
 slideType: General content
 clicks: 17
 ---
@@ -44,14 +42,12 @@ clicks: 17
 <ProjectCartoon />
 
 ---
-kind: section
 slideType: Section
 ---
 
 # Let's Talk Content — 1
 
 ---
-kind: content
 slideType: General content
 ---
 
@@ -78,7 +74,6 @@ slideType: General content
 </div>
 
 ---
-kind: content
 slideType: General content
 ---
 
@@ -95,7 +90,6 @@ slideType: General content
 </div>
 
 ---
-kind: content
 slideType: General content
 ---
 
@@ -123,7 +117,6 @@ slideType: General content
 </div>
 
 ---
-kind: content
 slideType: General content
 ---
 
@@ -148,7 +141,6 @@ slideType: General content
 </div>
 
 ---
-kind: content
 slideType: General content
 ---
 
@@ -171,14 +163,12 @@ slideType: General content
 </div>
 
 ---
-kind: section
 slideType: Section
 ---
 
 # Administrivia
 
 ---
-kind: content
 slideType: General content
 ---
 
@@ -212,7 +202,6 @@ slideType: General content
 </div>
 
 ---
-kind: content
 slideType: General content
 ---
 
@@ -227,7 +216,6 @@ slideType: General content
 </div>
 
 ---
-kind: content
 slideType: General content
 ---
 
@@ -254,7 +242,6 @@ slideType: General content
 </div>
 
 ---
-kind: content
 slideType: General content
 ---
 
@@ -269,7 +256,6 @@ slideType: General content
 </div>
 
 ---
-kind: content
 slideType: General content
 ---
 
@@ -284,7 +270,6 @@ slideType: General content
 </div>
 
 ---
-kind: content
 slideType: General content
 ---
 
@@ -317,7 +302,6 @@ slideType: General content
 </div>
 
 ---
-kind: content
 slideType: General content
 ---
 
@@ -332,14 +316,12 @@ slideType: General content
 </div>
 
 ---
-kind: section
 slideType: Section
 ---
 
 # Let's Talk Content — 2
 
 ---
-kind: content
 slideType: General content
 ---
 
@@ -354,7 +336,6 @@ slideType: General content
 </div>
 
 ---
-kind: content
 slideType: General content
 ---
 
@@ -381,7 +362,6 @@ slideType: General content
 </div>
 
 ---
-kind: content
 slideType: General content
 ---
 
@@ -396,7 +376,6 @@ slideType: General content
 </div>
 
 ---
-kind: content
 slideType: General content
 ---
 
