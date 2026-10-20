@@ -13,7 +13,7 @@ Mode: Read. Preserve the approved ten-slide overview and its 37 presentation sta
 
 The local Slidev addon in `slidev/course/` owns the common slide shell, typography, Markdown rendering and balancing, gallery, parsers, stage counter, and portable export. Both Episode 01 and the Prologue enable the same addon. The episode’s former shell and duplicate Vite configuration are removed.
 
-The episode source uses `slideType` and Markdown paragraphs and quotations, with no `kind`, HTML layout wrappers, authored classes, or manual heading line breaks. Subject-specific diagrams remain editable Vue components: opening history, navigation change, recovery, and repository workflows. Their styles define only the demonstration visuals. They fit within the shared measured content region; repository computers and their connection anchors move together, with command labels clear of the connectors. Animation content, commands, caption sequence, and click counts are retained.
+The episode source uses `slideType` and Markdown paragraphs and quotations, with no `kind`, HTML layout wrappers, authored classes, or manual heading line breaks. Subject-specific diagrams remain editable Vue components: opening history, recovery, and repository workflows. Their styles define only the demonstration visuals. They fit within the shared measured content region; repository computers and their connection anchors move together, with command labels clear of the connectors. Animation content, commands, caption sequence, and click counts are retained.
 
 ## Verification
 
@@ -36,3 +36,10 @@ The built-in image-generation tool created the working homepage and edited it in
 The new shared layout accepts a heading, list, and separate Markdown image. It provides 100 px headings, 52 px bullets, a left text column and right image area, natural list spacing, clearance below wrapping headings, complete-image fitting, and at least 2× source density. Invalid composition and overflow are reported. DESIGN.md and the authoring guide document its visual and authoring contracts.
 
 Verification: all 37 Episode 01 stages pass Chrome and Safari checks; the new slides have loaded images, 52 px bullets, at least 48 px heading clearance, and no text/image overflow or overlap. The working and broken compositions are visually reviewed. All 38 Prologue stages retain identical measured text positions, fonts, image bounds, column breaks, and counters. Seventeen regression tests and documentation-link checks pass; both standalone exports are rebuilt. Evidence: `.impeccable/review/campus-cafe/`.
+
+
+## Feature Request prompt illustration
+
+The user replaced the Feature Request text with three prompt bullets and removed the navigation component from the source. Preserve those bullets verbatim. The unused ReservationNavigation component and its CSS are now deleted, and slide 3 uses `Image-and-bullets` with a generated AI-chat window on the right. The image contains abstract placeholder strokes and no readable conversation content. Its original 1254 × 1254 PNG and complete generation prompt are recorded in the episode assets. The teacher outline now records the same bullets, type, and visual purpose.
+
+The shared renderer is unchanged. The prompt fits at 52 px beside the image, with clear heading separation and at least 2× raster density. The ten-slide sequence and all 37 stages remain intact. Seventeen regression tests pass; the episode export is rebuilt. Browser evidence is under `.impeccable/review/feature-request/`.

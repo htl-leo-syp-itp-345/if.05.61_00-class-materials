@@ -4,8 +4,6 @@
 .diagram { overflow: visible; color: var(--course-ink); }
 .diagram text { fill: var(--course-ink); font-family: var(--course-font); font-size: 52px; font-weight: 300; }
 .diagram-lines { fill: none; stroke: currentColor; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
-.reservation-navigation { display: flex; align-items: center; gap: 56px; font-size: 52px; line-height: 1.2; }
-.reservation-navigation svg { width: 180px; height: 62px; fill: none; stroke: currentColor; stroke-width: 4; }
 .recovery-graph { width: 1806px; height: 510px; }
 .recovery-current, .recovery-fixed, .network-actor { opacity: 0; transition: opacity .45s ease-out; }
 .recovery-current.is-present, .recovery-fixed.is-present, .network-actor.is-present { opacity: 1; }

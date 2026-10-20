@@ -1,6 +1,6 @@
-# Campus Café website images
+# Episode 01 generated images
 
-These are generated mockups of a fictional café website for Episode 01. They are not screenshots of a real business.
+The café images are generated mockups of a fictional website for Episode 01. They are not screenshots of a real business. A generic AI-chat image illustrates the prompt on the Feature Request slide.
 
 | Asset | Role | Source dimensions |
 | --- | --- | --- |
@@ -24,4 +24,16 @@ Use case: ui-mockup edit. Edit the attached Campus Café website screenshot into
 Add the new navigation item "Reservations" prominently and legibly alongside "Menu", "Visit", "Contact" near the top: the newly added link must be easy to find.
 Below that recognizable header, make the page obviously unusable and poorly styled: collapse the professional layout into awkward misaligned blocks, switch the hero headline to an excessively large default serif font and have it collide with the misplaced hero photo; turn the menu call-to-action into a default blue underlined link; make one lower food photograph too small and move the other awkwardly into the text flow; lose the neat two-column menu arrangement and padding. Preserve the original site's main words and photographic content so the before/after relationship is unmistakable. Keep "Reservations" readable and distinct from the broken content. The broken state must be visually unmistakable even at small slide size, not a subtly less polished redesign.
 Maintain photographic realism within the screenshot. No cracking, glitch stripes, paint, error-message overlay, teaching annotations, slide text, or watermark. Show one complete screenshot only.
+
+
+## AI-chat prompt illustration
+
+[ai-chat-placeholder.png](ai-chat-placeholder.png) depicts an AI-assistant conversation using abstract placeholder lines, without readable message content. It was created with the built-in image-generation tool on 2026-10-20, at its returned 1254 × 1254 px resolution. It accompanies the editable prompt bullets on the Feature Request slide.
+
+### Generation prompt
+
+Use case: ui-mockup.
+Create one square high-resolution raster image, ideally 2048 × 2048 pixels, depicting a recognizable AI assistant chat application in a desktop browser window. This image will sit on the right of a teaching slide; the actual prompt text is separate editable slide content. Convey ONLY the idea of talking to an AI. Absolutely no readable words, letters, numbers, code, brand names, logos, or real message content anywhere.
+Straight-on screenshot-like composition filling the entire square, no perspective, no device hardware or desk. A thin browser toolbar at the top with simple browser controls and an empty address capsule. A clean light chat interface beneath: narrow sidebar with a new-chat icon and several abstract conversation-history lines; main conversation pane with three user/assistant exchanges. User messages appear as compact pale-gray bubbles aligned to the right. Assistant replies are aligned left with a small geometric sparkle-shaped avatar; each reply contains several gray horizontal rounded placeholder strokes of varied lengths, clearly representing text without any characters. Small circular user avatars. Include a subtle three-dot typing indicator near the final assistant reply. Bottom message composer with an attachment icon and a clear send-arrow button.
+Crisp, professionally designed, realistic contemporary AI chat UI. Restrained neutral white, pale gray, charcoal palette; fine gray placeholder strokes, clear spacing and visual hierarchy. Full coherent application window, immediately recognizable at small slide size. No captions, no teaching annotations, no website imagery, no watermark, no decorative illustration outside the UI.
 

@@ -49,18 +49,18 @@ slideType: Image-and-bullets
 
 ---
 
-slideType: General content
+slideType: Image-and-bullets
 ---
 
 # Feature Request
 
-Add online reservations.
+- Add online reservations.
 
-Add a Reservations link to the navigation:
+- Add a Reservations link to the navigation
 
-<ReservationNavigation />
+- Add a Reservations page and link it from the navigation. Keep the existing menu and layout.
 
-> “Add a Reservations page and link it from the navigation. Keep the existing menu and layout.”
+![AI-assistant chat window with alternating message placeholders and an empty message composer](./assets/ai-chat-placeholder.png?inline)
 
 ---
 
