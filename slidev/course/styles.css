@@ -44,7 +44,7 @@
 .course-department { position: absolute; left: 55px; bottom: 20px; width: 270px; height: auto; z-index: 4; }
 .course-page-number { position: absolute; right: 57px; bottom: 20px; font-size: 38px; line-height: 1.2; font-weight: 300; font-variant-numeric: tabular-nums; z-index: 4; }
 .slidev-layout.course img { max-width: none; max-height: none; margin: 0; border: 0; box-shadow: none; }
-.course[data-slide-type="Title"] .course-heading { top: 780px; }
+.course[data-slide-type="Title"] .course-heading { top: auto; bottom: 184px; }
 .course[data-slide-type="Title"] .course-heading h1 { font-size: 100px; }
 .course .course-title-content > p:has(img) { position: absolute; top: 55px; left: 400px; width: 1120px; height: 640px; }
 .course .course-title-content img { width: 1120px; height: 640px; object-fit: contain; }
@@ -78,3 +78,6 @@
 @media (prefers-reduced-motion: reduce) {
   .slidev-vclick-target { transition: none !important; }
 }
+
+/* Markdown quotations use the same quiet treatment as body text. */
+.course .course-column blockquote { border: 0; border-radius: 0; padding: 0; background: transparent; box-shadow: none; font-size: inherit; line-height: inherit; font-style: normal; opacity: 1; }

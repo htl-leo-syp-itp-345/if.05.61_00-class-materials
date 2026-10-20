@@ -2,7 +2,7 @@
 version: 1
 slug: "prologue-introduction-slides-md"
 primary_target: "Prologue/Introduction/slides.md"
-related_targets: ["Prologue/Introduction/styles.css","Prologue/Introduction/layouts/course.vue","Prologue/Introduction/components/SlideContent.vue","Prologue/Introduction/components/ImageGallery.vue","Prologue/Introduction/components/MarkdownNodes.ts","Prologue/Introduction/utils/markdown-nodes.ts","Prologue/Introduction/utils/column-balance.mjs"]
+related_targets: ["slidev/course/styles.css","slidev/course/layouts/course.vue","slidev/course/components/SlideContent.vue","slidev/course/components/ImageGallery.vue","slidev/course/components/MarkdownNodes.ts","slidev/course/utils/markdown-nodes.ts","slidev/course/utils/column-balance.mjs"]
 ---
 
 # Prologue presentation
@@ -44,3 +44,9 @@ The user requested more balanced text placement, citing stage 35/38, System Spec
 System Specification's three-bullet group now spans approximately y = 505–800, with 150 px of space above and below within its content region. Dense slides receive smaller offsets; individual bullets and columns are not spread independently. DESIGN.md and its sidecar record this visual rule; authoring syntax remains in the shared guide.
 
 Verification: all 38 stages pass font, asset, overflow, overlap, numbering, and layout-readiness checks in Chrome and Safari. All 16 content groups have balanced space above and below and shared column tops. Eleven regression tests pass. An independent visual assessment passed all 16 affected content captures, including sparse, dense, wrapping-title, nested-list, and manual-break cases; the layout detector has no findings before or after the change. Evidence is under `.impeccable/review/vertical-balance/`, including the System Specification before/after pair, all affected content captures, and both browser measurement reports. The standalone export is rebuilt.
+
+## Shared renderer extraction
+
+The user requested a reusable course renderer and a first migration of Episode 01, with the Prologue’s appearance preserved. Its layout, components, styles, parser setup, utilities, regression tests, and portable builder now live in `slidev/course/`, a local Slidev addon enabled by both decks. The Prologue source changes only to enable that addon; its educational content, source images, 21 slides, and 38 stages remain intact.
+
+Before/after browser measurements of all 38 Prologue stages are identical, including text positions, computed font sizes, image bounds, column breaks, and counters. Both Chrome and Safari report zero layout failures. The shared Title heading also accommodates Episode 01’s wrapping title by growing upward; the Prologue’s single-line title retains its exact position. Evidence is under `.impeccable/review/shared-renderer/`. The standalone export is rebuilt.

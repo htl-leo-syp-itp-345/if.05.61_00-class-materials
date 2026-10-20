@@ -60,14 +60,14 @@ function connection(client: Point, server: Point) {
   return { toServer: line(client, server), toClient: line(server, client), atServer: head(client, server), atClient: head(server, client) }
 }
 const connections = {
-  left: connection([500, 290], [735, 138]),
-  right: connection([1306, 290], [1071, 138]),
+  left: connection([500, 210], [735, 138]),
+  right: connection([1306, 210], [1071, 138]),
 }
 </script>
 
 <template>
   <div class="course-scene network-scene">
-    <svg class="network-graph diagram" viewBox="0 0 1806 550" role="img" :aria-label="caption">
+    <svg class="network-graph diagram" viewBox="0 0 1806 480" role="img" :aria-label="caption">
       <defs>
         <g :id="`computer-${mode}`"><path d="M-150-72h300V80h-300zM-32 80v38m-52 0H84" /></g>
         <g :id="`repo-${mode}`"><path d="M-39-29h54l20 20v73h-74zM15-29v20h20M-22 10h37m-37 20h37" /></g>
@@ -84,29 +84,29 @@ const connections = {
         <path v-if="incomingOne" class="connection-head" :d="connections.left.atClient" />
         <path v-if="incomingTwo" class="connection-head" :d="connections.right.atClient" />
         <g class="network-server" transform="translate(903 65)"><path d="M-144-45h288v140h-288zM-110-14h58m-58 34h58m-58 34h58" /><use v-if="mode !== 'problem'" :href="`#repo-${mode}`" transform="translate(60 0)" /><path v-else :d="step >= 4 ? 'M35-10l48 28-48 30 48 18' : 'M32-10h61m-61 31h61m-61 31h44'" /></g>
-        <g class="network-actor" :class="{ 'is-present': firstVisible }" transform="translate(330 380)">
+        <g class="network-actor" :class="{ 'is-present': firstVisible }" transform="translate(330 300)">
           <use :href="`#computer-${mode}`" />
           <g v-if="firstRepo" class="repository-copy"><use :href="`#repo-${mode}`" transform="translate(-35 -7)" /><path v-if="mode === 'workflow' && step >= 3" :d="step === 3 ? 'M28-8l50 13-50 24 50 10' : 'M28-8h50m-50 24h50m-50 24h34'" /></g>
           <path v-else-if="mode === 'problem'" class="shared-source" d="M-70-25h130m-130 35h130m-130 35h75" />
         </g>
-        <g class="network-actor" :class="{ 'is-present': secondVisible }" transform="translate(1476 380)">
+        <g class="network-actor" :class="{ 'is-present': secondVisible }" transform="translate(1476 300)">
           <use :href="`#computer-${mode}`" />
           <g v-if="secondRepo" class="repository-copy"><use :href="`#repo-${mode}`" transform="translate(-35 -7)" /><path v-if="mode === 'workflow' && step >= 7" d="M28-8h50m-50 24h50m-50 24h34" /></g>
           <path v-else-if="mode === 'problem'" class="shared-source" d="m-70-20 130 15-130 30 130 20" />
         </g>
         <g v-if="alert" class="rejection-mark"><path d="m1105 216 38 38m0-38-38 38" /></g>
-        <g v-if="mode === 'solution' && step >= 5" class="reconciled"><path d="m1430 353 22 22 47-49" /></g>
+        <g v-if="mode === 'solution' && step >= 5" class="reconciled"><path d="m1430 273 22 22 47-49" /></g>
       </g>
       <text x="903" y="219" text-anchor="middle">{{ mode === 'problem' ? 'Shared source files' : 'GitHub repository' }}</text>
-      <text v-if="firstVisible" x="330" y="548" text-anchor="middle">Team member 1</text>
-      <text v-if="secondVisible" x="1476" y="548" text-anchor="middle">Team member 2</text>
-      <text v-if="mode === 'problem' && step >= 3" x="435" y="217" text-anchor="middle">Save</text>
-      <text v-if="mode === 'problem' && step >= 4" x="1370" y="217" text-anchor="middle">Save</text>
-      <text v-if="mode === 'solution' && step >= 3" x="435" y="217" text-anchor="middle">Push</text>
-      <text v-if="mode === 'solution' && step === 4" x="1370" y="230" text-anchor="middle">Rejected</text>
-      <text v-if="mode === 'solution' && step >= 5" x="1370" y="217" text-anchor="middle">{{ step >= 6 ? 'Push' : 'Pull + adapt' }}</text>
-      <text v-if="mode === 'workflow' && step >= 1" x="435" y="217" text-anchor="middle">{{ step < 3 ? 'Clone' : step === 3 ? 'Change' : step === 4 ? 'Commit' : 'Push' }}</text>
-      <text v-if="mode === 'workflow' && step >= 2" x="1370" y="217" text-anchor="middle">{{ step < 7 ? 'Clone' : 'Pull' }}</text>
+      <text v-if="firstVisible" x="330" y="468" text-anchor="middle">Team member 1</text>
+      <text v-if="secondVisible" x="1476" y="468" text-anchor="middle">Team member 2</text>
+      <text v-if="mode === 'problem' && step >= 3" x="330" y="210" text-anchor="middle">Save</text>
+      <text v-if="mode === 'problem' && step >= 4" x="1476" y="210" text-anchor="middle">Save</text>
+      <text v-if="mode === 'solution' && step >= 3" x="330" y="210" text-anchor="middle">Push</text>
+      <text v-if="mode === 'solution' && step === 4" x="1476" y="210" text-anchor="middle">Rejected</text>
+      <text v-if="mode === 'solution' && step >= 5" x="1476" y="210" text-anchor="middle">{{ step >= 6 ? 'Push' : 'Pull + adapt' }}</text>
+      <text v-if="mode === 'workflow' && step >= 1" x="330" y="210" text-anchor="middle">{{ step < 3 ? 'Clone' : step === 3 ? 'Change' : step === 4 ? 'Commit' : 'Push' }}</text>
+      <text v-if="mode === 'workflow' && step >= 2" x="1476" y="210" text-anchor="middle">{{ step < 7 ? 'Clone' : 'Pull' }}</text>
     </svg>
     <p class="scene-caption" :class="{ 'panic-caption': mode === 'problem' && step >= 5 }">{{ caption }}</p>
   </div>

@@ -84,7 +84,7 @@ Use simple, editable diagrams where appropriate. Shapes and connectors must expl
 
 ### Opening title slide
 
-The opening Title slide displays the full episode title, season number, and episode number. Use the Title layout below, with the episode title as the main heading and the season and episode identifiers in the subtitle. For the unnumbered Prologue, show its title without inventing season or episode numbers.
+The opening Title slide displays the full episode title, season number, and episode number. Use the Title layout below, with the episode title as the main heading and the season and episode identifiers in the subtitle. For the unnumbered Prologue, show its title without inventing season or episode numbers. A wrapping Title heading grows upward from its usual lower edge, keeping the subtitle clear and retaining the 100 px type size.
 
 ### Slide types
 

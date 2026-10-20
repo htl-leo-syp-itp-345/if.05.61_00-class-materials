@@ -1,0 +1,9 @@
+{
+  "name": "slidev-addon-syppre-course",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Shared SYPPRE slide layouts, Markdown parsing, and presentation styling",
+  "engines": {
+    "slidev": ">=52.6.0"
+  }
+}

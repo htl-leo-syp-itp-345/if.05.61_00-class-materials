@@ -38,7 +38,7 @@ PDF/image export may additionally require Slidev's Playwright/Chromium dependenc
 
 On 2026-10-19, both skills were confirmed under `.agents/skills/`, dependency and skill lockfiles were present, and the local CLIs reported Slidev `52.20.1` and Impeccable `4.6.0`. Use the installed tools; rerun setup when installation or an update is needed.
 
-Tool setup and documentation changes do not convert existing presentations.
+The Prologue and Episode 01 use the shared [course renderer](../slidev/course/). Enable it in new decks following [Renderer setup](../docs/slide-authoring.md#renderer-setup). Other existing presentations are not converted automatically.
 
 ## References
 

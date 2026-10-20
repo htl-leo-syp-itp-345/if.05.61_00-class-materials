@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs'
 import { parse } from '@slidev/parser'
 import { normalizeSlideMetadata } from '../utils/slide-metadata.mjs'
 
-const source = readFileSync(new URL('../slides.md', import.meta.url), 'utf8')
+const source = readFileSync(new URL('../../../Prologue/Introduction/slides.md', import.meta.url), 'utf8')
 const extensions = [{ transformRawLines: normalizeSlideMetadata }]
 const { slides } = await parse(source, undefined, extensions)
 

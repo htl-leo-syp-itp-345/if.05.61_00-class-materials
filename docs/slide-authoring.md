@@ -11,7 +11,7 @@ This guide explains how to write and check SYPPRE presentations. [DESIGN.md](../
 - [Preview and builds](#preview-and-builds)
 - [Verification](#verification)
 
-The plain Markdown renderer described here is implemented in [Prologue/Introduction](../Prologue/Introduction/). Other existing decks are not migrated automatically. Check a deck's local layouts and README before applying renderer-specific features.
+The plain Markdown renderer lives in the shared [course addon](../slidev/course/). The Prologue and Episode 01 both use it. Other existing material is not migrated automatically; new Slidev decks should enable the addon using [Renderer setup](#renderer-setup).
 
 ## Approved outlines
 
@@ -41,22 +41,22 @@ slideType: General content
 - Test protocols
 ```
 
-Prefer metadata immediately after the opening `---`. Standard Slidev treats a blank line there as the start of ordinary content, potentially creating an extra slide and ignoring settings such as `clicks`. The Prologue's [preparser](../Prologue/Introduction/setup/preparser.ts) also accepts formatter-added blank lines before `slideType`; it normalizes them in memory before splitting slides. Leave a blank line after the closing `---` before the content.
+Prefer metadata immediately after the opening `---`. Standard Slidev treats a blank line there as the start of ordinary content, potentially creating an extra slide and ignoring settings such as `clicks`. The shared [preparser](../slidev/course/setup/preparser.ts) also accepts formatter-added blank lines before `slideType`; it normalizes them in memory before splitting slides. Leave a blank line after the closing `---` before the content.
 
-The Prologue source remains excluded in [.prettierignore](../.prettierignore), but its parsing no longer depends on an editor honoring that exclusion. Prefer a [Slidev-aware formatter](https://sli.dev/features/prettier-plugin). The whitespace tolerance applies to the Prologue, not automatically to other decks.
+The Prologue source remains excluded in [.prettierignore](../.prettierignore), but course parsing no longer depends on an editor honoring that exclusion. Prefer a [Slidev-aware formatter](https://sli.dev/features/prettier-plugin). The whitespace tolerance applies to every deck using the course addon.
 
 | Key | Purpose |
 | --- | --- |
 | `slideType` | Course-specific visual type, using a name from [DESIGN.md](../DESIGN.md#slide-types). |
-| `layout` | Slidev layout component. The Prologue uses `course`, inherited through deck `defaults`. |
+| `layout` | Slidev layout component. Course decks use `course`, inherited through deck `defaults`. |
 | `clicks` | Declared final click index; with the normal zero start, the number of advances before leaving the slide. See [Click stages](#click-stages). |
-| `defaults` | Headmatter values inherited by later slides unless overridden. The Prologue defaults to `layout: course` and `clicks: 0`. |
+| `defaults` | Headmatter values inherited by later slides unless overridden. Course decks default to `layout: course` and `clicks: 0`. |
 
 Use `slideType` directly; there is no separate `kind` field. Standard Slidev options are documented in the installed [frontmatter reference](../.agents/skills/slidev/references/core-frontmatter.md) and the [upstream syntax guide](https://sli.dev/guide/syntax).
 
 ## Slide types and columns
 
-The Prologue renderer supports `Title`, `Section`, `General content`, and `General content two column`. DESIGN.md also defines other visual types; do not assume this renderer implements them merely because their names appear there.
+The shared course renderer supports `Title`, `Section`, `General content`, and `General content two column`. DESIGN.md also defines other visual types; do not assume this renderer implements them merely because their names appear there.
 
 `General content` renders one content column. `General content two column` renders two equal columns with one heading spanning both. Typography, widths, gaps, and alignment are specified in [General content layout](../DESIGN.md#general-content-layout).
 
@@ -120,13 +120,13 @@ The renderer may use the permitted body-size fallback in DESIGN.md when content 
 
 Use relative image paths and meaningful alt text. Prefer suitable project assets and replace template placeholders with visuals appropriate for student publication. Keep source artwork and any explicitly approved resolution exceptions intact. Otherwise, raster images must support twice their displayed dimensions; full-bleed images must be at least 3840 px wide.
 
-On a Title slide, a Markdown image supplies the subject visual, and an ordinary paragraph supplies the subtitle or presenter line. In the Prologue, image paths include `?inline` so the standalone build embeds the files.
+On a Title slide, a Markdown image supplies the subject visual, and an ordinary paragraph supplies the subtitle or presenter line. Use `?inline` on Markdown image paths so standalone builds embed the files. A deck-local Vue component may supply a subject diagram on a Title slide.
 
-For the Prologue gallery, write a sequence of Markdown image paragraphs. Each image's alt text becomes its caption; a following ordinary paragraph supplies the source credit. The renderer displays all panels in two rows and uses the slide's click state to select the active panel and caption.
+For an image gallery, write a sequence of Markdown image paragraphs. Each image's alt text becomes its caption; a following ordinary paragraph supplies the source credit. The renderer displays all panels in two rows and uses the slide's click state to select the active panel and caption.
 
 The current cartoon has 18 images and captions, so it declares `clicks: 17`. Keep that setting aligned with the image count when editing the gallery; it is not currently inferred automatically.
 
-Keep text and diagrams editable where practical. A custom Vue component, CSS, or editable diagram can implement richer behavior inside the renderer; do not turn complete slides into screenshots or raster images.
+Keep text and diagrams editable where practical, and ordinary content in Markdown. Use deck-local Vue components for subject-specific visuals and click-driven demonstrations, such as Episode 01’s website, recovery, and repository diagrams. These components render as normal content blocks inside the shared layout; they should provide their own intrinsic height and keep their text within DESIGN.md’s permitted sizes. A component must not recreate the slide heading, logos, counter, or page layout. Do not turn complete slides into screenshots or raster images.
 
 ## Click stages
 
@@ -146,20 +146,30 @@ The [course stage counter](../DESIGN.md#slide-numbering) counts each initial sta
 
 ## Renderer setup
 
-Use this opening configuration, adding `fonts.sans` with the `typography.body.fontFamily` value from [DESIGN.md](../DESIGN.md):
+Enable the local course addon in every new deck. This example assumes the standard two-level Episode or Prologue directory; `@/` resolves from the deck directory. Add `fonts.sans` with the `typography.body.fontFamily` value from [DESIGN.md](../DESIGN.md):
 
 ```yaml
 ---
+theme: default
+addons:
+  - "@/../../slidev/course"
 aspectRatio: 16/9
 canvasWidth: 1920
 fonts:
   provider: none
+defaults:
+  layout: course
+  clicks: 0
+layout: course
+slideType: Title
 ---
 ```
 
-Retain the deck's existing theme, layout, and other necessary headmatter. The course-specific Markdown features above depend on the Prologue's local layout and components; a `slideType` value alone does not install a renderer in another deck.
+Retain other necessary headmatter. The addon supplies the `course` layout, typography and styling, content measurement and balancing, gallery, stage counter, metadata preparser, nested-list handling, and portable build settings. Do not copy those files into individual decks. Deck-local components and CSS should contain subject-specific visuals only. A `slideType` value alone does not enable the addon.
 
-Implement stage numbering in the shared layout using the slide-local page and click state. Its display and counting rules are in [DESIGN.md](../DESIGN.md#slide-numbering).
+The shared implementation is documented in [slidev/course/README.md](../slidev/course/README.md). Fix shared behavior there so all enabled decks receive the same correction. When changing the renderer, verify both the Prologue and Episode 01; preserve the Prologue’s accepted appearance.
+
+The addon implements stage numbering in its shared layout using the slide-local page and click state. Its display and counting rules are in [DESIGN.md](../DESIGN.md#slide-numbering).
 
 For diagrams, define object bounds and connector anchors once. Derive base connections, transfers, reversed paths, and arrowheads from the same geometry rather than copying independent endpoint coordinates. Apply DESIGN.md's connector and motion rules.
 
@@ -175,7 +185,7 @@ npm run slidev -- Prologue/Introduction/slides.md --port 3030 --open
 
 Open `http://localhost:3030`. Saving Markdown, components, or styles updates the running preview. Keep the command running while editing; stop it with Ctrl+C. Substitute another deck's `slides.md` path to preview that deck.
 
-After adding or changing `setup/preparser.ts`, stop and start Slidev again so its parser setup is reloaded.
+After adding an addon or changing its `setup/preparser.ts`, stop and start Slidev again so its parser setup is reloaded.
 
 The development server does not rebuild the portable HTML file. The Prologue's [README](../Prologue/Introduction/README.md) documents its standalone builder. General installation, static build, and export commands are in [Slide tooling](../scripts/README.md).
 
@@ -191,10 +201,10 @@ For a generated or changed deck:
 4. Step through builds forward and backward and navigate directly to an intermediate stage. Check object contents, transfer direction, arrowheads, captions, and stage numbering during transitions and in settled states.
 5. Fix failures and repeat the affected checks. A successful build alone does not establish visual correctness.
 
-The Prologue also has parser and column-balancing regression checks:
+The shared renderer has parser and column-balancing regression checks for both migrated decks:
 
 ```sh
-node --test Prologue/Introduction/tests/*.test.mjs
+node --test slidev/course/tests/*.test.mjs
 ```
 
 These catch metadata becoming extra slides, a gallery click count that differs from its caption count, and column-balancing regressions. They supplement the rendered checks.

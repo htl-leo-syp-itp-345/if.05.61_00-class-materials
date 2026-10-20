@@ -13,7 +13,11 @@ node Episodes/E01_VersionControl1/scripts/build-preview.mjs
 For live editing:
 
 ```sh
-npm run slidev -- Episodes/E01_VersionControl1/slides.md
+npm run slidev -- Episodes/E01_VersionControl1/slides.md --port 3031 --open
 ```
 
-The editable source is [slides.md](slides.md), with local Vue components and styles. Generated files in `dist/` are ignored by Git.
+Open `http://localhost:3031`; the Prologue can run separately on port 3030.
+
+The editable source is [slides.md](slides.md). It uses the same shared [course renderer](../../slidev/course/) as the Prologue: `slideType`, Markdown content, measured layout, and stage counting. Local components and [styles.css](styles.css) provide only the episode’s website and animated diagrams. The ten-slide sequence and all 37 presentation stages are retained for the first migration pass.
+
+The [authoring guide](../../docs/slide-authoring.md) documents shared syntax and setup. Generated files in `dist/` are ignored by Git.
