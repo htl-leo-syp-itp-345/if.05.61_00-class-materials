@@ -34,7 +34,7 @@ The agreed direction is calm, elegant, and minimalistic. Clear hierarchy, precis
 - Restrained visuals and explanatory animation.
 - Consistent template identity across episodes.
 
-[PRODUCT.md](PRODUCT.md) records the audience and purpose. [AGENTS.md](AGENTS.md#generating-slides) defines the generation workflow, technical Slidev setup, and verification procedure. Visual rules are maintained here.
+[PRODUCT.md](PRODUCT.md) records the audience and purpose. [AGENTS.md](AGENTS.md#generating-slides) points to the presentation workflow. The [slide-authoring guide](docs/slide-authoring.md) documents syntax, renderer setup, and verification. Visual rules are maintained here.
 
 ## Colors
 
@@ -98,69 +98,18 @@ Positions are approximate; title y values describe the top of the text unless id
 | Bullet | Centered 100 px title at y ≈ 190 (y ≈ 140 for two lines); 64 px bullets in one or two columns spanning the width. Columns may be staggered vertically. |
 | Image-and-bullets | Centered 100 px title at y ≈ 190 (y ≈ 140 for two lines); concise 52 px bullets from x ≈ 57, y ≈ 455; supporting image about 650 × 630 px at x ≈ 1060–1710, y ≈ 300–930. |
 | Quotation | Short 52 px quotation with 38 px attribution beneath, both centered around y ≈ 470–680. |
-| General content | Centered 94 px title at y ≈ 140; one Markdown content column below. Paragraphs and nested lists provide the content hierarchy. |
-| General content two column | General content title treatment; two equal 853 px columns separated by 100 px, with natural wrapping and automatic distribution or an explicit `::columnBreak::`. |
+| General content | Centered 94 px title at y ≈ 140; one content column below. Paragraphs and nested lists provide the content hierarchy. |
+| General content two column | General content title treatment; two equal 853 px columns separated by 100 px, with natural line wrapping and left-aligned content. |
 
-### Markdown authoring and rendering
+### General content layout
 
-The Prologue renderer implements this contract. Slide content is authored in Markdown; the renderer supplies the HTML structure. Other existing decks are not migrated automatically.
+The title spans the content width. Content begins at y ≈ 355, or below a wrapping title with a 48 px gap, and has a lower boundary at y = 950. Keep both columns aligned at the top and left-aligned within their fixed widths.
 
-`General content two column` is an explicit two-column variant of `General content`. The author selects it through `slideType` and writes ordinary Markdown. The renderer owns the containers and styling; author-written HTML wrappers or CSS classes such as `body`, `spacious`, `sparse`, `columns`, and `coverage` are not required.
+Top-level body text starts at 64 px; nested bullets use 52 px. If the measured composition does not fit, use the permitted 52 px body size across the content region and measure again. Never shrink below 52 px to fit content.
 
-Both columns have consistent, equal widths and a fixed gap, with left-aligned text and natural line wrapping within each column. The title spans both columns and follows the General content title treatment. Column placement, typography, and spacing are shared layout rules rather than slide-specific adjustments.
+Use a consistent 32 px gap between top-level content units and 20 px within nested groups. Do not vertically stretch sparse content to fill the region. Paragraphs take part in normal flow, and parent bullets remain visually grouped with their nested bullets.
 
-#### Automatic distribution
-
-Without an explicit break, the renderer decides where the left column ends and the right column begins. It preserves source order: read down the left column, then down the right column. Balance uses rendered content height, including wrapped lines and spacing, rather than simply counting bullets. Keep each list item, its nested content, and other logical content blocks together. Nested lists express hierarchy; an ordinary paragraph is ordinary column content, not a special introductory region. For five bullets of comparable height, prefer three on the left and two on the right.
-
-```md
----
-slideType: General content two column
----
-
-# What Are Projects?
-
-- Collaborative enterprise
-- Carefully planned
-- Temporary rather than permanent
-- Accomplish particular tasks
-- Time constraints
-```
-
-#### Explicit column break
-
-An author can override automatic distribution with one `::columnBreak::` marker on its own line, separated from surrounding content by blank lines. Body content before the marker goes in the left column; body content after it goes in the right column. The heading remains above both columns. The renderer honors this boundary rather than moving items across it to improve balance. The marker itself is not displayed.
-
-```md
----
-slideType: General content two column
----
-
-# What Are Projects?
-
-- Collaborative enterprise
-- Carefully planned
-- Temporary rather than permanent
-
-::columnBreak::
-
-- Accomplish particular tasks
-- Time constraints
-```
-
-This is course-specific behavior implemented through Slidev’s named-slot syntax. The same renderer and column styling handle both modes.
-
-Automatic and explicit distribution use the same column geometry and typography. Neither mode may shrink text below the design minimum, reorder content, add columns, or create slides to make overflowing content fit. Overflow must be reported for review.
-
-#### Shared content rules
-
-- Write headings, paragraphs, lists, nested lists, and images in Markdown. No `lead` class, layout wrappers, manual `<br>` tags, or author-written Vue component tags are needed.
-- Content begins at y ≈ 355, or below a wrapping title with a 48 px gap, and has a lower boundary at y = 950. Keep both columns aligned at the top and left-aligned within their fixed widths.
-- Top-level body text starts at 64 px; nested bullets use 52 px. If the measured composition does not fit, the renderer uses the permitted 52 px body size for both columns and measures again. It never shrinks below 52 px or changes slide count.
-- Use a consistent 32 px gap between top-level content units and 20 px within nested groups. Do not vertically stretch sparse content to fill the region.
-- The same semantics apply to single-column content. Parent bullets stay with their nested bullets; paragraphs take part in normal flow. There is no special full-width introduction or `lead` concept.
-- On a Title slide, a Markdown image supplies the subject visual and an ordinary paragraph supplies the subtitle or presenter line.
-- A sequence of Markdown image paragraphs is rendered as a two-row gallery. Alt text supplies each caption; a following ordinary source-credit paragraph retains the attribution. The Prologue keeps its 18 images in two rows of nine and its declared 17 caption steps.
+Image galleries arrange panels in two rows, with a readable caption and source credit beneath. The Prologue's gallery uses two rows of nine.
 
 ### Logos
 

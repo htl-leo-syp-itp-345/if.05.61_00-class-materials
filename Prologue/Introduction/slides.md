@@ -33,6 +33,7 @@ slideType: Title
 Peter Bauer
 
 ---
+
 slideType: General content
 clicks: 17
 ---
@@ -78,12 +79,14 @@ clicks: 17
 Source: <www.projectcartoon.com>
 
 ---
+
 slideType: Section
 ---
 
 # Let's Talk Content — 1
 
 ---
+
 slideType: General content two column
 ---
 
@@ -99,6 +102,7 @@ slideType: General content two column
 - Releasing/deployment
 
 ---
+
 slideType: General content two column
 ---
 
@@ -111,6 +115,7 @@ slideType: General content two column
 - Time constraints
 
 ---
+
 slideType: General content two column
 ---
 
@@ -119,10 +124,12 @@ slideType: General content two column
 - Provide a basis for management's decision on project approval by describing:
   - Necessity of the project
   - Feasibility of the project
+::columnBreak::
   - Affordability of the project
   - Market and economic effect of the project
 
 ---
+
 slideType: General content two column
 ---
 
@@ -136,6 +143,7 @@ slideType: General content two column
 - Methods and tools
 
 ---
+
 slideType: General content two column
 ---
 
@@ -149,12 +157,14 @@ slideType: General content two column
 - Development process assessments
 
 ---
+
 slideType: Section
 ---
 
 # Administrivia
 
 ---
+
 slideType: General content
 ---
 
@@ -167,6 +177,7 @@ slideType: General content
   - Planning and monitoring
 
 ---
+
 slideType: General content
 ---
 
@@ -176,6 +187,7 @@ slideType: General content
 - Practical exercises using smaller examples
 
 ---
+
 slideType: General content two column
 ---
 
@@ -190,6 +202,7 @@ slideType: General content two column
   - Prototypes
 
 ---
+
 slideType: General content
 ---
 
@@ -200,6 +213,7 @@ slideType: General content
 - Find a topic
 
 ---
+
 slideType: General content two column
 ---
 
@@ -210,6 +224,7 @@ A good project name is short, catchy, and hints at the project idea.
 If a suitable name is difficult to find, rethink the project idea and try again.
 
 ---
+
 slideType: General content two column
 ---
 
@@ -223,6 +238,7 @@ slideType: General content two column
 - The available team time offers substantial scope to develop your product.
 
 ---
+
 slideType: General content
 ---
 
@@ -233,12 +249,14 @@ slideType: General content
 - Get a GitHub account.
 
 ---
+
 slideType: Section
 ---
 
 # Let's Talk Content — 2
 
 ---
+
 slideType: General content
 ---
 
@@ -249,6 +267,7 @@ slideType: General content
 - Software architecture: client-server
 
 ---
+
 slideType: General content two column
 ---
 
@@ -262,6 +281,7 @@ slideType: General content two column
 - Test-driven development
 
 ---
+
 slideType: General content
 ---
 
@@ -272,13 +292,13 @@ slideType: General content
 - Test protocols
 
 ---
+
 slideType: General content two column
 ---
 
 # Releasing/Deployment
 
-“It runs on my computer”
-
+- “It runs on my computer”
 - Staging
 - Releasing
 - Production

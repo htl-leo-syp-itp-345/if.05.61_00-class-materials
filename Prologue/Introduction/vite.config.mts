@@ -1,7 +1,13 @@
 import { defineConfig } from 'vite'
 import { fileURLToPath } from 'node:url'
+import { preserveColumnListLevels } from './utils/column-list-levels.mjs'
 
 export default defineConfig({
+  slidev: {
+    markdown: {
+      markdownSetup(md) { md.use(preserveColumnListLevels) },
+    },
+  },
   resolve: {
     alias: [{
       find: /^@shikijs\/vitepress-twoslash\/client$/,

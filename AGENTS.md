@@ -77,58 +77,9 @@ Episode maps are redundant. Before removing any remaining map, integrate missing
 
 ## Generating Slides
 
-### General Rules
+Use the project [syppre-slides skill](.agents/skills/syppre-slides/SKILL.md) when creating, editing, or reviewing course presentations. It loads relevant sections of the [slide-authoring guide](docs/slide-authoring.md), including syntax, renderer setup, and verification. Follow the educational workflow above.
 
-Generate slides only from the approved teacher notes and mandatory slide outline. Preserve the specified slide count, sequence, titles, types, and content. Do not independently restructure or condense the presentation, or add, remove, merge, or split slides without user approval and an update to the teacher notes first. If any source detail, instruction, or approval is unclear, ask the user; do not assume.
-
-Use Slidev, with `slides.md` in the corresponding Episode or Prologue directory. Before authoring or changing a deck, read `.agents/skills/slidev/SKILL.md` and relevant references. Local commands, setup, and installation history are documented in [Slide tooling](scripts/README.md).
-
-Keep content editable: use Markdown for headings, paragraphs, and lists; Vue, HTML, CSS, and editable diagrams for richer layouts. Rebuild source text as text and diagrams as editable elements where practical. Never use screenshots or rasterized images of complete slides as slides.
-
-Use relevant image assets with relative paths and meaningful alternative text. Prefer suitable project assets; replace template placeholders with content appropriate for student publication. Raster images must support 2× their displayed size (full-bleed images at least 3840 px wide). Use local dependencies and assets for offline presentation; check any remaining remote dependencies before presenting offline.
-
-Use design judgment to choose images and diagram treatments that express the approved lesson. Changes to learning objectives, substantial educational content, or slide structure follow Phase 3. Keep teacher-only information out of the deck and its source, including presenter-note comments.
-
-#### Technical setup
-
-Use this opening frontmatter, setting `fonts.sans` to the `typography.body.fontFamily` value in [DESIGN.md](DESIGN.md):
-
-```yaml
----
-aspectRatio: 16/9
-canvasWidth: 1920
-fonts:
-  provider: none
----
-```
-
-DESIGN.md is the single visual specification for typography, colors, spacing, coverage, slide layouts, logos, and motion. Read it before authoring or refining slides.
-
-Implement the [slide numbering](DESIGN.md#slide-numbering) in the shared layout using the slide-local page and click state. Declare the final click index with `clicks` in the frontmatter of every slide with builds so the total is correct from first load, including direct navigation and backward steps.
-
-For diagrams, define object bounds and connector anchors once. Derive base connections, transfers, reversed paths, and arrowheads from the same geometry rather than copying independent endpoint coordinates.
-
-Existing PDF presentations and other legacy materials may inform Phase 1, but their content and proposed slide structure must be incorporated into the teacher notes and approved before generation.
-
-#### Design support and verification
-
-Use the installed Slidev and Impeccable skills. Read `.agents/skills/impeccable/SKILL.md` and relevant command references before design work. Apply DESIGN.md and verify the rendered result. When DESIGN.md changes, refresh `.impeccable/design.json` from it; this derived metadata is not an independent specification.
-
-Open the deck in a browser at the configured canvas size. For every slide and click/build stage, measure computed font sizes and the bounding boxes of titles, text (including bullet markers), and images against DESIGN.md, including its layout exemptions. Check for overflow and overlaps between text, images, and logos, and confirm assets load.
-
-Verify diagrams against DESIGN.md's connector and motion rules. Inspect actual paths and arrowheads against object outlines and label bounds; a whole-diagram bounding box cannot establish clearance. Programmatic geometry checks must compare all elements in the same coordinate system.
-
-Step through builds forward and backward, and check direct navigation to intermediate stages. Verify object contents, transfer direction, arrowhead visibility, and stage numbering. Inspect both transitions and settled renders, including initial and intermediate states. Verify content and structure against the approved teacher notes as described below. Fix failures and repeat the affected checks; a successful build alone is not visual validation.
-
-### Rules for Generating From teacher-notes
-
-Read the corresponding `teacher-notes.md` in `../teacher-materials`. The mandatory slide outline normally starts at an H2 (`##`) such as `Slide outline`, `Slide Notes`, or `Presentation`. Each H3 (`###`) underneath defines one slide and normally starts with `Slide`. The section ends at the next H2 or higher-level heading, or the end of the file. If the intended section, boundaries, or any required slide details are unclear or incomplete, ask the user before generating; do not infer missing information.
-
-Every deck must begin with a slide of type **Title**, explicitly included in the teacher-note outline and its slide count. The displayed information follows [DESIGN.md — Opening title slide](DESIGN.md#opening-title-slide).
-
-Create one slide for each outline H3, in its prescribed order, with its explicit title, type, key content, and required diagrams, images, and demonstrations. An H2 does not itself request a slide. Do not turn other teaching sections into additional slides. If student-facing content cannot be distinguished from teacher-only guidance, ask before including it.
-
-Compare the rendered deck against the approved outline: verify slide count, sequence, titles, types, content, required visuals, and demonstrations, with teacher-only material excluded. Resolve missing details, overflow, or proposed educational and structural improvements through Phase 3: user approval, teacher-note update, then material updates.
+[DESIGN.md](DESIGN.md) is the visual specification. Local installation and commands are documented in [Slide tooling](scripts/README.md).
 
 ## Working Across Repositories
 

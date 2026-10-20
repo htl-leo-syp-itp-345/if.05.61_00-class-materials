@@ -63,6 +63,8 @@
 .course .course-column li::marker { font-size: 0.72em; }
 .course .course-column li > ul, .course .course-column li > ol { margin-top: 20px; padding-left: 48px; font-size: 52px; }
 .course .course-column li > ul > li + li, .course .course-column li > ol > li + li { margin-top: 20px; }
+.course .course-column li[data-list-level] { font-size: 52px; margin-left: calc(var(--course-list-offset) * 56px); }
+.course .course-column li[data-list-level] + li[data-list-level] { margin-top: 20px; }
 .course .course-column strong { font-weight: 300; }
 .course-measure { position: absolute; top: 0; left: 0; visibility: hidden; pointer-events: none; }
 .course-measure > .course-column + .course-column { margin-top: 0; }

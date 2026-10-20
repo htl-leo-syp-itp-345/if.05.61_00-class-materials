@@ -1,6 +1,6 @@
 # Slide tooling
 
-Slidev provides presentation authoring, preview, builds, and export. Impeccable supports design review and refinement. Presentation requirements and source-specific workflows are defined in [AGENTS.md](../AGENTS.md#generating-slides).
+Slidev provides presentation authoring, preview, builds, and export. Impeccable supports design review and refinement. Presentation work starts with the project [syppre-slides skill](../.agents/skills/syppre-slides/SKILL.md). The shared [slide-authoring guide](../docs/slide-authoring.md) covers syntax and verification; [AGENTS.md](../AGENTS.md#generating-slides) links the educational workflow.
 
 ## Setup
 
