@@ -1,8 +1,8 @@
 ---
 theme: default
-favicon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><text x="4" y="25" font-size="28" fill="%23656565">S</text></svg>'
+favicon: "data:,"
 title: Project Development (SYP)
-titleTemplate: '%s · Prologue'
+titleTemplate: "%s · Prologue"
 info: false
 aspectRatio: 16/9
 canvasWidth: 1920
@@ -11,7 +11,7 @@ routerMode: hash
 browserExporter: false
 fonts:
   provider: none
-  sans: 'Gill Sans, Gill Sans MT, Calibri, sans-serif'
+  sans: "Gill Sans, Gill Sans MT, Calibri, sans-serif"
 transition: none
 drawings:
   enabled: false
@@ -28,9 +28,9 @@ slideType: Title
 
 # Project Development (SYP)
 
-<OpeningPhoto />
+![People discussing work while one person takes handwritten notes](./Introduction-assets/collaborative-note-taking.jpg?inline)
 
-<p class="course-subtitle">Peter Bauer</p>
+Peter Bauer
 
 ---
 slideType: General content
@@ -39,7 +39,43 @@ clicks: 17
 
 # Software Project Implementation
 
-<ProjectCartoon />
+![How the customer explained it](./Introduction-assets/project-cartoon-01.jpg?inline)
+
+![How the project leader understood it](./Introduction-assets/project-cartoon-02.jpg?inline)
+
+![How the analyst designed it](./Introduction-assets/project-cartoon-03.jpg?inline)
+
+![How the programmer wrote it](./Introduction-assets/project-cartoon-04.jpg?inline)
+
+![What the beta testers received](./Introduction-assets/project-cartoon-05.jpg?inline)
+
+![How the business consultant described it](./Introduction-assets/project-cartoon-06.jpg?inline)
+
+![How the project was documented](./Introduction-assets/project-cartoon-07.jpg?inline)
+
+![What operations installed](./Introduction-assets/project-cartoon-08.jpg?inline)
+
+![How the customer was billed](./Introduction-assets/project-cartoon-09.jpg?inline)
+
+![How it was supported](./Introduction-assets/project-cartoon-10.jpg?inline)
+
+![What marketing advertised](./Introduction-assets/project-cartoon-11.jpg?inline)
+
+![When it was delivered](./Introduction-assets/project-cartoon-12.jpg?inline)
+
+![What the customer really needed](./Introduction-assets/project-cartoon-13.jpg?inline)
+
+![What the digg effect can do to your site](./Introduction-assets/project-cartoon-14.jpg?inline)
+
+![The disaster recover plan](./Introduction-assets/project-cartoon-15.jpg?inline)
+
+![What the customer really needed](./Introduction-assets/project-cartoon-16.jpg?inline)
+
+![What the digg effect can do to your site](./Introduction-assets/project-cartoon-17.jpg?inline)
+
+![The disaster recover plan](./Introduction-assets/project-cartoon-18.jpg?inline)
+
+Source: <www.projectcartoon.com>
 
 ---
 slideType: Section
@@ -48,38 +84,25 @@ slideType: Section
 # Let's Talk Content — 1
 
 ---
-slideType: General content
+slideType: General content two column
 ---
 
 # Content
 
-<div class="body columns coverage">
-<div>
-
 - What are projects?
 - Project start
 - Project communication
-- Software development<br>process models
-
-</div>
-
-<div>
-
+- Software development process models
 - System specification
 - Implementation
 - Testing
 - Releasing/deployment
 
-</div>
-</div>
-
 ---
-slideType: General content
+slideType: General content two column
 ---
 
 # What Are Projects?
-
-<div class="body spacious sparse">
 
 - Collaborative enterprise
 - Carefully planned
@@ -87,80 +110,43 @@ slideType: General content
 - Accomplish particular tasks
 - Time constraints
 
-</div>
-
 ---
-slideType: General content
+slideType: General content two column
 ---
 
 # Project Start
 
-<div class="body compact coverage">
-
-<p class="lead">Provide a basis for management's decision on project approval.</p>
-
-<div class="columns">
-<div>
-
-- Necessity of the project
-- Feasibility of the project
-
-</div>
-
-<div>
-
-- Affordability of the project
-- Market and economic effect<br>of the project
-
-</div>
-</div>
-</div>
+- Provide a basis for management's decision on project approval by describing:
+  - Necessity of the project
+  - Feasibility of the project
+  - Affordability of the project
+  - Market and economic effect of the project
 
 ---
-slideType: General content
+slideType: General content two column
 ---
 
 # Project Communication
 
-<div class="body columns spread">
-<div>
-
 - Project organization
 - Requirements management
 - Project planning
-
-</div>
-
-<div>
-
 - Configuration management
 - Quality assurance
 - Methods and tools
 
-</div>
-</div>
-
 ---
-slideType: General content
+slideType: General content two column
 ---
 
 # Software Development Process Models
 
-<div class="body two-lines columns coverage">
-<div>
-
-- Waterfall model
-- V-Model
-- RUP
-- Scrum
-
-</div>
-<div>
-
-<p>Development process<br>assessments</p>
-
-</div>
-</div>
+- Process models:
+  - Waterfall model
+  - V-Model
+  - RUP
+  - Scrum
+- Development process assessments
 
 ---
 slideType: Section
@@ -174,32 +160,11 @@ slideType: General content
 
 # What Will We Do?
 
-<div class="body compact coverage">
-
-<p class="lead">Develop a serious background in project development.<br>Learn basic project-management skills:</p>
-
-<div class="columns">
-<div class="documents">
-
-<p class="lead">Documents beyond source code</p>
-
-- Project proposal
-- System specification
-- UML diagrams
-
-</div>
-<div class="tools">
-
-<p class="lead">Tools</p>
-
-- Version control
-- Virtualization and deployment
-
-<p class="secondary">Planning and monitoring</p>
-
-</div>
-</div>
-</div>
+- Develop a serious background in project development.
+- Learn basic project-management skills:
+  - Documents beyond source code: project proposal, system specification, and UML diagrams
+  - Tools: version control, virtualization, and deployment
+  - Planning and monitoring
 
 ---
 slideType: General content
@@ -207,39 +172,22 @@ slideType: General content
 
 # How Is The Course Organized?
 
-<div class="body spacious balanced">
-
-<p>Theoretical background,<br>including selected parts of the book</p>
-
-<p>Practical exercises<br>using smaller examples</p>
-
-</div>
+- Theoretical background, including selected parts of the book
+- Practical exercises using smaller examples
 
 ---
-slideType: General content
+slideType: General content two column
 ---
 
 # How To Get A Grade — Main Contributions
 
-<div class="body compact two-lines columns coverage">
-<div>
-
-<p>One test per semester</p>
-
-<p class="secondary">14. Jänner 2027</p>
-
-</div>
-<div>
-
-<p class="lead">Review of project deliverables</p>
-
-- Project proposal
-- System specification
-- Product Burndown
-- Prototypes
-
-</div>
-</div>
+- One test per semester
+  - 14\. Jänner 2027
+- Review of project deliverables:
+  - Project proposal
+  - System specification
+  - Product Burndown
+  - Prototypes
 
 ---
 slideType: General content
@@ -247,59 +195,32 @@ slideType: General content
 
 # Projects
 
-<div class="body spacious sparse">
-
-- Small projects:<br>a content-driven website
-- Teams of 2 to 3 people<br>3 is the maximum
+- Small projects: a content-driven website
+- Teams of 2 to 3 people, with 3 as the maximum
 - Find a topic
 
-</div>
-
 ---
-slideType: General content
+slideType: General content two column
 ---
 
 # Project Name
 
-<div class="body spacious sparse balanced">
+A good project name is short, catchy, and hints at the project idea.
 
-<p>A good project name is short, catchy,<br>and hints at the project idea.</p>
-
-<p>If a suitable name is difficult to find,<br>rethink the project idea and try again.</p>
-
-</div>
+If a suitable name is difficult to find, rethink the project idea and try again.
 
 ---
-slideType: General content
+slideType: General content two column
 ---
 
 # Time to be Invested
 
-<div class="body compact coverage">
-<div class="time-calculation">
-<div>
-
-<p>3 hours in class<br>+ 3 hours outside class</p>
-
-<p>6 hours per week × 32 weeks</p>
-
-<p class="result">192 hours<span>per team member / year</span></p>
-
-</div>
-<div>
-
-<p>Plan as much time outside class<br>as in class.</p>
-
-<p>For a team of 3:</p>
-
-<p class="result">576 hours<span>per year</span></p>
-
-</div>
-</div>
-
-<p class="list-note">Project work, reading material, and preparing presentations:<br>substantial scope to develop your product.</p>
-
-</div>
+- Each team member should plan as much time outside class as in class.
+- 3 hours in class + 3 hours outside class = 6 hours per week.
+- 6 hours per week × 32 weeks = 192 hours per team member per year.
+- For a team of 3: 576 hours per year.
+- This time includes project work, reading material, and preparing presentations.
+- The available team time offers substantial scope to develop your product.
 
 ---
 slideType: General content
@@ -307,13 +228,9 @@ slideType: General content
 
 # Exercises and Setup
 
-<div class="body spacious sparse">
-
 - Complete unfinished in-class exercises at home.
 - Install Visual Studio Code.
 - Get a GitHub account.
-
-</div>
 
 ---
 slideType: Section
@@ -327,39 +244,22 @@ slideType: General content
 
 # System Specification
 
-<div class="body spacious sparse">
-
 - Analysis of the application domain, using UML
-- Documentation of functional<br>and non-functional requirements
+- Documentation of functional and non-functional requirements
 - Software architecture: client-server
 
-</div>
-
 ---
-slideType: General content
+slideType: General content two column
 ---
 
 # Implementation
 
-<div class="body compact columns coverage">
-<div>
-
-<p class="lead">Documentation of software design,<br>using UML</p>
-
-<p class="lead">Coding in a team</p>
-
-- Synchronizing the code base<br>between team members
-- Collaborative coding models
-
-</div>
-<div>
-
-<p class="lead">Spec-driven and<br>agentic programming</p>
-
-<p>Test-driven development</p>
-
-</div>
-</div>
+- Documentation of software design, using UML
+- Coding in a team:
+  - Synchronizing the code base between team members
+  - Collaborative coding models
+- Spec-driven and agentic programming
+- Test-driven development
 
 ---
 slideType: General content
@@ -367,38 +267,21 @@ slideType: General content
 
 # Testing
 
-<div class="body spacious sparse">
-
 - Test strategies
 - Test plans
 - Test protocols
 
-</div>
-
 ---
-slideType: General content
+slideType: General content two column
 ---
 
 # Releasing/Deployment
 
-<div class="body compact">
-
-<p class="lead">“It runs on my computer”</p>
-
-<div class="columns">
-<div>
+“It runs on my computer”
 
 - Staging
 - Releasing
 - Production
-
-</div>
-
-<div>
-
-- Virtualization<br>Docker files and Docker images
+- Virtualization
+  - Docker files and Docker images
 - Deployment
-
-</div>
-</div>
-</div>

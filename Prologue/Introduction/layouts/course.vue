@@ -4,6 +4,7 @@ import { useNav, useSlideContext } from '@slidev/client'
 import logo from '../../../Assets/HTLLogo_ab2022_farbig.png'
 import department from '../../../Assets/Abteilungslogos.png'
 import '../styles.css'
+import SlideContent from '../components/SlideContent.vue'
 const { $frontmatter, $page, $clicks } = useSlideContext()
 const nav = useNav()
 const stages = computed(() => nav.slides.value.map((slide) => {
@@ -23,7 +24,7 @@ const currentStage = computed(() => {
 <template>
   <main class="slidev-layout course" :data-slide-type="$frontmatter.slideType">
     <img class="course-logo" :src="logo" alt="HTL Leonding" />
-    <div class="course-copy"><slot /></div>
+    <SlideContent :slide-type="$frontmatter.slideType" :nodes="$slots.default?.() || []" :right-nodes="$slots.columnBreak?.()" :manual-break="!!$slots.columnBreak" />
     <img class="course-department" :src="department" alt="Informatik and Medientechnik departments" />
     <span class="course-page-number" :aria-label="`Presentation stage ${currentStage} of ${totalStages}`">{{ currentStage }}/{{ totalStages }}</span>
   </main>

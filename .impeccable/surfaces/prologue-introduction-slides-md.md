@@ -2,7 +2,7 @@
 version: 1
 slug: "prologue-introduction-slides-md"
 primary_target: "Prologue/Introduction/slides.md"
-related_targets: ["Prologue/Introduction/styles.css","Prologue/Introduction/layouts/course.vue","Prologue/Introduction/components/ProjectCartoon.vue"]
+related_targets: ["Prologue/Introduction/styles.css","Prologue/Introduction/layouts/course.vue","Prologue/Introduction/components/SlideContent.vue","Prologue/Introduction/components/ImageGallery.vue","Prologue/Introduction/components/MarkdownNodes.ts","Prologue/Introduction/utils/markdown-nodes.ts","Prologue/Introduction/utils/column-balance.mjs"]
 ---
 
 # Prologue presentation
@@ -23,10 +23,16 @@ FORM: Precisely specified extension of the existing course presentation, code-le
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
+## Current refinement
+
+The user rejected the sparse zigzag layout and the author-facing HTML/CSS class combinations. The completed refinement makes slides.md pure Markdown, uses slideType directly, and implements shared single-column and two-column rendering with automatic balancing by measured rendered height and an optional ::columnBreak::. Nested bullet groups stay together; there is no lead or special introduction concept. The source artwork, 21-slide educational sequence, and 38-stage counting stay intact. DESIGN.md measures the reserved content region rather than forcing visible ink toward the edges.
+
 ## Completion evidence
 
-Finish-reviewer disposition: ship. The finished extension preserves the incumbent `DESIGN.md` and `.impeccable/design.json`; no new global tokens or visual identity were introduced. Source inspection confirms the existing neutral palette, Gill Sans Light, 94–100 px titles, 52–72 px content, 38 px stage counter, template background, and course logos. The 24 px cartoon source credit uses the existing credits exception.
-
-The final `.impeccable/review/prologue/measurements.json` records 21 authored slides and 38 stages with no failures. Content stages span at least 85.23% of slide width and cover at least 55.32% of slide area. All 38 reviewed stage screenshots are retained beside that record. The standalone artifact is `Prologue/Introduction/dist/prologue.html`; the adjacent README documents offline use, navigation, editable sources, and rebuilding.
-
-The user-approved native-resolution photograph and cartoon originals remain a surface-specific exception; they do not establish a global raster rule. The approved educational sequence and editable source remain intact. No documentation drift was found that requires changing the incumbent design system.
+- Independent finish review disposition: **ship**. All 38 captured stages preserve the approved content and artwork; no material fixes remain.
+- `.impeccable/review/prologue-markdown/stage-01.png` through `stage-38.png` and `measurements.json` cover all stages. The measurements record zero failures, ready layouts, loaded assets, and the expected `1/38` through `38/38` counters.
+- `.impeccable/review/prologue/explicit-break-measurements.json` records zero failures for the manual-break check. Slide 5 honors the requested two-left/three-right split; the normal automatic rendering uses three-left/two-right for its five comparable bullets.
+- All 37 backward navigation steps were counterchecked. Direct entry at `#/2?clicks=8` displays caption `9 / 18` and counter `10/38`; backward and forward navigation from that state pass. The direct-entry capture is `.impeccable/review/prologue-markdown/direct-stage-10.png`.
+- All three column-balancing unit tests pass, covering the extra item on the left, balancing by wrapped rendered height, and indivisible nested groups with overflow reporting.
+- `Prologue/Introduction/dist/prologue.html` is the built standalone presentation. The editable source contains 21 headings and 19 Markdown images (the title photo and 18 cartoon panels), with no authored HTML, class declarations, or `kind` metadata.
+- DESIGN.md and `.impeccable/design.json` match the implemented palette, typography, shared column geometry, measured balancing, nested-list semantics, whitespace rule, gallery, and stage counter. The 94 px heading and 24 px source-credit detector advisories are permitted by DESIGN.md. Original photo and cartoon resolutions retain the user's explicit exception above; no new system requirements or exceptions were introduced.
