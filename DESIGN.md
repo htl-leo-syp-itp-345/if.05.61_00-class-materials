@@ -103,11 +103,11 @@ Positions are approximate; title y values describe the top of the text unless id
 
 ### General content layout
 
-The title spans the content width. Content begins at y ≈ 355, or below a wrapping title with a 48 px gap, and has a lower boundary at y = 950. Keep both columns aligned at the top and left-aligned within their fixed widths.
+The title spans the content width. The available content region begins at y ≈ 355, or below a wrapping title with a 48 px gap, and has a lower boundary at y = 950. Vertically center the complete content group within this region. For two columns, the tallest column controls the group's height, and both columns share the same top edge; keep text left-aligned within their fixed widths.
 
 Top-level body text starts at 64 px; nested bullets use 52 px. If the measured composition does not fit, use the permitted 52 px body size across the content region and measure again. Never shrink below 52 px to fit content.
 
-Use a consistent 32 px gap between top-level content units and 20 px within nested groups. Do not vertically stretch sparse content to fill the region. Paragraphs take part in normal flow, and parent bullets remain visually grouped with their nested bullets.
+Use a consistent 32 px gap between top-level content units and 20 px within nested groups. Move short groups intact to balance the available space above and below them; do not vertically stretch bullet spacing or center the two columns independently. Dense groups naturally approach the region's upper boundary. Paragraphs take part in normal flow, and parent bullets remain visually grouped with their nested bullets.
 
 Image galleries arrange panels in two rows, with a readable caption and source credit beneath. The Prologue's gallery uses two rows of nine.
 

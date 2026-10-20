@@ -51,7 +51,7 @@
 .course .course-title-content > p:not(:has(img)) { position: absolute; top: 905px; left: 330px; width: 1260px; font-size: 52px; line-height: 1.2; text-align: center; }
 .course[data-slide-type="Section"] .course-heading { top: 480px; }
 .course[data-slide-type="Section"] .course-heading h1 { font-size: 100px; line-height: 1.2; }
-.course-content { position: absolute; left: 57px; width: 1806px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 100px; align-items: start; }
+.course-content { position: absolute; left: 57px; width: 1806px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 100px; align-items: start; align-content: center; }
 .course-content[data-columns="2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .course-column { min-width: 0; font-size: inherit; line-height: 1.2; text-align: left; overflow-wrap: break-word; }
 .course .course-column p, .course .course-column li { font-size: inherit; line-height: inherit; }
