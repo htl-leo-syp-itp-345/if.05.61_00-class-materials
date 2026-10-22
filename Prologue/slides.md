@@ -1,7 +1,7 @@
 ---
 theme: default
 addons:
-  - "@/../../slidev/course"
+  - "@/../slidev/course"
 favicon: "data:,"
 title: Project Development (SYP)
 titleTemplate: "%s · Prologue"

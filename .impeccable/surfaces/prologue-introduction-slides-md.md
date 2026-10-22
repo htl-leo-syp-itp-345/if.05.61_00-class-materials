@@ -1,7 +1,7 @@
 ---
 version: 1
 slug: "prologue-introduction-slides-md"
-primary_target: "Prologue/Introduction/slides.md"
+primary_target: "Prologue/slides.md"
 related_targets: ["slidev/course/styles.css","slidev/course/layouts/course.vue","slidev/course/components/SlideContent.vue","slidev/course/components/ImageGallery.vue","slidev/course/components/MarkdownNodes.ts","slidev/course/utils/markdown-nodes.ts","slidev/course/utils/column-balance.mjs"]
 ---
 
@@ -34,7 +34,7 @@ The user rejected the sparse zigzag layout and the author-facing HTML/CSS class 
 - `.impeccable/review/prologue/explicit-break-measurements.json` records zero failures for the manual-break check. Slide 5 honors the requested two-left/three-right split; the normal automatic rendering uses three-left/two-right for its five comparable bullets.
 - All 37 backward navigation steps were counterchecked. Direct entry at `#/2?clicks=8` displays caption `9 / 18` and counter `10/38`; backward and forward navigation from that state pass. The direct-entry capture is `.impeccable/review/prologue-markdown/direct-stage-10.png`.
 - All three column-balancing unit tests pass, covering the extra item on the left, balancing by wrapped rendered height, and indivisible nested groups with overflow reporting.
-- `Prologue/Introduction/dist/prologue.html` is the built standalone presentation. The editable source contains 21 headings and 19 Markdown images (the title photo and 18 cartoon panels), with no authored HTML, class declarations, or `kind` metadata.
+- `Prologue/dist/prologue.html` is the built standalone presentation. The editable source contains 21 headings and 19 Markdown images (the title photo and 18 cartoon panels), with no authored HTML, class declarations, or `kind` metadata.
 - DESIGN.md and `.impeccable/design.json` match the implemented palette, typography, shared column geometry, measured balancing, nested-list semantics, whitespace rule, gallery, and stage counter. The 94 px heading and 24 px source-credit detector advisories are permitted by DESIGN.md. Original photo and cartoon resolutions retain the user's explicit exception above; no new system requirements or exceptions were introduced.
 
 ## Vertical balance refinement

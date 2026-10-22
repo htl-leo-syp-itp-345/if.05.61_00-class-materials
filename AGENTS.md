@@ -39,7 +39,7 @@ Seasons are logical groupings of Episodes and do not have their own directory le
 - Season 3: From Requirements to Development — Episodes 17–25
 - Season 4: From Development to Releasing — Episodes 26–28
 
-The Prologue is unnumbered, remains outside the Seasons, and is stored in `Prologue/Introduction/` in both repositories.
+The Prologue is unnumbered, remains outside the Seasons, and is stored in `Prologue/` in both repositories.
 
 Every Episode directory uses `E<two-digit global number>_<topic>`, for example `Episodes/E01_VersionControl1/` and `Episodes/E11_ProjectProposal/`. Use exactly the same directory names in both repositories. Number Episodes globally without restarting at Season boundaries, and keep numbers consistent in the course overview, headings, presentations, teacher notes, and links. The student-facing `README.md` is the authoritative course order.
 
@@ -67,7 +67,7 @@ In particular, do not add:
 
 ## Episode workflow
 
-Teacher notes in `../teacher-materials/Episodes/<episode>/teacher-notes.md` are the single source of truth for each episode's educational content and presentation structure. Apply the same workflow to the Prologue's corresponding teacher notes.
+Teacher notes in `../teacher-materials/Episodes/<episode>/teacher-notes.md` are the single source of truth for each episode's educational content and presentation structure. Apply the same workflow to the Prologue's corresponding notes at `../teacher-materials/Prologue/teacher-notes.md`.
 
 1. **Develop the episode:** collaboratively create and refine teacher notes covering learning objectives, starting point and motivation, educational content, teaching approach, practical activities, expected outcomes, and a mandatory slide outline. The outline specifies slide count, sequence, titles, types, key content, and required diagrams, images, and demonstrations. Obtain the user's approval of the notes and outline before generating materials.
 2. **Generate teaching materials:** produce Slidev presentations, exercises, examples, and supporting resources here in the corresponding episode directory, following the approved notes and the rules below.

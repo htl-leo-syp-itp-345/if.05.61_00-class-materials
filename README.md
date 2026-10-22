@@ -10,7 +10,7 @@ Since material of this course is held in three different study programs the diff
 
 ### Prologue
 
-1. [Introduction, Course Overview, and Organizational](Prologue/Introduction/) — [Course information](Prologue/Introduction/Organizational.md)
+1. [Introduction, Course Overview, and Organizational](Prologue/) — [Course information](Prologue/Organizational.md)
 
 ### Season 1: From Idea to Production
 

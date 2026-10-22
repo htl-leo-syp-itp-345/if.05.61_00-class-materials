@@ -208,7 +208,7 @@ The [course stage counter](../DESIGN.md#slide-numbering) counts each initial sta
 
 ## Renderer setup
 
-Enable the local course addon in every new deck. This example assumes the standard two-level Episode or Prologue directory; `@/` resolves from the deck directory. Add `fonts.sans` with the `typography.body.fontFamily` value from [DESIGN.md](../DESIGN.md):
+Enable the local course addon in every new deck. This example assumes an Episode directory at `Episodes/<episode>/`; `@/` resolves from the deck directory. Add `fonts.sans` with the `typography.body.fontFamily` value from [DESIGN.md](../DESIGN.md):
 
 ```yaml
 ---
@@ -227,6 +227,8 @@ slideType: Title
 ---
 ```
 
+For `Prologue/slides.md`, use `@/../slidev/course` instead: the Prologue lives directly in `Prologue/`, one level below the repository root. Its corresponding teacher notes are `../teacher-materials/Prologue/teacher-notes.md`.
+
 Retain other necessary headmatter. The addon supplies the `course` layout, typography and styling, content measurement and balancing, gallery, stage counter, metadata preparser, nested-list handling, and portable build settings. Do not copy those files into individual decks. Deck-local components and CSS should contain subject-specific visuals only. A `slideType` value alone does not enable the addon.
 
 The shared implementation is documented in [slidev/course/README.md](../slidev/course/README.md). Fix shared behavior there so all enabled decks receive the same correction. When changing the renderer, verify both the Prologue and Episode 01; preserve the Prologue’s accepted appearance.
@@ -242,14 +244,14 @@ Use local dependencies and assets for offline presentation. Check any remaining 
 Run commands from `class-materials`. For the Prologue development server:
 
 ```sh
-npm run slidev -- Prologue/Introduction/slides.md --port 3030 --open
+npm run slidev -- Prologue/slides.md --port 3030 --open
 ```
 
 Open `http://localhost:3030`. Saving Markdown, components, or styles updates the running preview. Keep the command running while editing; stop it with Ctrl+C. Substitute another deck's `slides.md` path to preview that deck.
 
 After adding an addon or changing its `setup/preparser.ts`, stop and start Slidev again so its parser setup is reloaded.
 
-The development server does not rebuild the portable HTML file. The Prologue's [README](../Prologue/Introduction/README.md) documents its standalone builder. General installation, static build, and export commands are in [Slide tooling](../scripts/README.md).
+The development server does not rebuild the portable HTML file. The Prologue's [README](../Prologue/README.md) documents its standalone builder. General installation, static build, and export commands are in [Slide tooling](../scripts/README.md).
 
 ## Verification
 
