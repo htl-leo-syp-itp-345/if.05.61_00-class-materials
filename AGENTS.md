@@ -68,6 +68,22 @@ Teacher notes in `../teacher-materials/Episodes/<episode>/teacher-notes.md` are 
 
 Episode maps are redundant. Before removing any remaining map, integrate missing educational content, relevant slide structure, and resource references into the corresponding teacher notes, then remove the map and update links to it. Do not recreate maps or treat migration drafts as approved teaching plans.
 
+## Episode release workflow
+
+This workflow applies to every Episode and the unnumbered Prologue. Preparing and reviewing materials are separate from releasing the student entry point.
+
+### Student entry points
+
+- The course overview at the repository root always links explicitly to each Episode's or Prologue's `README.md`.
+- A released `README.md` contains a clear headline, a two-line summary of what students can expect, and a link to the presentation. Keep build commands, live-editing instructions, and renderer details in the corresponding teacher-repository `README.md`, indexed by `../teacher-materials/README.md`.
+- An unpublished Episode's `README.md` contains its headline and a short message that content will be available soon. Existing source material does not itself make an Episode released.
+
+### Preview and release
+
+1. **Prepare a preview:** write the proposed student README in `<topic>.preview.md` in the same directory, for example `Episodes/E01_VersionControl1/VersionControl1.preview.md` or `Prologue/Prologue.preview.md`. Use this for both new Episodes and changes to released Episodes. Keep the current `README.md` in place during preparation and review.
+2. **Preserve existing content:** when introducing this workflow to an unreleased Episode with an existing episode-level README, rename that README to the preview filename before creating the coming-soon README. Preserve its contents and relative links; do not overwrite an existing preview. Supporting READMEs inside asset or example directories keep their purpose and location.
+3. **Release on request:** when the user says "Release the episode" or explicitly requests release of the Prologue, check the preview against the approved teacher notes and verify its presentation link and other relative links. Promote the preview by moving it to `README.md`, replacing the placeholder or previous release. The preview file is consumed by this move; the course overview continues to link to `README.md`. Preparation or approval of teaching content alone does not authorize this promotion.
+
 ## Generating Slides
 
 Use the project [syppre-slides skill](.agents/skills/syppre-slides/SKILL.md) when creating, editing, or reviewing course presentations. It loads relevant sections of the [slide-authoring guide](docs/slide-authoring.md), including syntax, renderer setup, and verification. Follow the educational workflow above.

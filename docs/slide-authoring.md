@@ -251,7 +251,7 @@ Open `http://localhost:3030`. Saving Markdown, components, or styles updates the
 
 After adding an addon or changing its `setup/preparser.ts`, stop and start Slidev again so its parser setup is reloaded.
 
-The development server does not rebuild the portable HTML file. The Prologue's [README](../Prologue/README.md) documents its standalone builder. General installation, static build, and export commands are in [Slide tooling](../scripts/README.md).
+The development server does not rebuild the portable HTML file. The Prologue's [teacher guide](../../teacher-materials/Prologue/README.md) documents its standalone builder. General installation, static build, and export commands are in [Slide tooling](../scripts/README.md).
 
 ## Verification
 

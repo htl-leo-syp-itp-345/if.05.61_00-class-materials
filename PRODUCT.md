@@ -20,7 +20,7 @@ Provide student-facing presentations, exercises, examples, and supporting resour
 
 The course spans project methods and software development practices, from creativity and requirements through implementation, testing, and releasing. [README.md](README.md) defines course order. Corresponding Episode directories and the unnumbered Prologue are aligned with the sibling [teacher-materials repository](../teacher-materials/AGENTS.md).
 
-Teacher notes in that repository are the single source of truth for educational content and presentation structure. The three-phase workflow in [AGENTS.md](AGENTS.md#episode-workflow) governs collaborative development, generation after user approval, and review with approved changes made in teacher notes first.
+Teacher notes in that repository are the single source of truth for educational content and presentation structure. The three-phase workflow in [AGENTS.md](AGENTS.md#episode-workflow) governs collaborative development, generation after user approval, and review with approved changes made in teacher notes first. The separate [episode release workflow](AGENTS.md#episode-release-workflow) governs draft student entry points in preview files and their promotion to `README.md` on the user's release request.
 
 ## Capabilities and Constraints
 
