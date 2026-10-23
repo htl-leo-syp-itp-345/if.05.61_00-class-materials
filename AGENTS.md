@@ -14,23 +14,7 @@ Both repositories are usually opened together in a VS Code multi-root workspace.
 
 ## Structure
 
-Course material is organized into episodes below:
-
-`Episodes/`
-
-An episode in this repository corresponds to the directory with the same name in:
-
-`../teacher-materials/Episodes/`
-
-Example:
-
-`Episodes/E01_VersionControl1/`
-
-corresponds to:
-
-`../teacher-materials/Episodes/E01_VersionControl1/`
-
-The episode directory structure should remain aligned between both repositories.
+Course material is organized in `Episodes/<episode>/`. Keep episode directory names aligned with `../teacher-materials/Episodes/`. For example, `Episodes/E01_VersionControl1/` corresponds to `../teacher-materials/Episodes/E01_VersionControl1/`.
 
 Seasons are logical groupings of Episodes and do not have their own directory level. Preserve these Season titles and global Episode ranges:
 
@@ -43,11 +27,13 @@ The Prologue is unnumbered, remains outside the Seasons, and is stored in `Prolo
 
 Every Episode directory uses `E<two-digit global number>_<topic>`, for example `Episodes/E01_VersionControl1/` and `Episodes/E11_ProjectProposal/`. Use exactly the same directory names in both repositories. Number Episodes globally without restarting at Season boundaries, and keep numbers consistent in the course overview, headings, presentations, teacher notes, and links. The student-facing `README.md` is the authoritative course order.
 
-Use `teacher-notes.md` in each teacher-facing Episode directory as the single source of truth for educational content and presentation structure. Do not create episode maps. Existing technical names such as `UnitTesting`, unit tests, and measurement units retain their technical meaning and must not be renamed.
+Existing technical names such as `UnitTesting`, unit tests, and measurement units retain their technical meaning and must not be renamed.
 
 Unnumbered supplemental Web Components examples are stored in `Resources/WebComponents/` in both repositories, outside the Episode sequence.
 
 ## Content
+
+### Permitted material
 
 This repository may contain student-facing material such as:
 
@@ -55,15 +41,22 @@ This repository may contain student-facing material such as:
 - examples
 - resources
 - presentation material intended for students
+- student-safe tooling, design, layout, and verification documentation
 
-Do not place teacher-only information in this repository.
+This permission explicitly includes `.impeccable/` surface briefs and design metadata.
 
-In particular, do not add:
+### Teacher-only material
+
+Keep the following in `../teacher-materials`:
 
 - teacher notes
 - solutions
-- assessment information not intended for students
-- internal planning notes
+- unpublished or otherwise teacher-only assessment information
+- private teaching preparation and planning notes
+
+### Surface briefs and approval records
+
+Keep surface briefs focused on current technical constraints and layout directives, and remove unnecessary conversation history. Store educational approval records with the corresponding `teacher-notes.md` in `../teacher-materials`.
 
 ## Episode workflow
 
