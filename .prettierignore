@@ -1,3 +1,0 @@
-# Generic Markdown formatting inserts blank lines that break Slidev frontmatter.
-# Use a Slidev-aware formatter before enabling formatting for this deck.
-/Prologue/slides.md
