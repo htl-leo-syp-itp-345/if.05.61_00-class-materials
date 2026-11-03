@@ -4,3 +4,5 @@ Discover what software project work involves and how this course connects ideas,
 Get an overview of the course topics, project expectations, and practical setup.
 
 [Open the presentation](dist/prologue.html)
+
+[Setup exercise](exercise.md)
