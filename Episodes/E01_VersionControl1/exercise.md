@@ -1,6 +1,6 @@
 # Exercise – My First Git Repository
 
-In this exercise, you will create a small personal website and use Git to track its development.
+In this exercise, you will create a small personal website and use Git to track its development. Complete this exercise at home.
 
 ## 1. Create the Repository
 
@@ -15,6 +15,8 @@ For example:
 ```text
 max-mustermann-personal-info
 ```
+
+Before creating the repository, check that its name follows the course convention: use lowercase letters, digits where useful, and hyphens between words. Avoid spaces, umlauts, and other special characters.
 
 Initialize the repository with a `README.md` file.
 
@@ -107,6 +109,10 @@ Use what you have learned to add, commit and push them.
 
 Choose a meaningful commit message yourself.
 
+## 8. My Git Command Cheat Sheet
+
+Create `git-cheat-sheet.md` in your repository as part of your homework. Make a concise personal reference for the commands used in the lesson and exercise: `git clone`, `git status`, `git add`, `git commit`, `git log`, `git push`, and `git pull`. Include a short explanation of each command and a concrete example of how to use it. Commit and push the finished cheat sheet.
+
 ## Expected Result
 
 At the end, your local repository and your GitHub repository must contain at least:
@@ -115,6 +121,7 @@ At the end, your local repository and your GitHub repository must contain at lea
 <your-name>-personal-info/
 ├── README.md
 ├── index.html
+├── git-cheat-sheet.md
 ├── status1.txt
 ├── status2.txt
 ├── status3.txt
@@ -129,6 +136,8 @@ Initial commit
 Add personal information page
       ↓
 Add Git status documentation
+      ↓
+Add Git command cheat sheet
 ```
 
 The exact commit messages may differ, but they should describe what changed.
@@ -143,3 +152,26 @@ Before you consider the exercise finished, make sure that you can answer these q
 - Why does a commit not immediately appear on GitHub?
 - What does `git push` do?
 - How can `git status` help you decide what to do next?
+- Can I select a command from a task description and explain its effect?
+
+## Test Preparation
+
+> The test may describe a situation and ask you to choose the appropriate Git command or command sequence. Be prepared to explain what each command does.
+
+### Sample Questions
+
+1. You created a new file `README.md`. Which Git command shows whether this file is untracked?
+2. Using the scenario above, which commands put `README.md` into the remote repository? Assume the remote and branch tracking are already configured.
+
+### Expected Answers
+
+1. `git status`.
+2. Stage the file, commit it locally, then push the commit:
+
+   ```bash
+   git add README.md
+   git commit -m "Add README"
+   git push
+   ```
+
+   The commit message may differ, provided it meaningfully describes the change.
