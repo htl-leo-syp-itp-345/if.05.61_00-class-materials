@@ -1,3 +1,7 @@
 # Episode 3: Markdown — Documenting Like a Pro
 
-This episode is taking shape. Content will be available here soon—stay tuned!
+Use Markdown to structure and maintain your project documentation.
+Create linked documents, include images, and review changes with Git.
+
+- [Presentation](dist/episode-3.html)
+- [Exercise — Jot Down Your Website Idea](exercise.md)
