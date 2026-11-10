@@ -1,0 +1,1 @@
+var e=new URL(`disney-method-realist-ant-1950s-draft-UbZvIkEC.png`,import.meta.url).href;export{e as t};

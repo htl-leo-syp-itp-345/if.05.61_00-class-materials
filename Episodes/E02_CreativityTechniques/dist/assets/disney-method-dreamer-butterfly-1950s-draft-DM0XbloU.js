@@ -1,0 +1,1 @@
+var e=new URL(`disney-method-dreamer-butterfly-1950s-draft-CS8b-MPt.png`,import.meta.url).href;export{e as t};

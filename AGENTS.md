@@ -8,7 +8,7 @@ Keep student entry-point READMEs, finished presentations, and explicitly publish
 
 Editable presentation sources, drafts, shared layouts, assets, build tools, design context, and preparation guides belong in `../teacher-materials`. Keep teacher notes, solutions, private teaching preparation, and unpublished assessment information there. Student-safe technical documentation is permitted here when it is part of the intended student publication.
 
-Published standalone HTML in episode `dist/` directories is deliberately versioned here. Intermediate build output stays in the teacher repository and remains ignored there.
+Published web presentation HTML and its generated JavaScript, CSS, images, and other assets in episode `dist/` directories are deliberately versioned here. Intermediate build output stays in the teacher repository and remains ignored there.
 
 ## Shared policy
 

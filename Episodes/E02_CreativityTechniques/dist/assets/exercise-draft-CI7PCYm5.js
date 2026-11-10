@@ -1,0 +1,1 @@
+var e=new URL(`exercise-draft-BV8If_rt.jpg`,import.meta.url).href;export{e as t};

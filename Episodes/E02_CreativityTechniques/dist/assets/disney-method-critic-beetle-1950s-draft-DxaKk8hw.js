@@ -1,0 +1,1 @@
+var e=new URL(`disney-method-critic-beetle-1950s-draft-T7LSBWt0.png`,import.meta.url).href;export{e as t};
